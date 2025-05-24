@@ -1,5 +1,4 @@
 "use client"
-import CursorChaser from '@/components/cursorChaser'
 import HeroSection from '@/components/HeroSection'
 import PhoneScrollAnimation from '@/components/PhoneScrollAnimation'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
@@ -18,6 +17,5 @@ export default function page() {
       <WhyChooseCheckPlotSection />
       <Testimonial />
       <ScrollToTopButton />
-      <CursorChaser />
     </>)
 }
