@@ -9,6 +9,7 @@ import {
   MoveUpRight,
 } from "lucide-react";
 import Location from "@/components/Location";
+import FreeConsultationModal from "@/components/FreeConsultationModal";
 
 export default function page() {
   const headingRef = useRef(null);
@@ -40,9 +41,10 @@ export default function page() {
           ref={buttonRef}
           className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-10"
         >
-          <button className="bg-black text-white py-3 px-6 rounded-md transition">
+          {/* <button className="bg-black text-white py-3 px-6 rounded-md transition">
             Contact for Free Consultation
-          </button>
+          </button> */}
+          <FreeConsultationModal  buttonClass="bg-black text-white py-3 px-6 rounded-md outline-none hover:bg-black "/>
           <button className="border border-black text-black py-3 px-6 rounded-md transition cursor-pointer">
             Browse Our Services
           </button>

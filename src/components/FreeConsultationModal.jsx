@@ -42,16 +42,18 @@ export default function FreeConsultationModal({
   return (
     <>
       {/* Trigger Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={`px-6 py-3 border border-blue-400 cursor-pointer rounded-full shadow text-gray-800 hover:bg-gray-100 transition flex items-center gap-2 group ${buttonClass}`}
-      >
-        {triggerText}
-        <MoveUpRight
-          size={18}
-          className="group-hover:scale-120 transition-all duration-300"
-        />
-      </button>
+     <button
+  onClick={() => setIsOpen(true)}
+  className={`px-6 py-3 border border-blue-400 cursor-pointer rounded-full shadow text-gray-800 hover:bg-gray-100 transition flex items-center gap-2 group ${buttonClass} 
+    sm:px-4 sm:py-2 sm:text-sm md:px-6 md:py-3 md:text-base lg:px-8 lg:py-4 lg:text-lg`}
+>
+  {triggerText}
+  <MoveUpRight
+    size={18}
+    className="group-hover:scale-120 transition-all duration-300"
+  />
+</button>
+
 
       {/* Modal Overlay */}
       {isOpen && (

@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 z-50 transition-transform duration-500 ease-in-out backdrop-blur-2xl shadow-sm rounded-4xl  ${
+      className={`w-full fixed top-0 left-0 z-50 transition-transform duration-500 ease-in-out backdrop-blur-2xl shadow-sm rounded-b-4xl  ${
         showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
     >

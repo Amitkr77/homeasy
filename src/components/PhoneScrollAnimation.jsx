@@ -168,14 +168,15 @@ export default function PhoneScrollAnimation() {
 };
 
  const featureTexts = [
-  "🔍 Instantly Search Verified Properties Nationwide",
-  "📅 Effortlessly Schedule Home Visits at Your Convenience",
-  "🔐 Experience a Safe & Secure Online Booking Process",
-  "📊 Get Real-Time Price Trends and Market Insights",
-  "🛠️ Smart Filters to Match Your Exact Needs",
-  "💬 Chat Instantly with Property Experts",
-  "🚀 Fast-Loading Listings with Rich Media Previews",
+  "🔐 Smart Security with 24/7 Monitoring and Alerts",
+  "💡 Intelligent Lighting That Adapts to Your Mood",
+  "📱 Control Your Home Devices from Anywhere via App",
+  "🌡️ Automated Temperature & Climate Adjustments",
+  "🔋 Energy Monitoring to Reduce Bills Efficiently",
+  "📊 Real-Time Device Usage Insights & Stats",
+  "🛠️ Customizable Routines for Daily Automation",
 ];
+
 
 
   return (
