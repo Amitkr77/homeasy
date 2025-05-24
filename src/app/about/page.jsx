@@ -127,13 +127,13 @@ export default function Page() {
     {
       name: "Rohit kumar",
       title: "Developer",
-      desc: "Priya crafts intuitive and elegant designs that simplify complex housing decisions into delightful user experiences.",
+      desc: "Rohit crafts intuitive and elegant designs that simplify complex housing decisions into delightful user experiences.",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29ycG9yYXRlJTIwZ3V5fGVufDB8fDB8fHww", // Image paths
     },
     {
       name: "Abhijeet kumar mishra",
       title: "Andriod developer",
-      desc: "Rahul ensures the platform remains fast, secure, and future-ready — leading the charge in building our digital infrastructure.",
+      desc: "Abhijeet ensures the platform remains fast, secure, and future-ready — leading the charge in building our digital infrastructure.",
       image: "https://images.unsplash.com/photo-1707742453461-6855f0b8238c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvcnBvcmF0ZSUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D", // Image paths
     },
   ];
