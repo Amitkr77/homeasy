@@ -1,5 +1,5 @@
 "use client"
-import React,{ useRef, useEffect } from "react";
+import React,{ useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import {
   Facebook,
@@ -15,18 +15,24 @@ export default function page() {
   const headingRef = useRef(null);
   const buttonRef = useRef(null);
 
-  useEffect(() => {
-    gsap.fromTo(
-      headingRef.current,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1 }
-    );
-    gsap.fromTo(
-      buttonRef.current,
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, delay: 0.5 }
-    );
-  }, []);
+ useLayoutEffect(() => {
+  const headingAnim = gsap.fromTo(
+    headingRef.current,
+    { opacity: 0, y: -50 },
+    { opacity: 1, y: 0, duration: 1 }
+  );
+  const buttonAnim = gsap.fromTo(
+    buttonRef.current,
+    { opacity: 0, x: -50 },
+    { opacity: 1, x: 0, delay: 0.5 }
+  );
+
+  return () => {
+    headingAnim.kill();
+    buttonAnim.kill();
+  };
+}, []);
+
   return (
     <>
       {/* Hero section */}

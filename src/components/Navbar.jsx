@@ -76,23 +76,19 @@ export default function Header() {
         {/* Mobile Toggle */}
         <div className="md:hidden z-50">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            <Menu size={28} />
+            </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen transition-transform duration-500 ease-in-out md:hidden backdrop-blur-md bg-blue-100/40 z-40 ${
+        className={`fixed top-0 left-0 w-full h-screen transition-transform duration-500 ease-in-out md:hidden backdrop-blur-3xl bg-white  z-50 ${
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="h-full flex flex-col justify-center items-center px-6 space-y-6 text-2xl font-semibold text-gray-800 relative">
-          {navItems.map(({ label, path }, idx) => (
-            <Link key={idx} href={path} className="...">
-              {label}
-            </Link>
-          ))}
+         
 
           {navItems.map(({ label, path }, idx) => (
             <Link
@@ -113,7 +109,7 @@ export default function Header() {
               />
             </span>
           </button> */}
-          <FreeConsultationModal />
+          <FreeConsultationModal className="md:hidden block"/>
           <div className="absolute top-10 right-4">
             <button onClick={() => setIsMobileMenuOpen(false)}>
               <X size={28} />
