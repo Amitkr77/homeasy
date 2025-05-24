@@ -161,6 +161,12 @@ export default function PhoneScrollAnimation() {
     return () => ctx.revert();
   }, []);
 
+  const fastForward = () => {
+  if (videoRef.current) {
+    videoRef.current.currentTime += 10;  // Fast forward by 10 seconds
+  }
+};
+
  const featureTexts = [
   "🔍 Instantly Search Verified Properties Nationwide",
   "📅 Effortlessly Schedule Home Visits at Your Convenience",
