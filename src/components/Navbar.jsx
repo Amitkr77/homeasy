@@ -41,7 +41,7 @@ export default function Header() {
     >
       <nav className="flex items-center justify-between p-4 md:px-10 text-black mx-2">
         {/* Logo */}
-        <Link href="/home" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <HouseWifi size={24} stroke="blue" />
           <span className="text-lg font-semibold">Homeasy</span>
         </Link>

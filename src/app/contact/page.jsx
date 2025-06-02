@@ -47,10 +47,8 @@ export default function page() {
           ref={buttonRef}
           className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-10"
         >
-          {/* <button className="bg-black text-white py-3 px-6 rounded-md transition">
-            Contact for Free Consultation
-          </button> */}
-          <FreeConsultationModal buttonClass="bg-black text-white py-3 px-6 rounded-md outline-none hover:bg-black " />
+         
+          <FreeConsultationModal buttonClass="text-white py-7 rounded-md  hover:bg-black  " triggerText=" Contact for Free Consultation" />
           <button className="border border-black text-black py-3 px-6 rounded-md transition cursor-pointer">
             Browse Our Services
           </button>

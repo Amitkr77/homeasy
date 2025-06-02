@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useLayoutEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
@@ -10,36 +10,74 @@ export default function HeroSection() {
   const subHeadingRef = useRef(null);
   const tagsRef = useRef([]);
 
-  useEffect(() => {
-    gsap.from(tagsRef.current, {
-      opacity: 0,
-      y: -20,
-      stagger: 0.2,
+ useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.inOut", duration: 1 },
+    });
+
+    // Tags animation (scale + fade + stagger)
+    tl.from(tagsRef.current, {
+      autoAlpha: 0,
+      y: -40,
+      scale: 0.8,
+      rotate: -10,
+      stagger: 0.15,
       duration: 0.6,
-      ease: "power2.out",
     });
 
-    gsap.from(headingRef.current, {
-      y: 50,
-      opacity: 0,
-      delay: 0.2,
-      duration: 1,
-      ease: "power2.out",
-    });
+    // Heading animation (clipPath + bounce-like effect)
+    tl.from(
+      headingRef.current,
+      {
+        y: 60,
+        autoAlpha: 0,
+        clipPath: "inset(0 0 100% 0)",
+        duration: 1.2,
+        ease: "power4.out",
+      },
+      "-=0.2"
+    );
 
-    gsap.from(subHeadingRef.current, {
-      y: 50,
-      opacity: 0,
-      delay: 0.4,
-      duration: 1,
-      ease: "power2.out",
-    });
-  }, []);
+    // Subheading animation (with delay and slight shift)
+    tl.from(
+      subHeadingRef.current,
+      {
+        y: 30,
+        autoAlpha: 0,
+        clipPath: "inset(0 0 100% 0)",
+        duration: 1,
+      },
+      "-=0.6"
+    );
+  });
+
+  return () => ctx.revert(); // Clean up on unmount
+}, []);
+
+const scrollRef = useRef(null);
+
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+    gsap.fromTo(
+      scrollRef.current,
+      { y: 0 },
+      {
+        y: 20,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        duration: 0.8,
+      }
+    );
+  });
+
+  return () => ctx.revert();
+}, []);
+
 
   return (
-    <section
-      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden scroll-smooth"
-    >
+    <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden scroll-smooth">
       {/* Background Blobs */}
       <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-300 rounded-full blur-3xl opacity-20 animate-pulse"></div>
       <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-purple-300 rounded-full blur-2xl opacity-20 animate-pulse"></div>
@@ -87,7 +125,7 @@ export default function HeroSection() {
       </p>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 animate-bounce text-blue-500 z-10">
+      <div ref={scrollRef} className="absolute bottom-10  text-blue-500 z-10">
         <ChevronDown size={32} />
       </div>
     </section>

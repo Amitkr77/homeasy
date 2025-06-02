@@ -48,10 +48,11 @@ export default function page() {
           className="container h-screen text-black flex flex-col md:flex-row items-center relative px-6 md:px-20"
         >
           <h1 className="text-5xl md:text-9xl font-medium z-50 leading-tight mt-10 md:mt-16 text-center md:text-left">
-            Give your <span className="text-blue-700">idea</span> a <br />
-            chance to <br /> change the world of{" "}
+            Empower your <span className="text-blue-700"> <br />vision</span> with{" "}
+            <br />
+            Homeasy — where <br /> finding your dream{" "}
             <br className="hidden md:block" />
-            real estate
+            home gets smarter
           </h1>
           <div className="absolute bottom-20 md:bottom-56 right-10 md:right-40">
             <img

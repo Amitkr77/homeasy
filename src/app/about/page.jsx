@@ -12,135 +12,138 @@ export default function Page() {
   const teamRef = useRef(null);
   const leadershipRef = useRef(null);
 
- useLayoutEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  const ctx = gsap.context(() => {
-    if (heroRef.current) {
-      gsap.fromTo(
-        heroRef.current,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-        }
-      );
-    }
-
-    if (missionRef.current) {
-      gsap.from(missionRef.current, {
-        opacity: 0,
-        scale: 0.95,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: missionRef.current,
-          start: "top 80%",
-        },
-      });
-    }
-
-    if (ideasRef.current) {
-      gsap.fromTo(
-        ideasRef.current,
-        { scale: 2, opacity: 0, rotate: -5 },
-        {
-          scale: 1,
-          opacity: 1,
-          rotate: 0,
-          duration: 3,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ideasRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    }
-
-    if (valuesRef.current) {
-      ScrollTrigger.create({
-        trigger: valuesRef.current,
-        start: "top top",
-        end: "+=300%",
-        scrub: true,
-      });
-
-      cardRefs.current.forEach((card, index) => {
-        if (!card) return;
+    const ctx = gsap.context(() => {
+      if (heroRef.current) {
         gsap.fromTo(
-          card,
-          { opacity: 0, y: 50, filter: "blur(6px)" },
+          heroRef.current,
+          { opacity: 0, y: 100 },
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
-            duration: 2,
-            ease: "power2.out",
+            duration: 1.2,
+            ease: "power3.out",
+          }
+        );
+      }
+
+      if (missionRef.current) {
+        gsap.from(missionRef.current, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: missionRef.current,
+            start: "top 80%",
+          },
+        });
+      }
+
+      if (ideasRef.current) {
+        gsap.fromTo(
+          ideasRef.current,
+          { scale: 2, opacity: 0, rotate: -5 },
+          {
+            scale: 1,
+            opacity: 1,
+            rotate: 0,
+            duration: 3,
+            ease: "power3.out",
             scrollTrigger: {
-              trigger: valuesRef.current,
-              start: `top+=${index * 30}% center`,
-              end: "+=20%",
-              scrub: true,
+              trigger: ideasRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
             },
           }
         );
-      });
-    }
+      }
 
-    if (teamRef.current && teamRef.current.children.length) {
-      gsap.from(teamRef.current.children, {
-        opacity: 0,
-        y: 30,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: teamRef.current,
-          start: "top 80%",
-        },
-      });
-    }
+      if (valuesRef.current) {
+        ScrollTrigger.create({
+          trigger: valuesRef.current,
+          start: "top top",
+          end: "+=300%",
+          scrub: true,
+        });
 
-    if (leadershipRef.current && leadershipRef.current.children.length) {
-      gsap.from(leadershipRef.current.children, {
-        opacity: 0,
-        scale: 0.9,
-        stagger: 0.2,
-        duration: 1,
-        ease: "elastic.out(1, 0.75)",
-        scrollTrigger: {
-          trigger: leadershipRef.current,
-          start: "top 85%",
-        },
-      });
-    }
-  });
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return;
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50, filter: "blur(6px)" },
+            {
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+              duration: 2,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: valuesRef.current,
+                start: `top+=${index * 30}% center`,
+                end: "+=20%",
+                scrub: true,
+              },
+            }
+          );
+        });
+      }
 
-  return () => ctx.revert();
-}, []);
+      if (teamRef.current && teamRef.current.children.length) {
+        gsap.from(teamRef.current.children, {
+          opacity: 0,
+          y: 30,
+          stagger: 0.2,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: teamRef.current,
+            start: "top 80%",
+          },
+        });
+      }
+
+      if (leadershipRef.current && leadershipRef.current.children.length) {
+        gsap.from(leadershipRef.current.children, {
+          opacity: 0,
+          scale: 0.9,
+          stagger: 0.2,
+          duration: 1,
+          ease: "elastic.out(1, 0.75)",
+          scrollTrigger: {
+            trigger: leadershipRef.current,
+            start: "top 85%",
+          },
+        });
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const leaders = [
     {
-      name: "Amit Sharma",
+      name: "Vishwjeet Narayanan ",
       title: "Founder & CEO",
       desc: "With a passion for real estate innovation and a vision to make home buying simple and transparent, Amit leads Homeasy with clarity and purpose.",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQGdmhNwPmtnQQ/profile-displayphoto-shrink_800_800/B4DZUErE8VGkAc-/0/1739540156872?e=1753315200&v=beta&t=j_x8aPaxHl4I8qgvUHdZdqzlUaTgyEcwywAch6kr3y8", // Make sure to provide valid paths for the images
+      image:
+        "https://media.licdn.com/dms/image/v2/D5603AQHKqnH4xIC4hg/profile-displayphoto-shrink_800_800/B56Zcqtg_OGoAk-/0/1748768264738?e=1754524800&v=beta&t=KzHirfs1yyzw8l-ihEAkK0MaHfTWohR97PbRQD7zOE0",
     },
     {
       name: "Rohit kumar",
       title: "Developer",
       desc: "Rohit crafts intuitive and elegant designs that simplify complex housing decisions into delightful user experiences.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29ycG9yYXRlJTIwZ3V5fGVufDB8fDB8fHww", // Image paths
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQH7MkUta_nzRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692389684635?e=1754524800&v=beta&t=cfzrsEtRc_WCuecvdDH12MfI6ykfWrv1HCs8M2Ln1Bk",
     },
     {
       name: "Abhijeet kumar mishra",
       title: "Andriod developer",
       desc: "Abhijeet ensures the platform remains fast, secure, and future-ready — leading the charge in building our digital infrastructure.",
-      image: "https://images.unsplash.com/photo-1707742453461-6855f0b8238c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvcnBvcmF0ZSUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D", // Image paths
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQEqh3FMKu1DLw/profile-displayphoto-shrink_400_400/B4DZPKV19qHcAg-/0/1734266544758?e=1754524800&v=beta&t=dEp9kgDNaaHkH5JaaAXpSvAyT3Zl1Y6Gl1u4UmsWqMo",
     },
   ];
 
@@ -262,9 +265,12 @@ export default function Page() {
             >
               <div className="flex flex-col items-center text-center">
                 {/* Leader Image */}
-                <div className="relative  mb-6  overflow-hidden ">
-                  
-                  <img src={leader.image} alt=""  className=" h-96 "/>
+                <div className="relative  mb-6 overflow-hidden ">
+                  <img
+                    src={leader.image}
+                    alt=""
+                    className=" h-96 rounded-full"
+                  />
                 </div>
                 <div className="p-3">
                   {/* Leader Info */}
