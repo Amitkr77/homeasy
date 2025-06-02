@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { MoveUpRight } from "lucide-react"; // Assuming you're using lucide-react-icons package
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { Linkedin, Instagram, Facebook } from "lucide-react"; // Import icons from lucide-react
@@ -31,7 +30,7 @@ function Footer() {
       className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12"
     >
       {/* Hero Section: Heading + CTA centered */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between  gap-10 bg-black px-6 py-16 rounded-3xl">
+      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between  gap-10 bg-black px-6 py-16 rounded-3xl">
         <div className="max-w-3xl text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Have a World-Changing Idea? <br className="hidden sm:block" />
@@ -43,19 +42,10 @@ function Footer() {
           </p>
         </div>
 
-        {/* <button
-          ref={buttonRef}
-          className="bg-blue-600 text-white px-7 py-4 rounded-full text-lg sm:text-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:outline-none flex items-center gap-2 whitespace-nowrap"
-        >
-          Get Your Free Consultation
-          <MoveUpRight
-            className="transition-transform duration-200 group-hover:scale-125"
-            size={20}
-          />
-        </button> */}
+       
         <FreeConsultationModal
           triggerText=" Get Your Free Consultation"
-          buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white"
+          buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white block rounded-none "
         />
       </div>
 

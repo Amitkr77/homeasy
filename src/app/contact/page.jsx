@@ -45,11 +45,13 @@ export default function page() {
         </h1>
         <div
           ref={buttonRef}
-          className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-10"
+          className="flex flex-col items-center sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-10"
         >
-         
-          <FreeConsultationModal buttonClass="text-white py-7 rounded-md  hover:bg-black  " triggerText=" Contact for Free Consultation" />
-          <button className="border border-black text-black py-3 px-6 rounded-md transition cursor-pointer">
+          <FreeConsultationModal
+            buttonClass="text-white  bg-white  text-black  text-base hover:bg-none hover:bg-transparent shadow-none relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-300 "
+            triggerText=" Contact for Free Consultation"
+          />
+          <button className="border border-black text-black py-3 px-6  transition cursor-pointer hover:bg-black hover:text-white">
             Browse Our Services
           </button>
         </div>
@@ -150,7 +152,7 @@ export default function page() {
 
       {/* CTA */}
       <section className="py-20 sm:py-28 bg-black text-white text-left px-6 sm:px-10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             Let's Create Something Exceptional, Together.
           </h2>
@@ -160,7 +162,7 @@ export default function page() {
             <br className="hidden sm:block" />
             Let’s connect and explore how we can bring your ideas to life.
           </p>
-          <button className="text-base sm:text-lg md:text-xl font-semibold py-4 px-8 sm:px-10 rounded-md border-2 border-white bg-black transition duration-300 hover:bg-white hover:text-black hover:border-black">
+          <button className="text-base sm:text-lg md:text-xl font-semibold py-4 px-8 sm:px-10  border-2 border-white bg-black transition duration-300 hover:bg-white hover:text-black hover:border-black">
             Book a Discovery Call
           </button>
         </div>

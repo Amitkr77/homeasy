@@ -60,24 +60,14 @@ export default function Header() {
         </div>
 
         {/* Desktop CTA */}
-        {/* <div className="hidden md:block">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition group text-xl cursor-pointer">
-            <span className="flex items-center justify-center gap-2">
-              Free Consultation
-              <MoveUpRight
-                className="group-hover:scale-125 transition-all duration-150"
-                size={20}
-              />
-            </span>
-          </button>
-        </div> */}
-        <FreeConsultationModal className="md:flex hidden" />
+        
+        <FreeConsultationModal buttonClass="md:block hidden" />
 
         {/* Mobile Toggle */}
         <div className="md:hidden z-50">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <Menu size={28} />
-            </button>
+          </button>
         </div>
       </nav>
 
@@ -88,28 +78,19 @@ export default function Header() {
         }`}
       >
         <div className="h-full flex flex-col justify-center items-center px-6 space-y-6 text-2xl font-semibold text-gray-800 relative">
-         
-
           {navItems.map(({ label, path }, idx) => (
             <Link
               key={idx}
               href={path}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="transition hover:underline"
+              className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+            
             >
               {label}
             </Link>
           ))}
-          {/* <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition group text-xl">
-            <span className="flex items-center justify-center gap-2">
-              Free Consultation
-              <MoveUpRight
-                className="group-hover:scale-125 transition-all duration-150"
-                size={20}
-              />
-            </span>
-          </button> */}
-          <FreeConsultationModal className="md:hidden flex"/>
+          
+          <FreeConsultationModal buttonClass="md:hidden block"/>
           <div className="absolute top-10 right-4">
             <button onClick={() => setIsMobileMenuOpen(false)}>
               <X size={28} />

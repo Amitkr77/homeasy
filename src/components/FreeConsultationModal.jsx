@@ -16,11 +16,16 @@ export default function FreeConsultationDialog({
     <Dialog>
       {/* Dialog Trigger */}
       <DialogTrigger asChild>
-        <Button className={`group hidden md:flex items-center cursor-pointer ${buttonClass}`}>{triggerText}
-          <MoveUpRight
-          size={18}
-          className="group-hover:scale-120 transition-all duration-300"
-        />
+        <Button
+          className={`group hidden md:block cursor-pointer ${buttonClass}`}
+        >
+          <span className="flex items-center gap-2 justify-center">
+            {triggerText}
+            <MoveUpRight
+              size={18}
+              className="group-hover:scale-120 transition-all duration-300"
+            />
+          </span>
         </Button>
       </DialogTrigger>
 
