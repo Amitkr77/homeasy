@@ -1,90 +1,4 @@
-
-// import React, { useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// export default function PhoneScrollAnimation() {
-//   const phoneRef = useRef(null);
-//   const section1Ref = useRef(null);
-
-//   useEffect(() => {
-//     const ctx = gsap.context(() => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: section1Ref.current,
-//           start: "top center",
-//           end: "bottom center",
-//           scrub: true,
-//           pin: true,
-//         },
-//       });
-
-//       // First animation: zoom in, rotate
-//       tl.fromTo(
-//         phoneRef.current,
-//         {
-//           y: 100,
-//           rotateX: 25,
-//           scale: 2.5,
-//           opacity: 0.6,
-//         },
-//         {
-//           y: -150,
-//           rotateX: 0,
-//           scale: 1,
-//           opacity: 1,
-//           ease: "none",
-//         }
-//       );
-
-//       // Second animation: slide phone to the right
-//       tl.to(phoneRef.current, {
-//         x: -500,
-//         y: 50,
-//         ease: "power2.inOut",
-//         duration: 0.5,
-//       });
-//     }, section1Ref);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   const featureTexts = [
-//     "🔍 Search Verified Properties Instantly",
-//     "📅 Schedule Home Visits Easily",
-//     "🔐 Secure Online Booking System",
-//     "📊 Real-Time Price Trends & Insights",
-//   ];
-
-//   return (
-//     <>
-//       <section className="h-[200vh] bg-gradient-to-b from-white to-blue-50 pt-70 overflow-hidden">
-//         <div
-//           ref={section1Ref}
-//           className="perspective-[1200px] w-full flex justify-center items-center h-[500px] relative "
-//         >
-//           <div
-//             ref={phoneRef}
-//             className="bg-white rounded-3xl shadow-2xl outline-8 outline-black w-[300px] h-[600px] flex items-center justify-center text-gray-800 text-2xl font-semibold relative"
-//           >
-//             <video
-//               className="w-full h-full object-cover rounded-3xl"
-//               src="/Video/heroVideo.mp4"
-//               muted
-//               playsInline
-//               autoPlay
-//               loop
-//             ></video>
-//             <div className="absolute w-24 h-5 rounded-full bg-black top-2"></div>
-//           </div>
-//         </div>
-//       </section>
-      
-//     </>
-//   );
-// }
+"use client";
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -98,9 +12,9 @@ export default function PhoneScrollAnimation() {
   const featuresRef = useRef([]);
   const featuresWrapperRef = useRef(null);
 
+  // Animate Phone Section
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Phone Scroll Animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section1Ref.current,
@@ -134,8 +48,14 @@ export default function PhoneScrollAnimation() {
         ease: "power2.inOut",
         duration: 1,
       });
+    }, section1Ref);
 
-      // 2. Features Text Reveal Animation
+    return () => ctx.revert();
+  }, []);
+
+  // Animate Features Section
+  useEffect(() => {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         featuresRef.current,
         {
@@ -156,28 +76,20 @@ export default function PhoneScrollAnimation() {
           },
         }
       );
-    }, section1Ref);
+    }, featuresWrapperRef);
 
     return () => ctx.revert();
   }, []);
 
-  const fastForward = () => {
-  if (videoRef.current) {
-    videoRef.current.currentTime += 10;  // Fast forward by 10 seconds
-  }
-};
-
- const featureTexts = [
-  "🔐 Smart Security with 24/7 Monitoring and Alerts",
-  "💡 Intelligent Lighting That Adapts to Your Mood",
-  "📱 Control Your Home Devices from Anywhere via App",
-  "🌡️ Automated Temperature & Climate Adjustments",
-  "🔋 Energy Monitoring to Reduce Bills Efficiently",
-  "📊 Real-Time Device Usage Insights & Stats",
-  "🛠️ Customizable Routines for Daily Automation",
-];
-
-
+  const featureTexts = [
+    "🔐 Smart Security with 24/7 Monitoring and Alerts",
+    "💡 Intelligent Lighting That Adapts to Your Mood",
+    "📱 Control Your Home Devices from Anywhere via App",
+    "🌡️ Automated Temperature & Climate Adjustments",
+    "🔋 Energy Monitoring to Reduce Bills Efficiently",
+    "📊 Real-Time Device Usage Insights & Stats",
+    "🛠️ Customizable Routines for Daily Automation",
+  ];
 
   return (
     <>
@@ -192,8 +104,8 @@ export default function PhoneScrollAnimation() {
             className="bg-white rounded-3xl shadow-2xl outline-8 outline-black w-[300px] h-[600px] flex items-center justify-center text-gray-800 text-2xl font-semibold relative"
           >
             <video
-              className="w-full h-full object-cover rounded-3xl"
-              src="/Video/aap_video.mp4"
+              className="w-full h-full object-cover rounded-3xl "
+              src="/Video/app_video.mp4"
               muted
               playsInline
               autoPlay
@@ -205,10 +117,11 @@ export default function PhoneScrollAnimation() {
       </section>
 
       {/* Features Reveal Section */}
-        <section
-          ref={featuresWrapperRef}
-          className="min-h-[100vh] bg-white flex flex-col justify-center items-end px-6 md:px-40  "
-        >
+      <section
+        ref={featuresWrapperRef}
+        className="min-h-[100vh] bg-white flex flex-col justify-center items-end px-6 md:px-40"
+      >
+        <div>
           {featureTexts.map((text, index) => (
             <p
               key={index}
@@ -218,7 +131,8 @@ export default function PhoneScrollAnimation() {
               {text}
             </p>
           ))}
-        </section>
+        </div>
+      </section>
     </>
   );
 }

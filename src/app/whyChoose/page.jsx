@@ -41,7 +41,7 @@ export default function page() {
     return () => ctx.revert();
   }, []);
   return (
-    <>
+    <div>
       <section className="bg-white py-20">
         <section
           ref={(el) => (sectionsRef.current[0] = el)}
@@ -311,6 +311,6 @@ export default function page() {
           </div>
         </section>
       </section>
-    </>
+    </div>
   );
 }

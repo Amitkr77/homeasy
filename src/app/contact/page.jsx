@@ -1,5 +1,5 @@
-"use client"
-import React,{ useRef, useLayoutEffect } from "react";
+"use client";
+import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import {
   Facebook,
@@ -15,26 +15,26 @@ export default function page() {
   const headingRef = useRef(null);
   const buttonRef = useRef(null);
 
- useLayoutEffect(() => {
-  const headingAnim = gsap.fromTo(
-    headingRef.current,
-    { opacity: 0, y: -50 },
-    { opacity: 1, y: 0, duration: 1 }
-  );
-  const buttonAnim = gsap.fromTo(
-    buttonRef.current,
-    { opacity: 0, x: -50 },
-    { opacity: 1, x: 0, delay: 0.5 }
-  );
+  useLayoutEffect(() => {
+    const headingAnim = gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1 }
+    );
+    const buttonAnim = gsap.fromTo(
+      buttonRef.current,
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, delay: 0.5 }
+    );
 
-  return () => {
-    headingAnim.kill();
-    buttonAnim.kill();
-  };
-}, []);
+    return () => {
+      headingAnim.kill();
+      buttonAnim.kill();
+    };
+  }, []);
 
   return (
-    <>
+    <div>
       {/* Hero section */}
       <section className="container mx-auto bg-white min-h-screen flex flex-col justify-center px-6 md:px-10 py-24 text-left">
         <h1
@@ -50,7 +50,7 @@ export default function page() {
           {/* <button className="bg-black text-white py-3 px-6 rounded-md transition">
             Contact for Free Consultation
           </button> */}
-          <FreeConsultationModal  buttonClass="bg-black text-white py-3 px-6 rounded-md outline-none hover:bg-black "/>
+          <FreeConsultationModal buttonClass="bg-black text-white py-3 px-6 rounded-md outline-none hover:bg-black " />
           <button className="border border-black text-black py-3 px-6 rounded-md transition cursor-pointer">
             Browse Our Services
           </button>
@@ -118,7 +118,8 @@ export default function page() {
           </p>
 
           <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-20">
-            {[{
+            {[
+              {
                 name: "Facebook",
                 icon: <Facebook size={32} />,
                 link: "https://www.facebook.com/homeasyautomation/",
@@ -166,6 +167,6 @@ export default function page() {
           </button>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -6,42 +6,38 @@ import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
 
 export default function HeroSection() {
-  const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const subHeadingRef = useRef(null);
   const tagsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(tagsRef.current, {
-        opacity: 0,
-        y: -20,
-        stagger: 0.2,
-        duration: 0.6,
-        ease: "power2.out",
-      });
-      gsap.from(headingRef.current, {
-        y: 50,
-        opacity: 0,
-        delay: 0.2,
-        duration: 1,
-        ease: "power2.out",
-      });
-      gsap.from(subHeadingRef.current, {
-        y: 50,
-        opacity: 0,
-        delay: 0.4,
-        duration: 1,
-        ease: "power2.out",
-      });
-    }, sectionRef);
+    gsap.from(tagsRef.current, {
+      opacity: 0,
+      y: -20,
+      stagger: 0.2,
+      duration: 0.6,
+      ease: "power2.out",
+    });
 
-    return () => ctx.revert();
+    gsap.from(headingRef.current, {
+      y: 50,
+      opacity: 0,
+      delay: 0.2,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    gsap.from(subHeadingRef.current, {
+      y: 50,
+      opacity: 0,
+      delay: 0.4,
+      duration: 1,
+      ease: "power2.out",
+    });
   }, []);
 
   return (
     <section
-      ref={sectionRef}
       className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden scroll-smooth"
     >
       {/* Background Blobs */}
@@ -82,9 +78,12 @@ export default function HeroSection() {
         ref={subHeadingRef}
         className="text-gray-600 text-lg md:text-xl max-w-2xl leading-relaxed z-10"
       >
-        Discover how Homeasy transforms everyday living through cutting-edge automation — enhancing your home's
-        <span className="font-semibold"> comfort</span>, <span className="font-semibold">security</span>, and
-        <span className="font-semibold"> energy efficiency</span>, all at your fingertips.
+        Discover how Homeasy transforms everyday living through cutting-edge
+        automation — enhancing your home's{" "}
+        <span className="font-semibold">comfort</span>,{" "}
+        <span className="font-semibold">security</span>, and{" "}
+        <span className="font-semibold">energy efficiency</span>, all at your
+        fingertips.
       </p>
 
       {/* Scroll Indicator */}

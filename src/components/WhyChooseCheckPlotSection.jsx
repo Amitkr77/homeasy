@@ -1,18 +1,13 @@
-// WhyChooseHomeasySection.jsx
+"use client";
+
 import {
-  Shield,
+  Lock,
   Lightbulb,
   Wifi,
   Smartphone,
-  CheckCircle,
-  Settings,
-  Lock,
   Clock,
-  Thermometer,
-  Camera,
-  PlugZap,
-  Router,
   Zap,
+  CheckCircle,
 } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -70,30 +65,42 @@ export default function WhyChooseHomeasySection() {
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cardRefs.current,
-        {
-          opacity: 0,
-          y: 100,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power4.out",
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
+      // Animate each card individually
+      cardRefs.current.forEach((card) => {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
           },
-        }
-      );
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Optional: Animate title
+      gsap.from(".why-title", {
+        opacity: 0,
+        y: -30,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+        },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -106,11 +113,12 @@ export default function WhyChooseHomeasySection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          <h2 className="why-title text-4xl md:text-5xl font-extrabold text-white">
             Why Choose <span className="text-blue-400">Homeasy</span>
           </h2>
           <p className="text-gray-300 text-lg mt-4 max-w-2xl mx-auto">
-            Discover the ultimate smart living experience designed to simplify, secure, and supercharge your everyday life.
+            Discover the ultimate smart living experience designed to simplify,
+            secure, and supercharge your everyday life.
           </p>
         </div>
 
@@ -129,7 +137,9 @@ export default function WhyChooseHomeasySection() {
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4">{feature.description}</p>
+                <p className="text-gray-300 text-sm mb-4">
+                  {feature.description}
+                </p>
                 <span className="inline-flex items-center gap-2 text-xs text-green-200 bg-green-600/30 px-3 py-1 rounded-full">
                   <CheckCircle className="w-4 h-4" />
                   {feature.badge}

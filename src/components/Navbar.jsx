@@ -71,7 +71,7 @@ export default function Header() {
             </span>
           </button>
         </div> */}
-        <FreeConsultationModal />
+        <FreeConsultationModal className="md:flex hidden" />
 
         {/* Mobile Toggle */}
         <div className="md:hidden z-50">
@@ -109,7 +109,7 @@ export default function Header() {
               />
             </span>
           </button> */}
-          <FreeConsultationModal className="md:hidden block"/>
+          <FreeConsultationModal className="md:hidden flex"/>
           <div className="absolute top-10 right-4">
             <button onClick={() => setIsMobileMenuOpen(false)}>
               <X size={28} />

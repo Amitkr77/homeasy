@@ -8,11 +8,11 @@ import React from "react";
 
 export default function page() {
   return (
-    <>
+    <div>
       <HeroSection />
       <PhoneScrollAnimation />
       <WhyChooseHomeasySection />
       <Testimonial />
-    </>
+    </div>
   );
 }

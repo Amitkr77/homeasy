@@ -12,11 +12,11 @@ export default function Page() {
   const teamRef = useRef(null);
   const leadershipRef = useRef(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+ useLayoutEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      // Hero animation with parallax effect
+  const ctx = gsap.context(() => {
+    if (heroRef.current) {
       gsap.fromTo(
         heroRef.current,
         { opacity: 0, y: 100 },
@@ -27,8 +27,9 @@ export default function Page() {
           ease: "power3.out",
         }
       );
+    }
 
-      // Mission statement fade + scale
+    if (missionRef.current) {
       gsap.from(missionRef.current, {
         opacity: 0,
         scale: 0.95,
@@ -39,8 +40,9 @@ export default function Page() {
           start: "top 80%",
         },
       });
+    }
 
-      // Ideas section pop-in
+    if (ideasRef.current) {
       gsap.fromTo(
         ideasRef.current,
         { scale: 2, opacity: 0, rotate: -5 },
@@ -57,8 +59,9 @@ export default function Page() {
           },
         }
       );
+    }
 
-      // Values section pin with staggered card animation and blur in
+    if (valuesRef.current) {
       ScrollTrigger.create({
         trigger: valuesRef.current,
         start: "top top",
@@ -67,6 +70,7 @@ export default function Page() {
       });
 
       cardRefs.current.forEach((card, index) => {
+        if (!card) return;
         gsap.fromTo(
           card,
           { opacity: 0, y: 50, filter: "blur(6px)" },
@@ -85,8 +89,9 @@ export default function Page() {
           }
         );
       });
+    }
 
-      // Team section fade + lift
+    if (teamRef.current && teamRef.current.children.length) {
       gsap.from(teamRef.current.children, {
         opacity: 0,
         y: 30,
@@ -98,8 +103,9 @@ export default function Page() {
           start: "top 80%",
         },
       });
+    }
 
-      // Leadership scale with elastic effect
+    if (leadershipRef.current && leadershipRef.current.children.length) {
       gsap.from(leadershipRef.current.children, {
         opacity: 0,
         scale: 0.9,
@@ -111,10 +117,11 @@ export default function Page() {
           start: "top 85%",
         },
       });
-    });
+    }
+  });
 
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   const leaders = [
     {
