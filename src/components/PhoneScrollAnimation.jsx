@@ -97,7 +97,7 @@ export default function PhoneScrollAnimation() {
       <section className="h-[200vh] bg-gradient-to-b from-white to-blue-50 pt-70 overflow-hidden">
         <div
           ref={section1Ref}
-          className="perspective-[1200px] w-full flex justify-center items-center h-[100vh] relative"
+          className="perspective-[1200px] w-full flex justify-center items-center h-[100vh] relative "
         >
           <div
             ref={phoneRef}

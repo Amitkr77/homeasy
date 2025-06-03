@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from "react";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -8,10 +11,62 @@ import {
   DialogDescription,
 } from "./ui/dialog";
 import { MoveUpRight } from "lucide-react";
+
 export default function FreeConsultationDialog({
   triggerText = "Free consultation",
   buttonClass = "",
 }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    smartHomeUsage: "",
+    preferredContactMethod: "",
+    address: "",
+    additionalMessage: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          smartHomeUsage: "",
+          preferredContactMethod: "",
+          address: "",
+          additionalMessage: "",
+        });
+      } else {
+        alert(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Failed to send. Please check your internet or try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Dialog>
       {/* Dialog Trigger */}
@@ -30,7 +85,7 @@ export default function FreeConsultationDialog({
       </DialogTrigger>
 
       {/* Dialog Content */}
-      <DialogContent className="max-w-2xl w-full mx-auto p-6  bg-white rounded-xl shadow-xl ">
+      <DialogContent className="max-w-2xl w-full mx-auto p-6 bg-white rounded-xl shadow-xl">
         <DialogHeader>
           <DialogTitle className="text-3xl font-bold text-gray-900">
             Book Your Free Consultation
@@ -42,13 +97,16 @@ export default function FreeConsultationDialog({
         </DialogHeader>
 
         {/* Form */}
-        <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
-          <div className="flex items-center justify-between">
+        <form className="space-y-2" onSubmit={handleSubmit}>
+          <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
             {/* Name Field */}
-            <div>
+            <div className="w-full">
               <label className="block text-sm text-gray-800 mb-2">Name</label>
               <input
+                name="name"
                 type="text"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-5 py-3 border rounded bg-white/70"
                 placeholder="Enter your full name"
                 required
@@ -56,10 +114,13 @@ export default function FreeConsultationDialog({
             </div>
 
             {/* Email Field */}
-            <div>
+            <div className="w-full">
               <label className="block text-sm text-gray-800 mb-2">Email</label>
               <input
+                name="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-5 py-3 border rounded bg-white/70"
                 placeholder="you@example.com"
                 required
@@ -73,6 +134,9 @@ export default function FreeConsultationDialog({
               Are you already using smart home devices?
             </label>
             <select
+              name="smartHomeUsage"
+              value={formData.smartHomeUsage}
+              onChange={handleChange}
               className="w-full px-5 py-3 border rounded bg-white/70"
               required
             >
@@ -89,6 +153,9 @@ export default function FreeConsultationDialog({
               Preferred Contact Method
             </label>
             <select
+              name="preferredContactMethod"
+              value={formData.preferredContactMethod}
+              onChange={handleChange}
               className="w-full px-5 py-3 border rounded bg-white/70"
               required
             >
@@ -103,7 +170,10 @@ export default function FreeConsultationDialog({
           <div>
             <label className="block text-sm text-gray-800 mb-2">Address</label>
             <input
+              name="address"
               type="text"
+              value={formData.address}
+              onChange={handleChange}
               className="w-full px-5 py-3 border rounded bg-white/70"
               placeholder="City, State, Country"
             />
@@ -115,6 +185,9 @@ export default function FreeConsultationDialog({
               Additional Message
             </label>
             <textarea
+              name="additionalMessage"
+              value={formData.additionalMessage}
+              onChange={handleChange}
               className="w-full px-5 py-3 border rounded bg-white/70"
               placeholder="Tell us more about your project..."
               rows="2"
@@ -124,9 +197,10 @@ export default function FreeConsultationDialog({
           {/* Submit Button */}
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-gray-900 text-white py-3 rounded font-semibold hover:bg-gray-800 transition"
           >
-            Submit Request
+            {loading ? "Sending..." : "Submit Request"}
           </button>
         </form>
       </DialogContent>
