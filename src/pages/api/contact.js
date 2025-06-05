@@ -2,19 +2,38 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
+import fs from 'fs';
 import path from 'path';
+import os from 'os';
 
 dotenv.config();
 
 // Google Sheets API Setup
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
-const CREDENTIALS_PATH = path.join(process.cwd(), 'config', 'credentials.json');
+
+
+// Cross-platform temp directory
+const TMP_DIR = path.join(os.tmpdir()); 
+const CREDENTIALS_PATH = path.join(TMP_DIR, 'credentials.json');
+
+if (!fs.existsSync(CREDENTIALS_PATH)) {
+    const base64 = process.env.GOOGLE_CREDENTIALS_BASE64;
+    const json = Buffer.from(base64, 'base64').toString('utf-8');
+
+    // Make sure the directory exists
+    fs.mkdirSync(TMP_DIR, { recursive: true });
+
+    // Write the credentials file
+    fs.writeFileSync(CREDENTIALS_PATH, json);
+}
+
+
 
 // Function to authenticate with Google Sheets API
 const authenticateGoogle = async () => {
     const auth = new google.auth.GoogleAuth({
-        keyFile: path.join(process.cwd(), 'config', 'credentials.json'),
+        keyFile: CREDENTIALS_PATH,
         scopes: SCOPES,
     });
 
