@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -19,6 +19,7 @@ export default function FreeConsultationDialog({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phoneNumber: "",
     smartHomeUsage: "",
     preferredContactMethod: "",
     address: "",
@@ -52,6 +53,7 @@ export default function FreeConsultationDialog({
         setFormData({
           name: "",
           email: "",
+          phoneNumber: "",
           smartHomeUsage: "",
           preferredContactMethod: "",
           address: "",
@@ -85,12 +87,12 @@ export default function FreeConsultationDialog({
       </DialogTrigger>
 
       {/* Dialog Content */}
-      <DialogContent className="max-w-2xl w-full mx-auto p-6 bg-white rounded-xl shadow-xl">
+      <DialogContent className="max-w-4xl w-full mx-auto p-6 bg-white rounded-xl shadow-xl">
         <DialogHeader>
           <DialogTitle className="text-3xl font-bold text-gray-900">
             Book Your Free Consultation
           </DialogTitle>
-          <DialogDescription className="text-gray-600 mt-2 text-sm">
+          <DialogDescription className="text-gray-600 mt-2 text-sm sm:text-base">
             Fill out the form below and we’ll reach out to help bring your smart
             home ideas to life.
           </DialogDescription>
@@ -98,18 +100,35 @@ export default function FreeConsultationDialog({
 
         {/* Form */}
         <form className="space-y-2" onSubmit={handleSubmit}>
-          <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
-            {/* Name Field */}
+          {/* Name Field */}
+          <div className="w-full">
+            <label className="block text-sm text-gray-800 mb-2">Name</label>
+            <input
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-5 py-3 border rounded-lg bg-white/70"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div className="flex flex-col md:flex-row md:gap-6 gap-4">
+            {/* Phone Number Field */}
             <div className="w-full">
-              <label className="block text-sm text-gray-800 mb-2">Name</label>
+              <label className="block text-sm text-gray-800 mb-2">
+                Phone Number
+              </label>
               <input
-                name="name"
-                type="text"
-                value={formData.name}
+                name="phoneNumber"
+                type="tel"
+                value={formData.phoneNumber}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded bg-white/70"
-                placeholder="Enter your full name"
+                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
+                placeholder="Enter your phone number"
+                
                 required
+                inputMode="tel"
               />
             </div>
 
@@ -121,7 +140,7 @@ export default function FreeConsultationDialog({
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded bg-white/70"
+                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
                 placeholder="you@example.com"
                 required
               />
@@ -190,7 +209,7 @@ export default function FreeConsultationDialog({
               onChange={handleChange}
               className="w-full px-5 py-3 border rounded bg-white/70"
               placeholder="Tell us more about your project..."
-              rows="2"
+              rows="3"
             />
           </div>
 
