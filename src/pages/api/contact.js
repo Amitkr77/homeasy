@@ -14,7 +14,7 @@ const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 
 
 // Cross-platform temp directory
-const TMP_DIR = path.join(os.tmpdir()); 
+const TMP_DIR = path.join(os.tmpdir());
 const CREDENTIALS_PATH = path.join(TMP_DIR, 'credentials.json');
 
 if (!fs.existsSync(CREDENTIALS_PATH)) {
@@ -28,15 +28,12 @@ if (!fs.existsSync(CREDENTIALS_PATH)) {
     fs.writeFileSync(CREDENTIALS_PATH, json);
 }
 
-
-
 // Function to authenticate with Google Sheets API
 const authenticateGoogle = async () => {
     const auth = new google.auth.GoogleAuth({
         keyFile: CREDENTIALS_PATH,
         scopes: SCOPES,
     });
-
     return auth.getClient();
 };
 
