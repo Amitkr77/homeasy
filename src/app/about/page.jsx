@@ -125,25 +125,46 @@ export default function Page() {
 
   const leaders = [
     {
-      name: "Vishwjeet Narayanan ",
+      name: "Vishwjeet Narayanan",
       title: "Founder & CEO",
-      desc: "With a passion for real estate innovation and a vision to make home buying simple and transparent, Amit leads Homeasy with clarity and purpose.",
+      desc: "Vishwjeet leads Homeasy with vision, innovation, and purpose—driving the mission to simplify and revolutionize the home buying experience.",
       image:
         "https://media.licdn.com/dms/image/v2/D5603AQHKqnH4xIC4hg/profile-displayphoto-shrink_800_800/B56Zcqtg_OGoAk-/0/1748768264738?e=1754524800&v=beta&t=KzHirfs1yyzw8l-ihEAkK0MaHfTWohR97PbRQD7zOE0",
     },
     {
-      name: "Rohit kumar",
+      name: "Rohit Kumar",
       title: "Developer",
-      desc: "Rohit crafts intuitive and elegant designs that simplify complex housing decisions into delightful user experiences.",
+      desc: "Rohit blends functionality with design, developing clean and efficient features that deliver seamless user experiences.",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQH7MkUta_nzRw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692389684635?e=1754524800&v=beta&t=cfzrsEtRc_WCuecvdDH12MfI6ykfWrv1HCs8M2Ln1Bk",
     },
     {
-      name: "Abhijeet kumar mishra",
-      title: "Andriod developer",
-      desc: "Abhijeet ensures the platform remains fast, secure, and future-ready — leading the charge in building our digital infrastructure.",
+      name: "Abhijeet Kumar Mishra",
+      title: "Android Developer",
+      desc: "Abhijeet builds and optimizes Homeasy’s Android experience—ensuring performance, stability, and user-first functionality on every device.",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQEqh3FMKu1DLw/profile-displayphoto-shrink_400_400/B4DZPKV19qHcAg-/0/1734266544758?e=1754524800&v=beta&t=dEp9kgDNaaHkH5JaaAXpSvAyT3Zl1Y6Gl1u4UmsWqMo",
+    },
+    {
+      name: "Rajnish Kumar",
+      title: "Backend Developer",
+      desc: "Rajnish architects scalable, secure, and reliable backend systems that power Homeasy’s robust infrastructure and real-time services.",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQFswjAYZ8wGpg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693211935407?e=1755129600&v=beta&t=8KIrrDdtaECeKk5zBkdBTkyiD3mb50bmKGmMJ7yvN5E",
+    },
+    {
+      name: "Aditya Kumar",
+      title: "Social Media Manager",
+      desc: "Aditya drives Homeasy’s online presence—creating engaging content and managing brand voice across all major social platforms.",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D35AQG3Vt4pQjeK2A/profile-framedphoto-shrink_400_400/B4DZXM1tgNHwAg-/0/1742898387292?e=1750075200&v=beta&t=mrUeQVIMZEMxwuoTkFh17ibJ_ACyT5I1XBeoYpuegho",
+    },
+    {
+      name: "Samarkant Pradhan",
+      title: "UI/UX Designer",
+      desc: "Samarkant crafts intuitive interfaces and seamless user flows—ensuring every interaction on Homeasy feels simple, smart, and human-centered.",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQGFJ5r14Frj-A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720023996072?e=1755129600&v=beta&t=CP6X--YQQaWjkT1fkRZEwtaRbkLIWGdB6PNo_cwVshk",
     },
   ];
 
@@ -269,7 +290,7 @@ export default function Page() {
                   <img
                     src={leader.image}
                     alt=""
-                    className=" h-96 rounded-full"
+                    className=" h-56 rounded-full"
                   />
                 </div>
                 <div className="p-3">
