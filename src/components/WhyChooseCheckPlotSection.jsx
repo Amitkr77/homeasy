@@ -66,39 +66,45 @@ export default function WhyChooseHomeasySection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate each card individually
-      cardRefs.current.forEach((card) => {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            y: 50,
-            scale: 0.95,
+      // 🔹 Animate each card with stagger + depth effect
+      gsap.fromTo(
+        cardRefs.current,
+        {
+          opacity: 0,
+          y: 60,
+          scale: 0.9,
+          rotateX: 15,
+          transformPerspective: 1000,
+          delay: 0.2,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          duration: 1.2,
+          ease: "power4.out",
+          stagger: 0.15, // <--- Smooth stagger
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            scrub: true,
           },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      });
+        }
+      );
 
-      // Optional: Animate title
+      // 🔹 Title animation with skew + scale for energy
       gsap.from(".why-title", {
         opacity: 0,
-        y: -30,
+        y: -40,
+        skewY: 6,
+        scale: 0.95,
         duration: 1,
-        ease: "power4.out",
+        ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 90%",
+          start: "top 80%",
         },
       });
     }, sectionRef);
@@ -122,14 +128,14 @@ export default function WhyChooseHomeasySection() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-0">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={index}
                 ref={(el) => (cardRefs.current[index] = el)}
-                className="group relative bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 max-w-sm w-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.03]"
+                className="group relative bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.03]"
               >
                 <div className="w-14 h-14 flex items-center justify-center bg-blue-500/10 text-blue-400 rounded-full mb-4">
                   <Icon className="w-6 h-6" />

@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,23 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function PhoneScrollAnimation() {
   const phoneRef = useRef(null);
-  const section1Ref = useRef(null);
-  const featuresRef = useRef([]);
-  const featuresWrapperRef = useRef(null);
+  const subMainRef = useRef(null);
+  const headingsRef = useRef([]);
+  const containerRef = useRef(null);
 
-  // Animate Phone Section
-  useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: section1Ref.current,
-          start: "top center",
+          trigger: containerRef.current,
+          scroller: "body",
+          start: "top top",
           end: "+=2000",
-          scrub: true,
+          scrub: 1.5,
           pin: true,
+          pinSpacing: true,
         },
       });
 
+      // Phone animation
       tl.fromTo(
         phoneRef.current,
         {
@@ -34,51 +37,34 @@ export default function PhoneScrollAnimation() {
           opacity: 0.6,
         },
         {
-          y: -100,
+          y: 0,
           rotateX: 0,
           scale: 1,
           opacity: 1,
           ease: "none",
         }
-      );
-
-      tl.to(phoneRef.current, {
-        x: -500,
-        y: -400,
-        ease: "power2.inOut",
-        duration: 1,
+      ).to(phoneRef.current, {
+        x: -400,
+        duration: 2,
       });
-    }, section1Ref);
 
-    return () => ctx.revert();
-  }, []);
+      // Submain animation
+      tl.from(subMainRef.current, {
+        y: 500,
+        duration: 1,
+        opacity: 0,
+      });
 
-  // Animate Features Section
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        featuresRef.current,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.3,
-          duration: 2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: featuresWrapperRef.current,
-            start: "top 50%",
-            end: "bottom 70%",
-            scrub: true,
-          },
-        }
-      );
-    }, featuresWrapperRef);
+      // Headings animation
+      tl.from(headingsRef.current, {
+        x: 200,
+        stagger: 0.9,
+        duration: 3,
+        opacity: 0,
+      });
+    });
 
-    return () => ctx.revert();
+    return () => ctx.revert(); // cleanup
   }, []);
 
   const featureTexts = [
@@ -92,47 +78,43 @@ export default function PhoneScrollAnimation() {
   ];
 
   return (
-    <>
-      {/* Phone Section */}
-      <section className="h-[200vh] bg-gradient-to-b from-white to-blue-50 pt-70 overflow-hidden">
+    <div>
+      {/* Pin container with scroll animations inside */}
+      <div ref={containerRef} className="h-screen relative overflow-hidden ">
         <div
-          ref={section1Ref}
-          className="perspective-[1200px] w-full flex justify-center items-center h-[100vh] relative "
+          ref={phoneRef}
+          className="phone h-[70%] w-[300px] rounded-3xl bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-8 outline-black "
         >
-          <div
-            ref={phoneRef}
-            className="bg-white rounded-3xl shadow-2xl outline-8 outline-black w-[300px] h-[600px] flex items-center justify-center text-gray-800 text-2xl font-semibold relative"
-          >
-            <video
-              className="w-full h-full object-cover rounded-3xl "
-              src="/Video/app_video.mp4"
-              muted
-              playsInline
-              autoPlay
-              loop
-            ></video>
-            <div className="absolute w-24 h-5 rounded-full bg-black top-2"></div>
-          </div>
+          <video
+            className="w-full h-full object-cover rounded-3xl "
+            src="/Video/app_video.mp4"
+            muted
+            playsInline
+            autoPlay
+            loop
+          ></video>
+          <div className="bar w-24 h-5 rounded-full bg-black absolute top-5 left-1/2 -translate-x-1/2"></div>
         </div>
-      </section>
 
-      {/* Features Reveal Section */}
-      <section
-        ref={featuresWrapperRef}
-        className="min-h-[100vh] bg-white flex flex-col justify-center items-end px-6 md:px-40"
-      >
-        <div>
-          {featureTexts.map((text, index) => (
-            <p
-              key={index}
-              ref={(el) => (featuresRef.current[index] = el)}
-              className="text-xl md:text-2xl font-medium text-gray-800 mb-6 opacity-0"
+        <div
+          ref={subMainRef}
+          className="absolute h-screen w-[45%] right-10 bg-white flex flex-col justify-center items-start px-8 md:px-16 space-y-12 "
+        >
+          {featureTexts.map((text, i) => (
+            <h1
+              key={i}
+              ref={(el) => (headingsRef.current[i] = el)}
+              className="text-lg md:text-xl font-semibold leading-snug text-gray-800"
             >
               {text}
-            </p>
+            </h1>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </div>
+
+   
+
+
   );
 }

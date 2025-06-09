@@ -50,7 +50,7 @@ function Footer() {
       </div>
 
       {/* Footer Links Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm place-items-center">
         {/* Quick Links */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>
