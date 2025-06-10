@@ -4,9 +4,9 @@ import React from "react";
 import Head from "next/head";
 
 import HeroSection from "@/components/HeroSection";
-import PhoneScrollAnimation from "@/components/PhoneScrollAnimation";
 import Testimonial from "@/components/Testonomial";
 import WhyChooseHomeasySection from "@/components/WhyChooseCheckPlotSection";
+import PhoneAnimationWrapper from "@/components/PhoneAnimationWrapper";
 
 export default function HomePage() {
   return (
@@ -54,7 +54,7 @@ export default function HomePage() {
       {/* Homepage Sections */}
       <div>
         <HeroSection />
-        <PhoneScrollAnimation />
+        <PhoneAnimationWrapper />
         <WhyChooseHomeasySection />
         <Testimonial />
       </div>

@@ -108,11 +108,8 @@ export default function FreeConsultationDialog({
         <form className="space-y-2" onSubmit={handleSubmit}>
           {/* Name Field */}
           <div className="w-full">
-            <label htmlFor="name" className="block text-sm text-gray-800 mb-2">
-              Name
-            </label>
+            <label className="block text-sm text-gray-800 mb-2">Name</label>
             <input
-              id="name"
               name="name"
               type="text"
               value={formData.name}
@@ -122,25 +119,18 @@ export default function FreeConsultationDialog({
               required
             />
           </div>
-
-          <fieldset className="flex flex-col md:flex-row md:gap-6 gap-4">
-            <legend className="sr-only">Contact Information</legend>
-
+          <div className="flex flex-col md:flex-row md:gap-6 gap-4">
             {/* Phone Number Field */}
             <div className="w-full">
-              <label
-                htmlFor="phoneNumber"
-                className="block text-sm text-gray-800 mb-2"
-              >
+              <label className="block text-sm text-gray-800 mb-2">
                 Phone Number
               </label>
               <input
-                id="phoneNumber"
                 name="phoneNumber"
                 type="tel"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
                 placeholder="Enter your phone number"
                 required
                 inputMode="tel"
@@ -149,35 +139,25 @@ export default function FreeConsultationDialog({
 
             {/* Email Field */}
             <div className="w-full">
-              <label
-                htmlFor="email"
-                className="block text-sm text-gray-800 mb-2"
-              >
-                Email
-              </label>
+              <label className="block text-sm text-gray-800 mb-2">Email</label>
               <input
-                id="email"
                 name="email"
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded bg-white/70 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
                 placeholder="you@example.com"
                 required
               />
             </div>
-          </fieldset>
+          </div>
 
-          {/* Smart Home Device Usage */}
+          {/* Smart Home Device Usage Field */}
           <div>
-            <label
-              htmlFor="smartHomeUsage"
-              className="block text-sm text-gray-800 mb-2"
-            >
+            <label className="block text-sm text-gray-800 mb-2">
               Are you already using smart home devices?
             </label>
             <select
-              id="smartHomeUsage"
               name="smartHomeUsage"
               value={formData.smartHomeUsage}
               onChange={handleChange}
@@ -191,16 +171,12 @@ export default function FreeConsultationDialog({
             </select>
           </div>
 
-          {/* Preferred Contact Method */}
+          {/* Preferred Contact Method Field */}
           <div>
-            <label
-              htmlFor="preferredContactMethod"
-              className="block text-sm text-gray-800 mb-2"
-            >
+            <label className="block text-sm text-gray-800 mb-2">
               Preferred Contact Method
             </label>
             <select
-              id="preferredContactMethod"
               name="preferredContactMethod"
               value={formData.preferredContactMethod}
               onChange={handleChange}
@@ -216,14 +192,8 @@ export default function FreeConsultationDialog({
 
           {/* Address Field */}
           <div>
-            <label
-              htmlFor="address"
-              className="block text-sm text-gray-800 mb-2"
-            >
-              Address
-            </label>
+            <label className="block text-sm text-gray-800 mb-2">Address</label>
             <input
-              id="address"
               name="address"
               type="text"
               value={formData.address}
@@ -235,14 +205,10 @@ export default function FreeConsultationDialog({
 
           {/* Additional Message Field */}
           <div>
-            <label
-              htmlFor="additionalMessage"
-              className="block text-sm text-gray-800 mb-2"
-            >
+            <label className="block text-sm text-gray-800 mb-2">
               Additional Message
             </label>
             <textarea
-              id="additionalMessage"
               name="additionalMessage"
               value={formData.additionalMessage}
               onChange={handleChange}

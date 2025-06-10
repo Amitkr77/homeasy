@@ -187,10 +187,14 @@ export default function Page() {
         aria-labelledby="mission-heading"
         className="flex justify-center items-center px-6 py-20 text-center bg-white"
       >
-        <h2 className="text-3xl md:text-6xl leading-relaxed max-w-5xl">
-          At Homeasy, our mission is to simplify your real estate experience.
-          With future-ready design, reliable tech, and thoughtful strategies, we
-          transform housing ideas into spaces people love to call home.
+        <h2
+          id="mission-heading"
+          className="text-3xl md:text-6xl leading-relaxed max-w-5xl"
+        >
+          At <span className="text-blue-700 font-semibold">Homeasy</span>, our
+          mission is to simplify modern living through seamless smart home
+          automation — bringing you comfort, control, and energy efficiency, all
+          at your fingertips.
         </h2>
       </section>
 

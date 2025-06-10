@@ -27,11 +27,11 @@ export default function page() {
             ease: "back.out(1.7)",
             rotate: 0,
             duration: 1,
-            delay: index * 0.1,
             scrollTrigger: {
               trigger: el,
               start: "top 85%",
               toggleActions: "play none none reverse",
+              scrub: true,
             },
           }
         );

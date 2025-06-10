@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import Location from "@/components/Location";
 import FreeConsultationModal from "@/components/FreeConsultationModal";
+import Link from "next/link";
+
 
 export default function page() {
   const headingRef = useRef(null);
@@ -51,9 +53,11 @@ export default function page() {
             buttonClass="text-white  bg-white  text-black  text-base hover:bg-none hover:bg-transparent shadow-none relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-current after:transition-all after:duration-300 "
             triggerText=" Contact for Free Consultation"
           />
+          <Link href="/whyChoose">
           <button className="border border-black text-black py-3 px-6  transition cursor-pointer hover:bg-black hover:text-white">
             Browse Our Services
           </button>
+          </Link>
         </div>
       </header>
 
@@ -155,7 +159,7 @@ export default function page() {
       </section>
 
       {/* ✅ CTA SECTION */}
-      <section className="py-20 sm:py-28 bg-black text-white text-left px-6 sm:px-10">
+      {/* <section className="py-20 sm:py-28 bg-black text-white text-left px-6 sm:px-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             Let's Create Something Exceptional, Together.
@@ -170,7 +174,7 @@ export default function page() {
             Book a Discovery Call
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
