@@ -10,80 +10,91 @@ export default function HeroSection() {
   const subHeadingRef = useRef(null);
   const tagsRef = useRef([]);
 
- useLayoutEffect(() => {
-  const ctx = gsap.context(() => {
-    const tl = gsap.timeline({
-      defaults: { ease: "power3.inOut", duration: 1 },
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.inOut", duration: 1 },
+      });
+
+      // Tags animation (scale + fade + stagger)
+      tl.from(tagsRef.current, {
+        autoAlpha: 0,
+        y: -40,
+        scale: 0.8,
+        rotate: -10,
+        stagger: 0.15,
+        duration: 0.6,
+      });
+
+      // Heading animation (clipPath + bounce-like effect)
+      tl.from(
+        headingRef.current,
+        {
+          y: 60,
+          autoAlpha: 0,
+          clipPath: "inset(0 0 100% 0)",
+          duration: 1.2,
+          ease: "power4.out",
+        },
+        "-=0.2"
+      );
+
+      // Subheading animation (with delay and slight shift)
+      tl.from(
+        subHeadingRef.current,
+        {
+          y: 30,
+          autoAlpha: 0,
+          clipPath: "inset(0 0 100% 0)",
+          duration: 1,
+        },
+        "-=0.6"
+      );
     });
 
-    // Tags animation (scale + fade + stagger)
-    tl.from(tagsRef.current, {
-      autoAlpha: 0,
-      y: -40,
-      scale: 0.8,
-      rotate: -10,
-      stagger: 0.15,
-      duration: 0.6,
+    return () => ctx.revert(); // Clean up on unmount
+  }, []);
+
+  const scrollRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        scrollRef.current,
+        { y: 0 },
+        {
+          y: 20,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          duration: 0.8,
+        }
+      );
     });
 
-    // Heading animation (clipPath + bounce-like effect)
-    tl.from(
-      headingRef.current,
-      {
-        y: 60,
-        autoAlpha: 0,
-        clipPath: "inset(0 0 100% 0)",
-        duration: 1.2,
-        ease: "power4.out",
-      },
-      "-=0.2"
-    );
-
-    // Subheading animation (with delay and slight shift)
-    tl.from(
-      subHeadingRef.current,
-      {
-        y: 30,
-        autoAlpha: 0,
-        clipPath: "inset(0 0 100% 0)",
-        duration: 1,
-      },
-      "-=0.6"
-    );
-  });
-
-  return () => ctx.revert(); // Clean up on unmount
-}, []);
-
-const scrollRef = useRef(null);
-
-useLayoutEffect(() => {
-  const ctx = gsap.context(() => {
-    gsap.fromTo(
-      scrollRef.current,
-      { y: 0 },
-      {
-        y: 20,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        duration: 0.8,
-      }
-    );
-  });
-
-  return () => ctx.revert();
-}, []);
-
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden scroll-smooth">
-      {/* Background Blobs */}
-      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-300 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-purple-300 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+    <header
+      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden scroll-smooth"
+      role="banner"
+    >
+      {/* Decorative Background Blobs */}
+      <div
+        className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-300 rounded-full blur-3xl opacity-20 animate-pulse"
+        aria-hidden="true"
+      ></div>
+      <div
+        className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-purple-300 rounded-full blur-2xl opacity-20 animate-pulse"
+        aria-hidden="true"
+      ></div>
 
       {/* Tags */}
-      <div className="flex flex-wrap justify-center gap-3 mb-6 z-10">
+      <div
+        className="flex flex-wrap justify-center gap-3 mb-6 z-10"
+        aria-label="Feature tags"
+      >
         {["Comfort First", "Smarter Living", "Effortless Control"].map(
           (tag, index) => (
             <Badge
@@ -102,13 +113,14 @@ useLayoutEffect(() => {
         Live Smart. Live Easy.
       </p>
 
-      {/* Heading */}
+      {/* Main Heading */}
       <h1
         ref={headingRef}
         className="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-4 tracking-tight z-10"
       >
         Simplify Your Home with
-        <br /> Smart Automation
+        <br />
+        Smart Automation
       </h1>
 
       {/* Subheading */}
@@ -125,9 +137,13 @@ useLayoutEffect(() => {
       </p>
 
       {/* Scroll Indicator */}
-      <div ref={scrollRef} className="absolute bottom-10  text-blue-500 z-10">
+      <div
+        ref={scrollRef}
+        className="absolute bottom-10 text-blue-500 z-10"
+        aria-hidden="true"
+      >
         <ChevronDown size={32} />
       </div>
-    </section>
+    </header>
   );
 }

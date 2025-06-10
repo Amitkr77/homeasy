@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://homeasy-blond.vercel.app/
+
+# Sitemaps
+Sitemap: https://homeasy-blond.vercel.app/sitemap.xml

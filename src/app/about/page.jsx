@@ -171,7 +171,7 @@ export default function Page() {
   return (
     <section className="text-gray-900">
       {/* Hero Section */}
-      <main
+      <header
         ref={heroRef}
         className="h-screen flex items-end p-10 bg-gradient-to-b from-blue-100 to-white"
       >
@@ -179,11 +179,12 @@ export default function Page() {
           From blueprint to key, <br /> we shape where you’ll be. <br />
           <span className="text-blue-500">Welcome to Homeasy.</span>
         </h1>
-      </main>
+      </header>
 
       {/* Mission Statement */}
-      <div
+      <section
         ref={missionRef}
+        aria-labelledby="mission-heading"
         className="flex justify-center items-center px-6 py-20 text-center bg-white"
       >
         <h2 className="text-3xl md:text-6xl leading-relaxed max-w-5xl">
@@ -191,18 +192,19 @@ export default function Page() {
           With future-ready design, reliable tech, and thoughtful strategies, we
           transform housing ideas into spaces people love to call home.
         </h2>
-      </div>
+      </section>
 
-      {/* Ideas Section */}
-      <div
+      {/* ✅ IDEA SECTION */}
+      <section
         ref={ideasRef}
+        aria-labelledby="ideas-heading"
         className="px-6 md:px-20 py-20 bg-gray-50 overflow-hidden"
       >
         <h2 className="text-5xl md:text-9xl font-bold text-center mb-16 tracking-wider">
           Ideas Made Home
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          <div>
+          <article>
             <h3 className="text-xl font-semibold mb-4">
               Your Dream, Our Blueprint
             </h3>
@@ -210,29 +212,33 @@ export default function Page() {
               You bring a vision for a perfect home — we help make it real, step
               by step.
             </p>
-          </div>
-          <div>
+          </article>
+          <article>
             <h3 className="text-xl font-semibold mb-4">Tech Meets Comfort</h3>
             <p className="text-lg">
               With clean code and smart design, we make property browsing and
               buying intuitive.
             </p>
-          </div>
-          <div>
+          </article>
+          <article>
             <h3 className="text-xl font-semibold mb-4">Built to Belong</h3>
             <p className="text-lg">
               We don't just build listings — we create trusted spaces to start
               your next chapter.
             </p>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
 
-      {/* Values Section */}
-      <section ref={valuesRef} className="px-6 md:px-20 py-20 bg-white">
+      {/* ✅ VALUE SECTION */}
+      <section
+        ref={valuesRef}
+        aria-labelledby="values-heading"
+        className="px-6 md:px-20 py-20 bg-white"
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[1, 2, 3].map((num, index) => (
-            <div
+            <article
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
               className="space-y-6"
@@ -252,15 +258,16 @@ export default function Page() {
                   ? "Home is a personal journey. That’s why we listen first, build with empathy, and collaborate like family. Our customers and partners are at the heart of every decision."
                   : "From improving user flows to integrating AI in property search, we're always evolving. Growth fuels us — and our progress is yours too."}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Team Section */}
-      <div
+      {/* ✅ TEAM SECTION */}
+      <section
         ref={teamRef}
         className="px-6 md:px-20 py-20 bg-blue-50 text-center space-y-6"
+        aria-labelledby="team-heading"
       >
         <h2 className="text-4xl md:text-6xl font-bold">
           Each of us brings value. Together, we bring vision to life.
@@ -270,12 +277,13 @@ export default function Page() {
           developers, and strategists passionate about turning housing into
           harmony.
         </p>
-      </div>
+      </section>
 
-      {/* Leadership Section */}
-      <div
+      {/* ✅ LEADERSHIP SECTION */}
+      <section
         ref={leadershipRef}
         className="px-6 md:px-20 py-20 bg-white text-center"
+        aria-labelledby="leadership-heading"
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-10">Our Leadership</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 px-6">
@@ -305,10 +313,10 @@ export default function Page() {
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Optional Carousel/Marquee Placeholder */}
-      <div className="px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 text-center">
+      {/* ✅ ADVANTAGE SECTION */}
+      <section className="px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 text-center">
         <h2 className="text-4xl md:text-6xl font-bold mb-6">
           Discover the Homeasy Advantage
         </h2>
@@ -318,7 +326,7 @@ export default function Page() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-          <div className="bg-white outline p-6 shadow-md hover:shadow-xl transition-all duration-300">
+          <article className="bg-white outline p-6 shadow-md hover:shadow-xl transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
               Real-Time Listings
             </h3>
@@ -326,8 +334,8 @@ export default function Page() {
               Get instant access to up-to-date listings across cities — no
               delays, no surprises.
             </p>
-          </div>
-          <div className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+          </article>
+          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
               Personalized Matching
             </h3>
@@ -335,8 +343,8 @@ export default function Page() {
               Our smart system learns your preferences and curates homes
               tailored for you.
             </p>
-          </div>
-          <div className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+          </article>
+          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
               Secure & Seamless
             </h3>
@@ -344,8 +352,8 @@ export default function Page() {
               From virtual tours to final documents, experience safe and smooth
               transactions.
             </p>
-          </div>
-          <div className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+          </article>
+          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
               Expert Support
             </h3>
@@ -353,9 +361,9 @@ export default function Page() {
               Need help deciding? Our human team is just a click away — always
               ready to guide.
             </p>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
     </section>
   );
 }

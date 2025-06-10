@@ -35,8 +35,8 @@ export default function page() {
 
   return (
     <div>
-      {/* Hero section */}
-      <section className="container mx-auto bg-white min-h-screen flex flex-col justify-center px-6 md:px-10 py-24 text-left">
+      {/* ✅ HERO SECTION */}
+      <header className="container mx-auto bg-white min-h-screen flex flex-col justify-center px-6 md:px-10 py-24 text-left">
         <h1
           ref={headingRef}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium mb-6"
@@ -55,10 +55,13 @@ export default function page() {
             Browse Our Services
           </button>
         </div>
-      </section>
+      </header>
 
-      {/* Info section */}
-      <section className="bg-white px-6 md:px-12 lg:px-20 py-20">
+      {/* ✅ CONTACT INFO-SECTION */}
+      <section
+        aria-labelledby="contact-heading"
+        className="bg-white px-6 md:px-12 lg:px-20 py-20"
+      >
         <div className="max-w-screen flex flex-col lg:flex-row justify-between gap-12">
           {/* Left Side */}
           <div>
@@ -83,7 +86,7 @@ export default function page() {
           </div>
 
           {/* Right Side */}
-          <div className="flex-1 grid gap-6 text-left ml-10">
+          <address className="flex-1 grid gap-6 text-left ml-10">
             <div>
               <h3 className="text-xl sm:text-2xl font-medium uppercase">
                 Office Mail
@@ -100,24 +103,25 @@ export default function page() {
                 amitkumar@homeasy.io
               </p>
             </div>
-          </div>
+          </address>
         </div>
       </section>
 
+      {/* ✅ LOCATION COMPONENT */}
       <Location />
 
-      {/* follow us */}
+      {/* ✅ SOCIAL MEDIA SECTION */}
       <section className="py-20 bg-gray-50 px-6 sm:px-10">
         <div className="max-w-7xl mx-auto text-left">
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-medium mb-2">
+          <h2 id="follow-heading"  className="text-4xl sm:text-5xl lg:text-6xl font-medium mb-2">
             Follow Us.
-          </h3>
+          </h2>
           <p className="text-base sm:text-lg text-gray-600 mb-10 leading-relaxed">
             Stay connected and follow our journey. We share updates,
             inspiration, and behind-the-scenes moments from our team.
           </p>
 
-          <div className="flex flex-wrap gap-10 sm:gap-16 lg:gap-20">
+          <ul className="flex flex-wrap gap-10 sm:gap-16 lg:gap-20">
             {[
               {
                 name: "Facebook",
@@ -135,7 +139,7 @@ export default function page() {
                 link: "https://instagram.com/homeasyautomation/",
               },
             ].map((item, index) => (
-              <a
+              <li
                 key={index}
                 href={item.link}
                 target="_blank"
@@ -144,13 +148,13 @@ export default function page() {
               >
                 {item.name}
                 {item.icon}
-              </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ✅ CTA SECTION */}
       <section className="py-20 sm:py-28 bg-black text-white text-left px-6 sm:px-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
