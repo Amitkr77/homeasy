@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import Testimonial from "@/components/Testonomial";
 import WhyChooseHomeasySection from "@/components/WhyChooseCheckPlotSection";
 import PhoneAnimationWrapper from "@/components/PhoneAnimationWrapper";
+import PhoneScrollAnimationMobile from "@/components/PhoneScrollAnimationMobile";
 
 export default function HomePage() {
   return (
@@ -53,8 +54,9 @@ export default function HomePage() {
 
       {/* Homepage Sections */}
       <div>
-        <HeroSection />
-        <PhoneAnimationWrapper />
+        {/* <HeroSection /> */}
+        {/* <PhoneAnimationWrapper /> */}
+        {/* <PhoneScrollAnimationMobile /> */}
         <WhyChooseHomeasySection />
         <Testimonial />
       </div>
