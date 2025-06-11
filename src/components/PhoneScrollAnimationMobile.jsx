@@ -37,5 +37,6 @@ export default function PhoneScrollAnimationMobile() {
         ))}
       </div>
     </div>
+   
   );
 }

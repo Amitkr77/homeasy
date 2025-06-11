@@ -31,14 +31,15 @@ export default function PhoneScrollAnimation() {
       tl.fromTo(
         phoneRef.current,
         {
-          y: 100,
-          rotateX: 25,
-          scale: 2.5,
+          y: 200,
+          rotationX: 60,
+          scale: 1.7,
           opacity: 0.6,
+          duration: 2,
         },
         {
           y: 0,
-          rotateX: 0,
+          rotationX: 0,
           scale: 1,
           opacity: 1,
           ease: "none",
@@ -80,10 +81,13 @@ export default function PhoneScrollAnimation() {
   return (
     <div>
       {/* Pin container with scroll animations inside */}
-      <div ref={containerRef} className="h-screen relative overflow-hidden ">
+      <div
+        ref={containerRef}
+        className="h-screen relative overflow-hidden bg-[url('/backgroundImage.png')] bg-cover bg-center]"
+      >
         <div
           ref={phoneRef}
-          className="phone h-[70%] w-[300px] rounded-3xl bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-8 outline-black "
+          className="phone h-[75%] w-[300px] rounded-3xl bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 outline-8 outline-black "
         >
           <video
             className="w-full h-full object-cover rounded-3xl "
@@ -98,13 +102,13 @@ export default function PhoneScrollAnimation() {
 
         <div
           ref={subMainRef}
-          className="absolute h-screen w-[45%] right-10 bg-white flex flex-col justify-center items-start px-8 md:px-16 space-y-12 "
+          className="absolute h-screen w-[55%] right-0 bg-white/80 flex flex-col justify-center items-start px-8 md:px-16 space-y-12 "
         >
           {featureTexts.map((text, i) => (
             <h1
               key={i}
               ref={(el) => (headingsRef.current[i] = el)}
-              className="text-lg md:text-xl font-semibold leading-snug text-gray-800"
+              className="text-lg md:text-xl font-semibold leading-snug text-gray-800 ml-10"
             >
               {text}
             </h1>
@@ -112,9 +116,5 @@ export default function PhoneScrollAnimation() {
         </div>
       </div>
     </div>
-
-   
-
-
   );
 }

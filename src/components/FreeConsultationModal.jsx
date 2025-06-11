@@ -87,15 +87,9 @@ export default function FreeConsultationDialog({
       </DialogTrigger>
 
       {/* Dialog Content */}
-      <DialogContent
-        aria-labelledby="contact-form-heading"
-        className="max-w-4xl w-full mx-auto p-6 bg-white rounded-xl shadow-xl"
-      >
+      <DialogContent className="max-w-4xl w-full mx-auto md:p-6 p-10 bg-white rounded-xl shadow-xl max-h-screen overflow-y-auto">
         <DialogHeader>
-          <DialogTitle
-            id="contact-form-heading"
-            className="text-3xl font-bold text-gray-900"
-          >
+          <DialogTitle className="text-xl sm:text-3xl font-bold text-gray-900">
             Book Your Free Consultation
           </DialogTitle>
           <DialogDescription className="text-gray-600 mt-2 text-sm sm:text-base">
@@ -105,24 +99,27 @@ export default function FreeConsultationDialog({
         </DialogHeader>
 
         {/* Form */}
-        <form className="space-y-2" onSubmit={handleSubmit}>
+        <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
           {/* Name Field */}
           <div className="w-full">
-            <label className="block text-sm text-gray-800 mb-2">Name</label>
+            <label className="block text-sm font-semibold text-gray-800 mb-2">
+              Name
+            </label>
             <input
               name="name"
               type="text"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-5 py-3 border rounded-lg bg-white/70"
+              className="w-full px-4 py-2 border rounded-md bg-white/70 text-sm"
               placeholder="Enter your full name"
               required
             />
           </div>
-          <div className="flex flex-col md:flex-row md:gap-6 gap-4">
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
             {/* Phone Number Field */}
             <div className="w-full">
-              <label className="block text-sm text-gray-800 mb-2">
+              <label className="block text-sm font-semibold text-gray-800 mb-2">
                 Phone Number
               </label>
               <input
@@ -130,7 +127,7 @@ export default function FreeConsultationDialog({
                 type="tel"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
+                className="w-full px-4 py-2 border rounded-md bg-white/70 text-sm"
                 placeholder="Enter your phone number"
                 required
                 inputMode="tel"
@@ -139,13 +136,15 @@ export default function FreeConsultationDialog({
 
             {/* Email Field */}
             <div className="w-full">
-              <label className="block text-sm text-gray-800 mb-2">Email</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Email
+              </label>
               <input
                 name="email"
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-5 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/70 transition-all"
+                className="w-full px-4 py-2 border rounded-md bg-white/70 text-sm"
                 placeholder="you@example.com"
                 required
               />
@@ -154,65 +153,81 @@ export default function FreeConsultationDialog({
 
           {/* Smart Home Device Usage Field */}
           <div>
-            <label className="block text-sm text-gray-800 mb-2">
-              Are you already using smart home devices?
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Are you already using smart home devices?*
             </label>
-            <select
-              name="smartHomeUsage"
-              value={formData.smartHomeUsage}
-              onChange={handleChange}
-              className="w-full px-5 py-3 border rounded bg-white/70"
-              required
-            >
-              <option value="">Select an option</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-              <option value="planning">Planning to</option>
-            </select>
+            <div className="flex flex-wrap gap-4 mt-2">
+              {["Yes", "No"].map((answer) => (
+                <label
+                  key={answer}
+                  className="inline-flex items-center text-sm text-gray-600"
+                >
+                  <input
+                    type="radio"
+                    name="smartHomeUsage"
+                    value={answer}
+                    onChange={handleChange}
+                    checked={formData.smartHomeUsage === answer}
+                    required
+                    className="mr-2 text-green-500 focus:ring-green-400"
+                  />
+                  {answer}
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* Preferred Contact Method Field */}
           <div>
-            <label className="block text-sm text-gray-800 mb-2">
-              Preferred Contact Method
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Preferred Contact Method*
             </label>
-            <select
-              name="preferredContactMethod"
-              value={formData.preferredContactMethod}
-              onChange={handleChange}
-              className="w-full px-5 py-3 border rounded bg-white/70"
-              required
-            >
-              <option value="">Choose a method</option>
-              <option value="email">Email</option>
-              <option value="phone">Phone</option>
-              <option value="whatsapp">WhatsApp</option>
-            </select>
+            <div className="flex flex-wrap gap-4 mt-2">
+              {["phoneNumber", "Email", "WhatsApp"].map((method) => (
+                <label
+                  key={method}
+                  className="inline-flex items-center text-sm text-gray-600"
+                >
+                  <input
+                    type="radio"
+                    name="preferredContactMethod"
+                    value={method}
+                    onChange={handleChange}
+                    checked={formData.preferredContactMethod === method}
+                    required
+                    className="mr-2 text-green-500 focus:ring-green-400"
+                  />
+                  {method}
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* Address Field */}
           <div>
-            <label className="block text-sm text-gray-800 mb-2">Address</label>
+            <label className="block text-sm font-semibold text-gray-800 mb-2">
+              Address
+            </label>
             <input
               name="address"
               type="text"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-5 py-3 border rounded bg-white/70"
+              className="w-full px-4 py-2 border rounded-md bg-white/70 text-sm"
               placeholder="City, State, Country"
             />
           </div>
 
           {/* Additional Message Field */}
           <div>
-            <label className="block text-sm text-gray-800 mb-2">
+            <label className="block text-sm font-semibold text-gray-800 mb-2">
               Additional Message
             </label>
             <textarea
               name="additionalMessage"
               value={formData.additionalMessage}
               onChange={handleChange}
-              className="w-full px-5 py-3 border rounded bg-white/70"
+              className="w-full px-4 py-2 border rounded-md bg-white/70 text-sm"
               placeholder="Tell us more about your project..."
               rows="3"
             />
@@ -222,7 +237,7 @@ export default function FreeConsultationDialog({
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gray-900 text-white py-3 rounded font-semibold hover:bg-gray-800 transition"
+            className="w-full bg-gray-900 text-white py-3 rounded-md font-semibold hover:bg-gray-800 transition"
           >
             {loading ? "Sending..." : "Submit Request"}
           </button>
