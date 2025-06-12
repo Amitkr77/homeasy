@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/pdiprrpadf/repositories/homeasy 
+    - /bin/cp -R images $DEPLOYPATH
+
+
+
