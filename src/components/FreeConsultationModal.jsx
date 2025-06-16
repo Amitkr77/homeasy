@@ -131,6 +131,10 @@ export default function FreeConsultationDialog({
                 placeholder="Enter your phone number"
                 required
                 inputMode="tel"
+                title="Please enter a valid 10-digit Indian phone number"
+                pattern="[6-9]\d{9}"
+                maxLength={10}
+                minLength={9}
               />
             </div>
 
