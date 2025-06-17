@@ -11,102 +11,6 @@ export default function PhoneScrollAnimation() {
   const headingsRef = useRef([]);
   const containerRef = useRef(null);
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scroller: "body",
-          start: "top top",
-          end: "+=2200",
-          scrub: 1.5,
-          pin: true,
-          pinSpacing: true,
-        },
-      });
-
-      // Add a glow effect (temporary)
-      const glow = {
-        boxShadow: "0 0 0px rgba(0,0,0,0)",
-      };
-
-      tl.set(phoneRef.current, {
-        transformStyle: "preserve-3d",
-      });
-
-      // Phone entry animation (smooth zoom & glow)
-      tl.fromTo(
-        phoneRef.current,
-        {
-          y: 300,
-          z: -300,
-          rotationX: 35,
-          opacity: 0,
-          boxShadow: glow.boxShadow,
-        },
-        {
-          y: 0,
-          z: 0,
-          rotationX: 0,
-          opacity: 1,
-          ease: "power3.out",
-          duration: 2.5,
-          boxShadow: "0 30px 80px rgba(0,0,0,0.2)",
-        }
-      )
-
-        // Slide phone to left with ease and fade glow
-        .to(phoneRef.current, {
-          x: -400,
-          duration: 2,
-          ease: "power2.inOut",
-          boxShadow: "0 0 0 rgba(0,0,0,0)",
-        });
-
-      // Submain panel fade & slide in
-      tl.from(subMainRef.current, {
-        y: 200,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power2.out",
-      });
-
-      // Animate each heading one by one with smooth slide
-      tl.from(headingsRef.current, {
-        x: 100,
-        opacity: 0,
-        stagger: 0.4,
-        duration: 1.5,
-        ease: "power2.out",
-      });
-    });
-
-    return () => ctx.revert(); // cleanup
-  }, []);
-
-  useLayoutEffect(() => {
-    // Animate bar glow separately
-    gsap.from(".bar", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 1.2,
-      delay: 2,
-      ease: "back.out(1.7)",
-    });
-
-    // Animate bar glow separately
-    gsap.from(".bar", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 1.2,
-      delay: 2,
-      ease: "back.out(1.7)",
-    });
-
-    return () => ctx.revert();
-  }, []);
   const featureTexts = [
     "🔐 Smart Security with 24/7 Monitoring and Alerts",
     "💡 Intelligent Lighting That Adapts to Your Mood",
@@ -116,6 +20,87 @@ export default function PhoneScrollAnimation() {
     "📊 Real-Time Device Usage Insights & Stats",
     "🛠️ Customizable Routines for Daily Automation",
   ];
+
+  useLayoutEffect(() => {
+    const glow = {
+      boxShadow: "0 30px 80px rgba(0,0,0,0.2)",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        scroller: "body",
+        start: "top top",
+        end: "+=2200",
+        scrub: 1.5,
+        pin: true,
+        pinSpacing: true,
+      },
+    });
+
+    // Phone entry animation (smooth zoom & glow)
+    tl.set(phoneRef.current, {
+      transformStyle: "preserve-3d",
+    })
+      .fromTo(
+        phoneRef.current,
+        {
+          y: 300,
+          z: -300,
+          rotationX: 35,
+          opacity: 0,
+          boxShadow: "0 0 0 rgba(0,0,0,0)",
+        },
+        {
+          y: 0,
+          z: 0,
+          rotationX: 0,
+          opacity: 1,
+          ease: "power3.out",
+          duration: 2.5,
+          boxShadow: glow.boxShadow,
+        }
+      )
+
+      // Slide phone to left with ease and fade glow
+      .to(phoneRef.current, {
+        x: -400,
+        duration: 2,
+        ease: "power2.inOut",
+        boxShadow: "0 0 0 rgba(0,0,0,0)",
+      });
+
+    // Submain panel fade & slide in
+    tl.from(subMainRef.current, {
+      y: 200,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    // Animate each heading one by one with smooth slide
+    tl.from(headingsRef.current, {
+      x: 100,
+      opacity: 0,
+      stagger: 0.4,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    // Animate bar glow separately
+    gsap.from(".bar", {
+      opacity: 0,
+      scale: 0.8,
+      duration: 1.2,
+      delay: 2,
+      ease: "back.out(1.7)",
+    });
+
+    // Cleanup
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   return (
     <div>
@@ -147,7 +132,7 @@ export default function PhoneScrollAnimation() {
 
         <div
           ref={subMainRef}
-          className="absolute h-screen w-full md:w-[55%] right-0 bg-white/80 flex flex-col justify-center items-start px-6 md:px-16 space-y-6 md:space-y-12"
+          className="absolute h-screen w-full md:w-[55%] right-0  flex flex-col justify-center items-start px-6 md:px-16 space-y-6 md:space-y-12"
         >
           {featureTexts.map((text, i) => (
             <h1
