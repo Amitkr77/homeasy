@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { HouseWifi, Menu, MoveUpRight, X } from "lucide-react";
 import FreeConsultationModal from "./FreeConsultationModal";
+import Image from "next/image";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,11 +40,15 @@ export default function Header() {
         showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="flex items-center justify-between p-4 md:px-10 text-black mx-2">
+      <nav className="flex items-center justify-between  md:px-10 text-black mx-2">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <HouseWifi size={24} stroke="blue" />
-          <span className="text-lg font-semibold">Homeasy</span>
+        <Link href="/" className="">
+          <Image
+            src="/Homeasy-logo-black.png"
+            width={100}
+            height={100}
+            alt="alternative name"
+          />{" "}
         </Link>
 
         {/* Desktop Navigation */}
@@ -60,7 +65,7 @@ export default function Header() {
         </div>
 
         {/* Desktop CTA */}
-        
+
         <FreeConsultationModal buttonClass="md:block hidden" />
 
         {/* Mobile Toggle */}
@@ -84,13 +89,12 @@ export default function Header() {
               href={path}
               onClick={() => setIsMobileMenuOpen(false)}
               className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
-            
             >
               {label}
             </Link>
           ))}
-          
-          <FreeConsultationModal buttonClass="md:hidden block"/>
+
+          <FreeConsultationModal buttonClass="md:hidden block" />
           <div className="absolute top-10 right-4">
             <button onClick={() => setIsMobileMenuOpen(false)}>
               <X size={28} />

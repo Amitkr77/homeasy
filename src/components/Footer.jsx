@@ -42,7 +42,6 @@ function Footer() {
           </p>
         </div>
 
-       
         <FreeConsultationModal
           triggerText=" Get Your Free Consultation"
           buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white block rounded-none "
@@ -81,7 +80,7 @@ function Footer() {
               Contact
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              Why Homeeasy
+              Why homeasy
             </li>
           </ul>
         </div>
@@ -126,7 +125,7 @@ function Footer() {
 
       {/* Footer Bottom: Legal Section */}
       <div className="text-center text-sm mt-12 border-t border-gray-600 pt-6">
-        <p className="text-gray-400">© 2025 Homeeasy. All Rights Reserved.</p>
+        <p className="text-gray-400">© 2025 homeasy. All Rights Reserved.</p>
       </div>
     </footer>
   );
