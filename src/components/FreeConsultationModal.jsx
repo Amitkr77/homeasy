@@ -16,7 +16,7 @@ export default function FreeConsultationDialog({
   triggerText = "Free consultation",
   buttonClass = "",
 }) {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     email: "",
     phoneNumber: "",
@@ -24,19 +24,60 @@ export default function FreeConsultationDialog({
     preferredContactMethod: "",
     address: "",
     additionalMessage: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
+  // Simple form validator
+  const validateForm = (data) => {
+    const newErrors = {};
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const indianPhoneRegex = /^[6-9]\d{9}$/;
+
+    if (!data.name.trim()) {
+      newErrors.name = "Name is required.";
+    }
+
+    if (!emailRegex.test(data.email)) {
+      newErrors.email = "Enter a valid email address.";
+    }
+
+    if (!indianPhoneRegex.test(data.phoneNumber)) {
+      newErrors.phoneNumber = "Enter a valid 10-digit Indian phone number.";
+    }
+
+    if (!data.smartHomeUsage) {
+      newErrors.smartHomeUsage = "Please select an option.";
+    }
+
+    if (!data.preferredContactMethod) {
+      newErrors.preferredContactMethod = "Select a contact method.";
+    }
+
+    return newErrors;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setLoading(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -50,15 +91,8 @@ export default function FreeConsultationDialog({
 
       if (res.ok) {
         alert("Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          phoneNumber: "",
-          smartHomeUsage: "",
-          preferredContactMethod: "",
-          address: "",
-          additionalMessage: "",
-        });
+        setFormData(initialFormData);
+        setErrors({});
       } else {
         alert(result.error || "Something went wrong. Please try again.");
       }
@@ -71,11 +105,8 @@ export default function FreeConsultationDialog({
 
   return (
     <Dialog>
-      {/* Dialog Trigger */}
       <DialogTrigger asChild>
-        <Button
-          className={`group hidden md:block cursor-pointer ${buttonClass}`}
-        >
+        <Button className={`group hidden md:block cursor-pointer ${buttonClass}`}>
           <span className="flex items-center gap-2 justify-center">
             {triggerText}
             <MoveUpRight
@@ -86,7 +117,6 @@ export default function FreeConsultationDialog({
         </Button>
       </DialogTrigger>
 
-      {/* Dialog Content */}
       <DialogContent className="max-w-4xl w-full mx-auto md:p-6 p-10 bg-white rounded-xl shadow-xl max-h-screen overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xl sm:text-3xl font-bold text-gray-900">
@@ -98,13 +128,10 @@ export default function FreeConsultationDialog({
           </DialogDescription>
         </DialogHeader>
 
-        {/* Form */}
         <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-          {/* Name Field */}
-          <div className="w-full">
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
-              Name
-            </label>
+          {/* Name */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-800 mb-2">Name</label>
             <input
               name="name"
               type="text"
@@ -114,14 +141,13 @@ export default function FreeConsultationDialog({
               placeholder="Enter your full name"
               required
             />
+            {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name}</p>}
           </div>
 
+          {/* Phone + Email */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-            {/* Phone Number Field */}
-            <div className="w-full">
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
-                Phone Number
-              </label>
+            <div>
+              <label className="block text-sm font-semibold text-gray-800 mb-2">Phone Number</label>
               <input
                 name="phoneNumber"
                 type="tel"
@@ -131,18 +157,16 @@ export default function FreeConsultationDialog({
                 placeholder="Enter your phone number"
                 required
                 inputMode="tel"
-                title="Please enter a valid 10-digit Indian phone number"
                 pattern="[6-9]\d{9}"
                 maxLength={10}
-                minLength={9}
               />
+              {errors.phoneNumber && (
+                <p className="text-red-600 text-xs mt-1">{errors.phoneNumber}</p>
+              )}
             </div>
 
-            {/* Email Field */}
-            <div className="w-full">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Email
-              </label>
+            <div>
+              <label className="block text-sm font-semibold text-gray-800 mb-2">Email</label>
               <input
                 name="email"
                 type="email"
@@ -152,12 +176,13 @@ export default function FreeConsultationDialog({
                 placeholder="you@example.com"
                 required
               />
+              {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
             </div>
           </div>
 
-          {/* Smart Home Device Usage Field */}
+          {/* Smart Home Usage */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-800 mb-2">
               Are you already using smart home devices?*
             </label>
             <div className="flex flex-wrap gap-4 mt-2">
@@ -179,11 +204,14 @@ export default function FreeConsultationDialog({
                 </label>
               ))}
             </div>
+            {errors.smartHomeUsage && (
+              <p className="text-red-600 text-xs mt-1">{errors.smartHomeUsage}</p>
+            )}
           </div>
 
-          {/* Preferred Contact Method Field */}
+          {/* Preferred Contact Method */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-800 mb-2">
               Preferred Contact Method*
             </label>
             <div className="flex flex-wrap gap-4 mt-2">
@@ -205,13 +233,14 @@ export default function FreeConsultationDialog({
                 </label>
               ))}
             </div>
+            {errors.preferredContactMethod && (
+              <p className="text-red-600 text-xs mt-1">{errors.preferredContactMethod}</p>
+            )}
           </div>
 
-          {/* Address Field */}
+          {/* Address */}
           <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
-              Address
-            </label>
+            <label className="block text-sm font-semibold text-gray-800 mb-2">Address</label>
             <input
               name="address"
               type="text"
@@ -222,7 +251,7 @@ export default function FreeConsultationDialog({
             />
           </div>
 
-          {/* Additional Message Field */}
+          {/* Additional Message */}
           <div>
             <label className="block text-sm font-semibold text-gray-800 mb-2">
               Additional Message
@@ -237,7 +266,7 @@ export default function FreeConsultationDialog({
             />
           </div>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <button
             type="submit"
             disabled={loading}

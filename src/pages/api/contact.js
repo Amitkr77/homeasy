@@ -1,4 +1,3 @@
-
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
@@ -8,88 +7,97 @@ import os from 'os';
 
 dotenv.config();
 
-// Google Sheets API Setup
+/* ───────────────────────── Google Sheets setup ────────────────────────── */
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
-
-
-// Cross-platform temp directory
 const TMP_DIR = path.join(os.tmpdir());
 const CREDENTIALS_PATH = path.join(TMP_DIR, 'credentials.json');
 
+/* Make sure the service-account key exists in /tmp */
 if (!fs.existsSync(CREDENTIALS_PATH)) {
     const base64 = process.env.GOOGLE_CREDENTIALS_BASE64;
-    const json = Buffer.from(base64, 'base64').toString('utf-8');
-
-    // Make sure the directory exists
+    if (!base64) {
+        throw new Error('Missing GOOGLE_CREDENTIALS_BASE64 env variable.');
+    }
     fs.mkdirSync(TMP_DIR, { recursive: true });
-
-    // Write the credentials file
-    fs.writeFileSync(CREDENTIALS_PATH, json);
+    fs.writeFileSync(CREDENTIALS_PATH, Buffer.from(base64, 'base64').toString('utf-8'));
 }
 
-// Function to authenticate with Google Sheets API
-const authenticateGoogle = async () => {
-    const auth = new google.auth.GoogleAuth({
-        keyFile: CREDENTIALS_PATH,
-        scopes: SCOPES,
-    });
-    return auth.getClient();
-};
+/* get a Sheets client */
+const authenticateGoogle = async () =>
+    (await new google.auth.GoogleAuth({ keyFile: CREDENTIALS_PATH, scopes: SCOPES }).getClient());
 
-// Function to append data to Google Sheets
-export const appendToGoogleSheet = async (data) => {
-    const auth = new google.auth.GoogleAuth({
-        keyFile: CREDENTIALS_PATH,
-        scopes: SCOPES,
-    });
-
-    const authClient = await auth.getClient();
-
-    // ⬅️ Make sure to pass `auth` to the sheets client
-    const sheets = google.sheets({ version: 'v4', auth: authClient });
-
-    const response = await sheets.spreadsheets.values.append({
-        spreadsheetId: process.env.SPREADSHEET_ID,
+export const appendToGoogleSheet = async (row) => {
+    const sheets = google.sheets({ version: 'v4', auth: await authenticateGoogle() });
+    return sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
         range: 'Sheet1!A:H',
         valueInputOption: 'RAW',
-        resource: {
-            values: [data],
-        },
+        resource: { values: [row] },
     });
-
-    return response;
 };
 
+/* ──────────────────────── 🚩 Validation helper ────────────────────────── */
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+const phoneRegex = /^\+?[0-9]{7,15}$/; 
+const nameRegex = /^[A-Za-z\s]{2,}$/;
+
+function validateInput(data = {}) {
+    const errors = {};
+
+    if (!data.name || !nameRegex.test(data.name.trim())) {
+        errors.name = 'Name must be at least 2 alphabetic characters (letters and spaces only).';
+    }
+    if (!emailRegex.test(data.email || '')) {
+        errors.email = 'A valid e-mail address is required.';
+    }
+    if (!phoneRegex.test(data.phoneNumber || '')) {
+        errors.phoneNumber = 'Phone number must be a 10-digit Indian mobile.';
+    }
+    if (!['Yes', 'No'].includes(data.smartHomeUsage)) {
+        errors.smartHomeUsage = 'Please indicate if you already use smart devices.';
+    }
+    if (!['phoneNumber', 'Email', 'WhatsApp'].includes(data.preferredContactMethod)) {
+        errors.preferredContactMethod = 'Please choose a contact method.';
+    }
+
+    return errors;
+}
+
+/* ─────────────────────────── API handler ──────────────────────────────── */
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
+    /* 🚩 Validate and sanitise -------------------------------------------- */
+    const errors = validateInput(req.body);
+    if (Object.keys(errors).length) {
+        return res.status(400).json({ success: false, errors });
+    }
+
+    // Basic trimming / normalisation
     const {
         name,
         email,
         phoneNumber,
         smartHomeUsage,
         preferredContactMethod,
-        address,
-        additionalMessage,
+        address = 'N/A',
+        additionalMessage = 'N/A',
     } = req.body;
 
-    // Basic validation for required fields
-    if (!name || !email || !smartHomeUsage || !preferredContactMethod || !phoneNumber) {
-        return res.status(400).json({ success: false, error: 'Please fill in all required fields.' });
-    }
+    const sanitized = {
+        name: String(name).trim(),
+        email: String(email).trim().toLowerCase(),
+        phoneNumber: String(phoneNumber).trim(),
+        smartHomeUsage: String(smartHomeUsage).trim(),
+        preferredContactMethod: String(preferredContactMethod).trim(),
+        address: String(address).trim(),
+        additionalMessage: String(additionalMessage).trim(),
+    };
 
-    // Sanitize inputs (simple trimming)
-    const sanitizedName = String(name).trim();
-    const sanitizedEmail = String(email).trim().toLowerCase();
-    const sanitizedPhoneNumber = String(phoneNumber).trim();
-    const sanitizedSmartHomeUsage = String(smartHomeUsage).trim();
-    const sanitizedPreferredContactMethod = String(preferredContactMethod).trim();
-    const sanitizedAddress = address ? String(address).trim() : 'N/A';
-    const sanitizedAdditionalMessage = additionalMessage ? String(additionalMessage).trim() : 'N/A';
-
+    /* ───────────────────── Email transport check ──────────────────────── */
     const { EMAIL_USER, EMAIL_PASS, EMAIL_TO } = process.env;
     if (!EMAIL_USER || !EMAIL_PASS || !EMAIL_TO) {
         return res.status(500).json({ success: false, error: 'Email configuration is incomplete.' });
@@ -97,71 +105,64 @@ export default async function handler(req, res) {
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
-        auth: {
-            user: EMAIL_USER,
-            pass: EMAIL_PASS,
-        },
+        auth: { user: EMAIL_USER, pass: EMAIL_PASS },
     });
 
     try {
         await transporter.verify();
-    } catch (verifyError) {
+    } catch {
         return res.status(500).json({ success: false, error: 'Email service verification failed.' });
     }
 
+    /* ───────────────────── Save + Notify ──────────────────────────────── */
     try {
-        // Append data to Google Sheets
         await appendToGoogleSheet([
-            new Date().toLocaleDateString('en-GB', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-            })
-            ,
-            sanitizedName,
-            sanitizedEmail,
-            sanitizedPhoneNumber,
-            sanitizedSmartHomeUsage,
-            sanitizedPreferredContactMethod,
-            sanitizedAddress,
-            sanitizedAdditionalMessage,
+            new Date().toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+            sanitized.name,
+            sanitized.email,
+            sanitized.phoneNumber,
+            sanitized.smartHomeUsage,
+            sanitized.preferredContactMethod,
+            sanitized.address,
+            sanitized.additionalMessage,
         ]);
 
-        // Send email notification with link to Google Sheet
         const sheetLink = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit?usp=sharing`;
+
         await transporter.sendMail({
-            from: `"${sanitizedName}" <${sanitizedEmail}>`,
+            from: `"${sanitized.name}" <${sanitized.email}>`,
             to: EMAIL_TO,
             subject: 'New Contact Form Message',
             text: `
-Name: ${sanitizedName}
-Email: ${sanitizedEmail}
-PhoneNumber: ${sanitizedPhoneNumber}
-Using Smart Home Devices: ${sanitizedSmartHomeUsage}
-Preferred Contact Method: ${sanitizedPreferredContactMethod}
-Address: ${sanitizedAddress}
-Additional Message: ${sanitizedAdditionalMessage}
+Name: ${sanitized.name}
+Email: ${sanitized.email}
+PhoneNumber: ${sanitized.phoneNumber}
+Using Smart Home Devices: ${sanitized.smartHomeUsage}
+Preferred Contact Method: ${sanitized.preferredContactMethod}
+Address: ${sanitized.address}
+Additional Message: ${sanitized.additionalMessage}
 
-You can view all responses in the Google Sheet: ${sheetLink}
-            `.trim(),
+View all responses: ${sheetLink}
+      `.trim(),
             html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.5;">
           <h2>New Contact Form Message</h2>
-          <p><strong>Name:</strong> ${sanitizedName}</p>
-          <p><strong>PhoneNumber:</strong>${sanitizedPhoneNumber}</p>
-          <p><strong>Email:</strong> <a href="mailto:${sanitizedEmail}">${sanitizedEmail}</a></p>
-          <p><strong>Using Smart Home Devices:</strong> ${sanitizedSmartHomeUsage}</p>
-          <p><strong>Preferred Contact Method:</strong> ${sanitizedPreferredContactMethod}</p>
-          <p><strong>Address:</strong> ${sanitizedAddress}</p>
-          <p><strong>Additional Message:</strong></p>
-          <p>${sanitizedAdditionalMessage.replace(/\n/g, '<br>')}</p>
-          <p><strong>Google Sheet Link:</strong> <a href="${sheetLink}">Click here to view all responses</a></p>
+          <p><strong>Name:</strong> ${sanitized.name}</p>
+          <p><strong>PhoneNumber:</strong> ${sanitized.phoneNumber}</p>
+          <p><strong>Email:</strong> <a href="mailto:${sanitized.email}">${sanitized.email}</a></p>
+          <p><strong>Using Smart Home Devices:</strong> ${sanitized.smartHomeUsage}</p>
+          <p><strong>Preferred Contact Method:</strong> ${sanitized.preferredContactMethod}</p>
+          <p><strong>Address:</strong> ${sanitized.address}</p>
+          <p><strong>Additional Message:</strong><br>${sanitized.additionalMessage.replace(/\n/g, '<br>')}</p>
+          <p><a href="${sheetLink}">Open the Google Sheet</a></p>
         </div>
       `,
         });
 
-        return res.status(200).json({ success: true, message: 'Email sent and data saved to Google Sheet.' });
-    } catch (sendError) {
-        return res.status(500).json({ success: false, error: 'Failed to send email or append data to Google Sheets. ' + sendError.message });
+        return res.status(200).json({ success: true, message: 'Email sent and data saved.' });
+    } catch (err) {
+        return res
+            .status(500)
+            .json({ success: false, error: `Failed to send e-mail or save data – ${err.message}` });
     }
 }
