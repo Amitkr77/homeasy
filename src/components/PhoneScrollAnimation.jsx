@@ -12,13 +12,41 @@ export default function PhoneScrollAnimation() {
   const containerRef = useRef(null);
 
   const featureTexts = [
-    "🔐 Smart Security with 24/7 Monitoring and Alerts",
-    "💡 Intelligent Lighting That Adapts to Your Mood",
-    "📱 Control Your Home Devices from Anywhere via App",
-    "🌡️ Automated Temperature & Climate Adjustments",
-    "🔋 Energy Monitoring to Reduce Bills Efficiently",
-    "📊 Real-Time Device Usage Insights & Stats",
-    "🛠️ Customizable Routines for Daily Automation",
+    {
+    title: "Smart Security with 24/7 Monitoring and Alerts",
+    icon: "🔐",
+    color: "text-white bg-blue-600/25"
+  },
+  {
+    title: "Intelligent Lighting That Adapts to Your Mood",
+    icon: "💡",
+    color: "text-black bg-yellow-300/25"
+  },
+  {
+    title: "Control Your Home Devices from Anywhere via App",
+    icon: "📱",
+    color: "text-white bg-green-600/25"
+  },
+  {
+    title: "Automated Temperature & Climate Adjustments",
+    icon: "🌡️",
+    color: "text-white bg-orange-500/25"
+  },
+  {
+    title: "Energy Monitoring to Reduce Bills Efficiently",
+    icon: "🔋",
+    color: "text-white bg-lime-500/25"
+  },
+  {
+    title: "Real-Time Device Usage Insights & Stats",
+    icon: "📊",
+    color: "text-black bg-amber-400/25"
+  },
+  {
+    title: "Customizable Routines for Daily Automation",
+    icon: "🛠️",
+    color: "text-white bg-gray-600/25"
+  }
   ];
 
   useLayoutEffect(() => {
@@ -132,16 +160,32 @@ export default function PhoneScrollAnimation() {
 
         <div
           ref={subMainRef}
-          className="absolute h-screen w-full md:w-[55%] right-0  flex flex-col justify-center items-start px-6 md:px-16 space-y-6 md:space-y-12"
+          className="absolute h-screen w-full md:w-[55%] right-0  flex flex-col justify-center items-start px-6 md:px-16 space-y-6 md:space-y-4"
         >
-          {featureTexts.map((text, i) => (
+          {/* {featureTexts.map((text, i) => (
             <h1
               key={i}
               ref={(el) => (headingsRef.current[i] = el)}
-              className="text-base md:text-xl font-semibold leading-snug text-gray-800 ml-4 md:ml-10"
+              className="text-base md:text-xl font-semibold leading-snug text-gray-800 ml-4 md:ml-10 bg-gray-200 p-4 min-w-xl"
             >
               {text}
             </h1>
+          ))} */}
+          {featureTexts.map((feature, index) => (
+            <div
+              key={index}
+              ref={(el) => (headingsRef.current[index] = el)}
+              className="flex items-center space-x-4 p-2 border bg-gray-50 hover:bg-gray-100 min-w-lg rounded-lg pl-4"
+            >
+              <span
+                className={`w-10 h-10 flex items-center justify-center rounded-full text-xl ${feature.color} `}
+              >
+                {feature.icon}
+              </span>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {feature.title}
+              </h3>
+            </div>
           ))}
         </div>
       </div>
