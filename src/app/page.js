@@ -1,5 +1,7 @@
 "use client"
+import AppScreenshots from '@/components/AppScreenshots'
 import HeroSection from '@/components/HeroSection'
+import InteractiveSmartHome from '@/components/InteractiveSmartHome'
 import PhoneAnimationWrapper from '@/components/PhoneAnimationWrapper'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
 import Testimonial from '@/components/Testonomial'
@@ -10,10 +12,11 @@ export default function page() {
 
 
   return (
-
     <>
       <HeroSection />
       <PhoneAnimationWrapper />
+      <InteractiveSmartHome />
+      <AppScreenshots />
       <WhyChooseCheckPlotSection />
       <Testimonial />
       <ScrollToTopButton />
