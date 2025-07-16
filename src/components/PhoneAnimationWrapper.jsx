@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import PhoneScrollAnimation from "@/components/PhoneScrollAnimation";
 import PhoneScrollAnimationMobile from "@/components/PhoneScrollAnimationMobile";
+import PhoneScreen from "./PhoneScreen";
+import PhoneScreenMobile from "./PhoneScreenMobile";
 
 export default function PhoneAnimationWrapper() {
   const [isMobile, setIsMobile] = useState(false);
@@ -12,5 +14,5 @@ export default function PhoneAnimationWrapper() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  return isMobile ? <PhoneScrollAnimationMobile /> : <PhoneScrollAnimation />;
+  return isMobile ? <PhoneScreen /> : <PhoneScreenMobile />;
 }

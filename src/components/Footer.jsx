@@ -3,7 +3,7 @@
 import React from "react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import { Linkedin, Instagram, Facebook } from "lucide-react"; // Import icons from lucide-react
+import { Linkedin, Instagram, Facebook } from "lucide-react"; 
 import FreeConsultationModal from "./FreeConsultationModal";
 
 function Footer() {
@@ -27,7 +27,7 @@ function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12"
+      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12 "
     >
       {/* Hero Section: Heading + CTA centered */}
       <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between  gap-10 bg-black px-6 py-16 rounded-3xl">
@@ -49,7 +49,7 @@ function Footer() {
       </div>
 
       {/* Footer Links Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm m-auto max-w-6xl">
         {/* Quick Links */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>

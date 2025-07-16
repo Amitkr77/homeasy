@@ -53,9 +53,9 @@ export default function Testimonial() {
             Hear directly from our clients about their experiences working with
             us and the impact we made together.
           </p>
-          <div className="flex gap-4 absolute right-10 bottom-0 mt-4">
-            <CarouselPrevious className="border border-gray-400 rounded-none" />
-            <CarouselNext className="border border-gray-400 rounded-none" />
+          <div className="md:flex hidden gap-4 absolute right-10 bottom-0 mt-4">
+            <CarouselPrevious className="border border-gray-400 rounded-none " />
+            <CarouselNext className="border border-gray-400 rounded-none " />
           </div>
         </div>
 

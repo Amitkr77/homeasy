@@ -4,11 +4,22 @@ import Link from "next/link";
 import { HouseWifi, Menu, MoveUpRight, X } from "lucide-react";
 import FreeConsultationModal from "./FreeConsultationModal";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import PreBookingForm from "./PreBookingForm";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,8 +58,8 @@ export default function Header() {
             src="/Homeasy-logo-black.png"
             width={100}
             height={100}
-            alt="alternative name"
-          />{" "}
+            alt="homeasy logo"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -64,9 +75,30 @@ export default function Header() {
           ))}
         </div>
 
+        <button
+          onClick={openModal}
+          className="py-3 px-6 bg-gray-900 text-white text-base font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
+        >
+          Pre-Book Now
+        </button>
+
+        {isModalOpen && (
+          <div className=" h-screen w-full fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-lg w-full  p-6 sm:p-8">
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
+              >
+                &times;
+              </button>
+              <PreBookingForm closeModal={closeModal} />
+            </div>
+          </div>
+        )}
+
         {/* Desktop CTA */}
 
-        <FreeConsultationModal buttonClass="md:block hidden" />
+        {/* <FreeConsultationModal buttonClass="md:block hidden" /> */}
 
         {/* Mobile Toggle */}
         <div className="md:hidden z-50">
