@@ -3,17 +3,12 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Camera,
   Smartphone,
-  BatteryFull,
-  LockKeyholeOpen,
-  Zap,
   ShieldCheck,
   Lightbulb,
   Thermometer,
   BatteryCharging,
   BarChart2,
-  Settings,
 } from "lucide-react";
 
 // Register GSAP plugin

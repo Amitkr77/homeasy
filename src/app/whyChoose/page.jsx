@@ -41,7 +41,7 @@ export default function page() {
     return () => ctx.revert();
   }, []);
   return (
-    <main className="bg-white py-20">
+    <main className="bg-white py-20 overflow-hidden">
       {/* ✅ HEADER SECTION */}
       <header
         ref={(el) => (sectionsRef.current[0] = el)}
