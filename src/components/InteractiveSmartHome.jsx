@@ -45,7 +45,7 @@ export default function InteractiveSection() {
         <div className="mb-20 relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
           <div className="w-full aspect-w-16 aspect-h-9">
             <video
-              src="/Video/homeasy_video.mp4"
+              src="/Video/Homeasy_Video.mp4"
               autoPlay
               muted
               loop
