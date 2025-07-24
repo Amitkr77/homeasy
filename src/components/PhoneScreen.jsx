@@ -3,17 +3,12 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Camera,
   Smartphone,
-  BatteryFull,
-  LockKeyholeOpen,
-  Zap,
   ShieldCheck,
   Lightbulb,
   Thermometer,
   BatteryCharging,
   BarChart2,
-  Settings,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -129,6 +124,9 @@ export default function PhoneScreen() {
   ];
 
   useLayoutEffect(() => {
+    // Initialize refs array with correct length
+    featuresRefs.current = featuresRefs.current.slice(0, features.length);
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -137,9 +135,11 @@ export default function PhoneScreen() {
         scrub: 1.5,
         pin: true,
         pinSpacing: true,
+        invalidateOnRefresh: true, // Ensures ScrollTrigger recalculates on resize or re-render
       },
     });
 
+    // Apply GSAP animations
     tl.set(phoneRef.current, { transformStyle: "preserve-3d" })
       .fromTo(
         phoneRef.current,
@@ -172,46 +172,53 @@ export default function PhoneScreen() {
         "-=2"
       );
 
+    // Cleanup function
     return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      tl.kill(); // Kill the timeline
+      ScrollTrigger.getAll().forEach((trigger) => {
+        trigger.kill(); // Kill all ScrollTrigger instances
+      });
+      // Clear refs to prevent stale references
+      featuresRefs.current = [];
     };
   }, []);
 
   return (
-    <main
-      ref={containerRef}
-      className="relative min-h-screen w-full flex items-center justify-center px-6 py-16 overflow-hidden "
-    >
-      {/* Phone */}
-      <div
-        ref={phoneRef}
-        className="relative z-10 text-center  rounded-4xl"
-        style={{ willChange: "transform, opacity, box-shadow" }}
+    <div>
+      <main
+        ref={containerRef}
+        className="relative min-h-screen w-full flex items-center justify-center px-6 py-16 overflow-hidden "
       >
-        <div className="h-[586px] w-72 rounded-4xl shadow-2xl border-8 border-gray-700 mx-auto overflow-hidden">
-          <video
-            className="w-full h-full object-cover rounded-3xl"
-            src="/Video/app_video.mp4"
-            muted
-            playsInline
-            autoPlay
-            loop
-          />
-        </div>
-      </div>
-
-      {/* Features */}
-      <div>
-        {features.map((feature, i) => (
-          <div key={i} className={`absolute ${feature.className}`}>
-            <FeatureCard
-              {...feature}
-              forwardedRef={(el) => (featuresRefs.current[i] = el)}
+        {/* Phone */}
+        <div
+          ref={phoneRef}
+          className="relative z-10 text-center rounded-4xl"
+          style={{ willChange: "transform, opacity, box-shadow" }}
+        >
+          <div className="h-[586px] w-72 rounded-4xl shadow-2xl border-8 border-gray-700 mx-auto overflow-hidden">
+            <video
+              className="w-full h-full object-cover rounded-3xl"
+              src="/Video/app_video.mp4"
+              muted
+              playsInline
+              autoPlay
+              loop
             />
           </div>
-        ))}
-      </div>
-    </main>
+        </div>
+
+        {/* Features */}
+        <div>
+          {features.map((feature, i) => (
+            <div key={i} className={`absolute ${feature.className}`}>
+              <FeatureCard
+                {...feature}
+                forwardedRef={(el) => (featuresRefs.current[i] = el)}
+              />
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }

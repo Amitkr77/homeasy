@@ -9,6 +9,8 @@ export default function HeroSection() {
   const headingRef = useRef(null);
   const subHeadingRef = useRef(null);
   const tagsRef = useRef([]);
+  const scrollRef = useRef(null);
+  const secondSectionRef = useRef(null); // Reference for second section
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -55,8 +57,6 @@ export default function HeroSection() {
     return () => ctx.revert(); // Clean up on unmount
   }, []);
 
-  const scrollRef = useRef(null);
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -74,6 +74,16 @@ export default function HeroSection() {
 
     return () => ctx.revert();
   }, []);
+
+  // Scroll to second section on arrow click
+  const handleScrollDown = () => {
+    if (secondSectionRef.current) {
+      secondSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <header
@@ -139,7 +149,8 @@ export default function HeroSection() {
       {/* Scroll Indicator */}
       <div
         ref={scrollRef}
-        className="absolute bottom-10 text-blue-500 z-10"
+        onClick={handleScrollDown} // Scroll on click
+        className="absolute bottom-10 text-blue-500 z-10 cursor-pointer"
         aria-hidden="true"
       >
         <ChevronDown size={32} />
@@ -147,3 +158,4 @@ export default function HeroSection() {
     </header>
   );
 }
+

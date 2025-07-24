@@ -17,6 +17,8 @@ import {
   MapPin,
   Calendar,
   Smartphone,
+  MessageCircleQuestion,
+  Monitor,
 } from "lucide-react";
 
 const communicationOptions = ["Email", "Phone", "SMS"];
@@ -100,23 +102,23 @@ export default function BookingForm() {
             />
           </span>
         </DialogTrigger>
-        <DialogContent className=" md:p-6 p-10 bg-white rounded-xl shadow-xl max-h-screen overflow-y-auto ">
+        <DialogContent className=" md:p-6 p-10  bg-white rounded-xl shadow-xl max-h-screen overflow-y-auto ">
           <DialogHeader>
-            <DialogTitle className="text-xl sm:text-3xl font-bold text-gray-900">
+            <DialogTitle className="text-xl sm:text-3xl font-bold text-gray-900 text-center">
               Pre-Book Your Smart Home{" "}
             </DialogTitle>
-            <DialogDescription className="text-gray-600 mt-2 text-sm sm:text-base">
+            <DialogDescription className="text-gray-600 text-sm sm:text-base text-center">
               Join the future of home automation with homeasy.
             </DialogDescription>
           </DialogHeader>
 
-          <form
-            onSubmit={handleSubmit}
-            className="w-full max-w-3xl mx-auto p-6 bg-white dark:bg-zinc-900  space-y-6 rounded-lg shadow-lg"
-          >
+          <form onSubmit={handleSubmit} className="space-y-3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="fullName" className="flex items-center gap-2">
+                <Label
+                  htmlFor="fullName"
+                  className="flex items-center gap-2 mb-2"
+                >
                   <User size={18} /> Full Name
                 </Label>
                 <Input
@@ -131,7 +133,7 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <Label htmlFor="email" className="flex items-center gap-2">
+                <Label htmlFor="email" className="flex items-center gap-2 mb-2">
                   <Mail size={18} /> Email
                 </Label>
                 <Input
@@ -147,7 +149,7 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <Label htmlFor="phone" className="flex items-center gap-2">
+                <Label htmlFor="phone" className="flex items-center gap-2 mb-2">
                   <Phone size={18} /> Phone
                 </Label>
                 <Input
@@ -163,7 +165,7 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <Label htmlFor="date">
+                <Label htmlFor="date" className="mb-2">
                   <Calendar size={18} className="inline-block mr-1" /> Preferred
                   Date
                 </Label>
@@ -176,7 +178,10 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <Label htmlFor="country" className="flex items-center gap-2">
+                <Label
+                  htmlFor="country"
+                  className="flex items-center gap-2 mb-2"
+                >
                   <Globe size={18} /> Country
                 </Label>
                 <Input
@@ -187,7 +192,7 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <Label htmlFor="city" className="flex items-center gap-2">
+                <Label htmlFor="city" className="flex items-center gap-2 mb-2">
                   <MapPin size={18} /> City
                 </Label>
                 <Input
@@ -199,7 +204,7 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <Label>Interested Service</Label>
+              <Label className="mb-2">Interested Service</Label>
               <select
                 className="w-full mt-1 px-3 py-2 border rounded-md dark:bg-zinc-800"
                 value={formData.service}
@@ -215,7 +220,7 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <Label className="flex items-center gap-2">
+              <Label className="flex items-center gap-2 mb-2">
                 <Smartphone size={18} /> Which smart devices do you use?
               </Label>
               <div className="flex flex-wrap gap-4 mt-2">
@@ -233,7 +238,11 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <Label>Platform Preference</Label>
+              <Label className="mb-2 flex items-center gap-2">
+                {" "}
+                <Monitor size={18} />
+                Platform Preference
+              </Label>
               <div className="flex flex-wrap gap-4 mt-2">
                 {platformOptions.map((p) => (
                   <div key={p} className="flex items-center space-x-2">
@@ -249,7 +258,10 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <Label>Contact Preference</Label>
+              <Label className="mb-2 flex items-center gap-2">
+                <Phone size={18} />
+                Contact Preference
+              </Label>
               <div className="flex flex-wrap gap-4 mt-2">
                 {communicationOptions.map((c) => (
                   <div key={c} className="flex items-center space-x-2">
@@ -267,7 +279,12 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <Label htmlFor="comments">Comments</Label>
+              <Label
+                htmlFor="comments"
+                className="mb-2 flex items-center gap-2"
+              >
+                <MessageCircleQuestion size={18} /> Comments
+              </Label>
               <Textarea
                 id="comments"
                 value={formData.comments}
@@ -290,7 +307,9 @@ export default function BookingForm() {
                 checked={formData.consent}
                 onCheckedChange={(val) => handleChange("consent", val)}
               />
-              <Label htmlFor="consent">I consent to being contacted</Label>
+              <Label htmlFor="consent" className="">
+                I consent to being contacted
+              </Label>
             </div>
 
             <Button type="submit" className="w-full">

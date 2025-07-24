@@ -2,14 +2,35 @@
 import React from "react";
 
 export default function PhoneScrollAnimationMobile() {
-  const featureTexts = [
-    "🔐 Smart Security with 24/7 Monitoring and Alerts",
-    "💡 Intelligent Lighting That Adapts to Your Mood",
-    "📱 Control Your Home Devices from Anywhere via App",
-    "🌡️ Automated Temperature & Climate Adjustments",
-    "🔋 Energy Monitoring to Reduce Bills Efficiently",
-    "📊 Real-Time Device Usage Insights & Stats",
-    "🛠️ Customizable Routines for Daily Automation",
+  const featureItems = [
+    {
+      icon: "🔐",
+      text: "Smart Security with 24/7 Monitoring and Alerts",
+    },
+    {
+      icon: "💡",
+      text: "Intelligent Lighting That Adapts to Your Mood",
+    },
+    {
+      icon: "📱",
+      text: "Control Your Home Devices from Anywhere via App",
+    },
+    {
+      icon: "🌡️",
+      text: "Automated Temperature & Climate Adjustments",
+    },
+    {
+      icon: "🔋",
+      text: "Energy Monitoring to Reduce Bills Efficiently",
+    },
+    {
+      icon: "📊",
+      text: "Real-Time Device Usage Insights & Stats",
+    },
+    {
+      icon: "🛠️",
+      text: "Customizable Routines for Daily Automation",
+    },
   ];
 
   return (
@@ -27,16 +48,13 @@ export default function PhoneScrollAnimationMobile() {
       </div>
 
       <div className="w-full max-w-md space-y-6">
-        {featureTexts.map((text, index) => (
-          <p
-            key={index}
-            className="text-base font-medium text-center text-gray-800"
-          >
-            {text}
-          </p>
+        {featureItems.map((item, index) => (
+          <div key={index} className="feature-item flex gap-2">
+            <span className="icon">{item.icon}</span>
+            <h1 className="text">{item.text}</h1>
+          </div>
         ))}
       </div>
     </div>
-   
   );
 }

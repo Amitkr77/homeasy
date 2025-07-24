@@ -37,7 +37,9 @@ export default function InteractiveSection() {
             Homeasy: Smart Living, Perfected
           </h2>
           <p className="mt-4 text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            Transform your home with Homeasy. Control devices, automate routines, and optimize energy use through a beautifully designed, intuitive app.
+            Transform your home with Homeasy. Control devices, automate
+            routines, and optimize energy use through a beautifully designed,
+            intuitive app.
           </p>
         </div>
 
@@ -90,7 +92,8 @@ export default function InteractiveSection() {
       {/* Tailwind Font and Animation Styles */}
       <style jsx>{`
         .font-sans {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, sans-serif;
         }
         @keyframes fade-in {
           from {
@@ -113,7 +116,8 @@ export default function InteractiveSection() {
           }
         }
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0);
           }
           50% {
