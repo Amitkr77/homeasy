@@ -1,9 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 html {
   scroll-behavior: smooth;
 }
+
+@theme {
+  --font-bitcount: "Vollkorn", serif;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #f3a2fc, #3b82f6);
+  /* Gradient colors */
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom clip-path for diagonal background */
+.clip-path-polygon-diagonal {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.clip-path-polygon-diagonal-right {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
 
 
 @custom-variant dark (&:is(.dark *));
@@ -119,6 +141,7 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

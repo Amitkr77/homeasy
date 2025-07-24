@@ -3,7 +3,8 @@
 import React from "react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import { Linkedin, Instagram, Facebook } from "lucide-react"; 
+import { Linkedin, Instagram, Facebook } from "lucide-react";
+import Link from "next/link";  // Import Link from next/link
 import FreeConsultationModal from "./FreeConsultationModal";
 
 function Footer() {
@@ -27,10 +28,10 @@ function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12 "
+      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12"
     >
       {/* Hero Section: Heading + CTA centered */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between  gap-10 bg-black px-6 py-16 rounded-3xl">
+      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10 bg-black px-6 py-16 rounded-3xl">
         <div className="max-w-3xl text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Have a World-Changing Idea? <br className="hidden sm:block" />
@@ -44,7 +45,7 @@ function Footer() {
 
         <FreeConsultationModal
           triggerText=" Get Your Free Consultation"
-          buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white block rounded-none "
+          buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white block rounded-none"
         />
       </div>
 
@@ -55,16 +56,10 @@ function Footer() {
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>
           <ul className="space-y-2">
             <li className="hover:text-blue-400 transition duration-300">
-              Home
+              <Link href="/work">Work</Link>
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              Work
-            </li>
-            <li className="hover:text-blue-400 transition duration-300">
-              About Us
-            </li>
-            <li className="hover:text-blue-400 transition duration-300">
-              Backstage
+              <Link href="/about-us">About Us</Link>
             </li>
           </ul>
         </div>
@@ -74,13 +69,13 @@ function Footer() {
           <h2 className="text-lg font-semibold text-gray-300">Company</h2>
           <ul className="space-y-2">
             <li className="hover:text-blue-400 transition duration-300">
-              Career
+              <Link href="/career">Career</Link>
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              Contact
+              <Link href="/contact">Contact</Link>
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              Why homeasy
+              <Link href="/why-homeasy">Why Homeasy</Link>
             </li>
           </ul>
         </div>
