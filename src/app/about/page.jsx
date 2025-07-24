@@ -169,7 +169,7 @@ export default function Page() {
   ];
 
   return (
-    <section className="text-gray-900">
+    <section className="text-gray-900 overflow-hidden">
       {/* Hero Section */}
       <header
         ref={heroRef}
