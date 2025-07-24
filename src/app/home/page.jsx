@@ -5,7 +5,7 @@ import Head from "next/head";
 
 import HeroSection from "@/components/HeroSection";
 import Testimonial from "@/components/Testonomial";
-import WhyChooseHomeasySection from "@/components/WhyChooseCheckPlotSection";
+import WhyChooseHomeasySection from "@/components/WhyChooseSection";
 import PhoneAnimationWrapper from "@/components/PhoneAnimationWrapper";
 import PhoneScrollAnimationMobile from "@/components/PhoneScrollAnimationMobile";
 

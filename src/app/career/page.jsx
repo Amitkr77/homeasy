@@ -241,7 +241,7 @@ export default function Page() {
             virtual interview with our leadership team.
           </p>
           <Link
-            href="/apply"
+            href="/notfound"
             className="inline-block px-8 py-3 bg-gray-500 text-white font-semibold rounded-lg hover:bg-gray-600 transition-colors duration-300"
           >
             Apply Now

@@ -93,12 +93,17 @@ export default function BookingForm() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger className="group hidden md:block cursor-pointer bg-black text-white p-2 px-4 rounded-md text-base">
+        <DialogTrigger className="group  gap-2 cursor-pointer bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-3 px-6 rounded-full text-base md:text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl transform ease-in-out">
           <span className="flex items-center gap-2 justify-center">
-            Book Now
+            <span className="hidden sm:block">Book Now</span>
+
+            <span className="sm:hidden text-xl">
+              <Calendar size={20} /> 
+            </span>
+
             <MoveUpRight
               size={18}
-              className="group-hover:scale-120 transition-all duration-300"
+              className="group-hover:scale-120 transition-all duration-300 hidden sm:block"
             />
           </span>
         </DialogTrigger>

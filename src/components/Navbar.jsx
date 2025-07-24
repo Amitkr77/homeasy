@@ -62,12 +62,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <BookingForm />
+          <div className="flex items-center gap-4">
+            <BookingForm />
 
-          <div className="md:hidden z-50">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <Menu size={28} />
-            </button>
+            <div className="md:hidden z-50">
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                <Menu size={28} />
+              </button>
+            </div>
           </div>
         </nav>
 
