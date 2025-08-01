@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="google" content="notranslate" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/home-favicon-white.svg"  sizes="any"/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
