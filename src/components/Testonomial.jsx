@@ -43,7 +43,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-20 bg-gray-50 overflow-hidden">
+    <section className="py-24 px-6 md:px-20  overflow-hidden">
       <Carousel className="w-full p-4">
         <div className="text-left relative mb-12">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">

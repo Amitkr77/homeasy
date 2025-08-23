@@ -28,10 +28,10 @@ function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-8 md:px-24 space-y-12"
+      className="bg-gradient-to-t from-blue-950 to-white text-white py-16 px-8 md:px-24 space-y-12"
     >
       {/* Hero Section: Heading + CTA centered */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10 bg-black px-6 py-16 rounded-3xl">
+      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10 bg-black/5 px-6 py-16 rounded-3xl">
         <div className="max-w-3xl text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Have a World-Changing Idea? <br className="hidden sm:block" />
@@ -45,7 +45,7 @@ function Footer() {
 
         <FreeConsultationModal
           triggerText=" Get Your Free Consultation"
-          buttonClass="border border-white text-indigo-700 hover:bg-gray-600 text-white block rounded-none"
+          buttonClass=" bg-gray-600 text-white block rounded-none"
         />
       </div>
 
@@ -56,10 +56,10 @@ function Footer() {
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>
           <ul className="space-y-2">
             <li className="hover:text-blue-400 transition duration-300">
-              <Link href="/work">Work</Link>
+              <Link href="/whyChoose">Work</Link>
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              <Link href="/about-us">About Us</Link>
+              <Link href="/about">About Us</Link>
             </li>
           </ul>
         </div>
@@ -83,7 +83,7 @@ function Footer() {
         {/* Email Section */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-300">Email</h2>
-          <p className="text-gray-400">info@homeasy.io</p>
+          <p className="text-gray-100">info@homeasy.io</p>
         </div>
 
         {/* Social Media Section */}
@@ -92,7 +92,7 @@ function Footer() {
           <div className="flex gap-4 text-2xl">
             <a
               href="https://www.linkedin.com/company/homeasyautomationiot/"
-              className="text-gray-400 hover:text-blue-500 transition duration-300 focus:outline-none"
+              className="text-gray-100 hover:text-blue-500 transition duration-300 focus:outline-none"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -100,7 +100,7 @@ function Footer() {
             </a>
             <a
               href="https://www.facebook.com/homeasyautomation/"
-              className="text-gray-400 hover:text-blue-500 transition duration-300 focus:outline-none"
+              className="text-gray-100 hover:text-blue-500 transition duration-300 focus:outline-none"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -108,7 +108,7 @@ function Footer() {
             </a>
             <a
               href="https://instagram.com/homeasyautomation/"
-              className="text-gray-400 hover:text-blue-500 transition duration-300 focus:outline-none"
+              className="text-gray-100 hover:text-blue-500 transition duration-300 focus:outline-none"
               target="_blank"
               rel="noopener noreferrer"
             >

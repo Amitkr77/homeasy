@@ -5,26 +5,29 @@ export default function AppScreenshots() {
     {
       title: "Login/Signup",
       description: "Entry point with Homeasy logo, login, and signup options.",
-      img: "./first_screen.jpg",
+      img: "./phone/Onboarding-screen.png",
       color: "bg-[#C81D3F]",
+      icon : "👤"
     },
     {
       title: "Dashboard",
       description:
         "Personalized dashboard with user name, details, rooms, and devices.",
-      img: "./second_screen.jpg",
+      img: "./phone/Dashboard.png",
       color: "bg-[#C81D3F]",
+      icon : "📈"
     },
     {
       title: "Device Control",
       description: "Interface for controlling devices with intuitive controls.",
-      img: "./third_screen.jpg",
+      img: "./phone/Light-changer.png",
       color: "bg-[#C81D3F]",
+      icon:"🕹️"
     },
   ];
 
   return (
-    <section className="py-20 bg-gray-50 text-gray-800 font-sans">
+    <section className=" bg-white text-gray-800 font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
@@ -32,37 +35,45 @@ export default function AppScreenshots() {
             Homeasy App Flow
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Explore the intuitive flow of the Homeasy app—from login to device control—designed for a seamless smart home experience.
+            Explore the intuitive flow of the Homeasy app—from login to device
+            control—designed for a seamless smart home experience.
           </p>
         </div>
 
         {/* Screenshots Scroll Section */}
-        <div className="relative overflow-x-auto snap-x snap-mandatory flex space-x-6 lg:space-x-8 pb-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <div className="relative  snap-x snap-mandatory flex space-x-6 lg:space-x-8 pb-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 ">
           {screens.map((screen, index) => (
             <div
               key={index}
-              className="snap-center flex-shrink-0 w-full sm:w-80 lg:w-96 group relative"
+              className="snap-center flex-shrink-0 w-full sm:w-80 lg:w-96 group relative "
             >
               <div
-                className={`rounded-2xl p-5 transition-all duration-300 animate-slide-in ${screen.color}`}
-                style={{ animationDelay: `${index * 200}ms`, height: '820px' }}
+                className={`rounded-2xl p-5 transition-all duration-300 animate-slide-in bg-transparent`}
+                style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Image Container */}
-                <div className="rounded-xl overflow-hidden mb-4  h-auto">
+                <div className="rounded-4xl overflow-hidden mb-4 h-auto border-4 border-black">
                   <img
                     src={screen.img}
                     alt={`${screen.title} screen`}
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Text Content */}
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
-                  {screen.title}
-                </h3>
-                <p className="text-sm md:text-base text-white leading-relaxed opacity-90">
-                  {screen.description}
-                </p>
+                <div className="bg-blue-400/10 dark:bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    {/* Replace with actual icon */}
+                    <div className="p-3 bg-indigo-100 text-indigo-600 rounded-full">
+                      {/* <LoginIcon className="w-6 h-6" /> */}
+                      {screen.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-black dark:text-white">
+                     {screen.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {screen.description}
+                  </p>
+                </div>
               </div>
 
               {/* Flow Arrow */}
