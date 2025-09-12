@@ -76,7 +76,7 @@ export default function page() {
               We’ll see if we’re a match and how we can help each other. <br />{" "}
               Still not sure?{" "}
               <a
-                href="/why-homeasy"
+                href="/whyChoose"
                 aria-label="See why Homeasy"
                 className="inline-flex items-center gap-2 text-indigo-600 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full group ml-2"
               >
@@ -104,7 +104,7 @@ export default function page() {
                 Tech Team
               </h3>
               <p className="text-gray-600 text-lg sm:text-xl">
-                amitkumar@homeasy.io
+                amit@homeasy.io
               </p>
             </div>
           </address>

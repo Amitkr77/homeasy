@@ -132,11 +132,11 @@ export default function Page() {
         "./Team/Vishwjeet.jpg",
     },
     {
-      name: "Rohit Kumar",
-      title: "Developer",
-      desc: "Rohit blends functionality with design, developing clean and efficient features that deliver seamless user experiences.",
+      name: "Ashutosh Kumar",
+      title: "IOT Engineer",
+      desc: "Ashutosh is passionate about creating smart home solutions, integrating hardware and software for seamless automation.",
       image:
-        "./Team/Rohit.jpg",
+        "./Team/Ashutosh.jpg",
     },
     {
       name: "Abhijeet Kumar Mishra",
@@ -146,7 +146,7 @@ export default function Page() {
         "./Team/Abhijeet.png",
     },
     {
-      name: "Rajnish Kumar",
+      name: "Rajnish   Kumar",
       title: "Backend Developer",
       desc: "Rajnish architects scalable, secure, and reliable backend systems that power Homeasy’s robust infrastructure and real-time services.",
       image:
@@ -158,13 +158,6 @@ export default function Page() {
       desc: "Aditya drives Homeasy’s online presence—creating engaging content and managing brand voice across all major social platforms.",
       image:
         "./Team/Aditya.jpg",
-    },
-    {
-      name: "Samarkant Pradhan",
-      title: "UI/UX Designer",
-      desc: "Samarkant crafts intuitive interfaces and seamless user flows—ensuring every interaction on Homeasy feels simple, smart, and human-centered.",
-      image:
-        "./Team/Samarkant.jpg",
     },
   ];
 
@@ -189,12 +182,13 @@ export default function Page() {
       >
         <h2
           id="mission-heading"
-          className="text-3xl md:text-6xl leading-relaxed max-w-5xl"
+          className="text-xl md:text-2xl leading-relaxed max-w-8xl"
         >
-          At <span className="text-blue-700 font-semibold">Homeasy</span>, our
-          mission is to simplify modern living through seamless smart home
-          automation — bringing you comfort, control, and energy efficiency, all
-          at your fingertips.
+          At <span className="text-blue-700 font-semibold">Homeasy Automation </span>,
+          we are redefining the way people experience comfort, security, and convenience at home. Our mission is to make smart living accessible, affordable, and effortless for everyone.
+          Founded with the vision of building India’s most intuitive home automation ecosystem, Homeasy integrates a wide range of smart devices – from lighting and climate control to security systems and appliances – all managed through a seamless, user-friendly platform.
+          We believe technology should adapt to people, not the other way around. That’s why our solutions are designed to work with products from multiple brands, giving homeowners the flexibility to create a truly personalized smart home experience.
+          With a passionate team, strong focus on innovation, and partnerships with architects, builders, and interior designers, Homeasy is bringing the future of living into today’s homes.
         </h2>
       </section>
 
@@ -202,40 +196,91 @@ export default function Page() {
       <section
         ref={ideasRef}
         aria-labelledby="ideas-heading"
-        className="px-6 md:px-20 py-20 bg-gray-50 overflow-hidden"
+        className="px-6 md:px-20 py-20 bg-blue-100 overflow-hidden"
       >
-        <h2 className="text-5xl md:text-9xl font-bold text-center mb-16 tracking-wider">
-          Ideas Made Home
+        <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
+          Our Promise
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          <article>
-            <h3 className="text-xl font-semibold mb-4">
-              Your Dream, Our Blueprint
+          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+            <h3 className="text-xl mb-4">Affordable solutions for every household
             </h3>
-            <p className="text-lg">
-              You bring a vision for a perfect home — we help make it real, step
-              by step.
-            </p>
+            {/* <p className="text-lg">
+              
+            </p> */}
           </article>
-          <article>
-            <h3 className="text-xl font-semibold mb-4">Tech Meets Comfort</h3>
-            <p className="text-lg">
-              With clean code and smart design, we make property browsing and
-              buying intuitive.
-            </p>
+          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+            <h3 className="text-xl mb-4">A secure and connected home you can trust</h3>
+            {/* <p className="text-lg">
+             
+            </p>*/}
           </article>
-          <article>
-            <h3 className="text-xl font-semibold mb-4">Built to Belong</h3>
-            <p className="text-lg">
+          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+            <h3 className="text-xl mb-4">  Simple setup and reliable performance</h3>
+            {/*  <p className="text-lg">
               We don't just build listings — we create trusted spaces to start
               your next chapter.
-            </p>
+            </p> */}
           </article>
         </div>
       </section>
 
-      {/* ✅ VALUE SECTION */}
+
+      {/* ✅ IDEA SECTION */}
       <section
+        ref={ideasRef}
+        aria-labelledby="ideas-heading"
+        className="px-6 md:px-20 py-20 bg-blue-50 overflow-hidden"
+      >
+        <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
+          Our Vision
+        </h2>
+        <div className="gap-10 text-center">
+          <article>
+            <h3 className="text-xl mb-4"> To become India’s most trusted home automation company, empowering every household with intelligent, secure, and sustainable living solutions.
+            </h3>
+          </article>
+        </div>
+      </section>
+
+
+      {/* ✅ IDEA SECTION */}
+      
+      <section
+  ref={ideasRef}
+  aria-labelledby="ideas-heading"
+  className="px-6 md:px-20 py-20 bg-blue-100 overflow-hidden"
+>
+  <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
+    Our Mission
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+      <h3 className="text-xl text-center mb-4">
+        To make smart living simple, reliable, and affordable for all.
+      </h3>
+    </article>
+    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+      <h3 className="text-xl mb-4">
+        To integrate diverse devices and technologies into one seamless ecosystem.
+      </h3>
+    </article>
+    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+      <h3 className="text-xl mb-4">
+        To collaborate with industry partners to deliver futuristic yet practical home solutions.
+      </h3>
+    </article>
+    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+      <h3 className="text-xl mb-4">
+        To continuously innovate while ensuring privacy, security, and user-friendliness.
+      </h3>
+    </article>
+  </div>
+</section>
+
+
+      {/* ✅ VALUE SECTION */}
+      {/*<section
         ref={valuesRef}
         aria-labelledby="values-heading"
         className="px-6 md:px-20 py-20 bg-white"
@@ -265,7 +310,7 @@ export default function Page() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ✅ TEAM SECTION */}
       <section
@@ -284,13 +329,13 @@ export default function Page() {
       </section>
 
       {/* ✅ LEADERSHIP SECTION */}
-      <section
+       <section
         ref={leadershipRef}
         className="px-6 md:px-20 py-20 bg-white text-center"
         aria-labelledby="leadership-heading"
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-10">Our Leadership</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-10 px-6">
           {leaders.map((leader, idx) => (
             <div
               key={idx}
@@ -298,7 +343,7 @@ export default function Page() {
             >
               <div className="flex flex-col items-center text-center">
                 {/* Leader Image */}
-                <div className="relative  mb-6 overflow-hidden ">
+      <div className="relative  mb-6 overflow-hidden ">
                   <img
                     src={leader.image}
                     alt=""
@@ -307,63 +352,90 @@ export default function Page() {
                 </div>
                 <div className="p-3">
                   {/* Leader Info */}
-                  <h3 className="text-3xl font-bold text-gray-800">
+       <h3 className="flex flex-col font-bold items-center text-m text-center p-4 bg-white shadow-lg rounded-3xl">
                     {leader.name}
                   </h3>
                   <p className="text-blue-600 text-xl mb-4">{leader.title}</p>
-                  <p className="text-gray-600 text-lg">{leader.desc}</p>
+                  <p className="text-gray-600 text-s">{leader.desc}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </section>
-
       {/* ✅ ADVANTAGE SECTION */}
       <section className="px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 text-center">
         <h2 className="text-4xl md:text-6xl font-bold mb-6">
           Discover the Homeasy Advantage
         </h2>
-        <p className="text-lg max-w-3xl mx-auto mb-10 text-gray-700">
-          Why choose Homeasy? Because we combine technology, trust, and design
-          thinking to transform your property search into a delightful journey.
+        <p className="text-lg max-w-4xl mx-auto mb-10 text-gray-700">
+          Why choose Homeasy? Because where technology meets comfort, and homes truly become smart.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-          <article className="bg-white outline p-6 shadow-md hover:shadow-xl transition-all duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Real-Time Listings
+              Real-Time Compatibility
             </h3>
             <p>
-              Get instant access to up-to-date listings across cities — no
-              delays, no surprises.
+              Our system seamlessly works with devices from multiple brands, ensuring you don’t need to replace existing gadgets to go smart.
             </p>
           </article>
-          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Personalized Matching
+              Personalized Living
             </h3>
             <p>
-              Our smart system learns your preferences and curates homes
-              tailored for you.
+              From mood lighting to energy-saving schedules, our platform learns your lifestyle and adapts to make your everyday living more efficient and enjoyable.
             </p>
           </article>
-          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
               Secure & Seamless
             </h3>
             <p>
-              From virtual tours to final documents, experience safe and smooth
-              transactions.
+              Every feature is designed with data privacy and reliability at its core, giving you complete peace of mind.
             </p>
           </article>
-          <article className="bg-white outline  p-6 shadow-md hover:shadow-xl transition-all duration-300">
+
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
             <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Expert Support
+              Expert Support & Guidance
             </h3>
             <p>
-              Need help deciding? Our human team is just a click away — always
-              ready to guide.
+              Whether you’re a homeowner, architect, or builder, our expert team helps you design the right solution — from planning to installation and beyond.
+            </p>
+          </article>
+
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              Smart Integration, Made Simple
+            </h3>
+            <p>
+              Control lights, appliances, security cameras, and more — all from one easy-to-use platform. No technical know-how required.
+            </p>
+          </article>
+
+          <article className="bg-white outline p-6 shadow-md rounded-xl 
+                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
+                        active:scale-95 transition-all duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-blue-600">
+              Future-Ready Solutions
+            </h3>
+            <p>
+              With continuous innovation, we ensure your home is not just smart today, but future-ready for tomorrow’s technology.
             </p>
           </article>
         </div>
