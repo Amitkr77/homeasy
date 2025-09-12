@@ -30,27 +30,32 @@ function Footer() {
       ref={footerRef}
       className="bg-gradient-to-t from-blue-950 to-white text-white py-16 px-8 md:px-24 space-y-12"
     >
-      {/* Hero Section: Heading + CTA centered */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10 bg-black/5 px-6 py-16 rounded-3xl">
-        <div className="max-w-3xl text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Have a World-Changing Idea? <br className="hidden sm:block" />
-            Say It Out Loud!
-          </h1>
-          <p className="text-lg sm:text-xl text-white/80">
-            Turn your vision into reality. Let’s talk strategy, growth, and
-            impact.
-          </p>
-        </div>
 
-        <FreeConsultationModal
-          triggerText=" Get Your Free Consultation"
-          buttonClass=" bg-gray-600 text-white block rounded-none"
-        />
-      </div>
+      {/* Hero Section: Heading + CTA centered */}
+
+      <div className="flex flex-col items-center gap-10 bg-black/5 px-6 py-16 rounded-3xl">
+  <div className="max-w-3xl text-white text-center">
+    <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight mb-6">
+      Ready to Turn Your Home Smart? <br className="hidden sm:block" />
+      Book Your Free Consultation
+    </h1>
+    <p className="text-lg sm:text-xl text-white/75">
+      Redefining the art of smart living through intelligent design and futuristic comfort.
+    </p>
+  </div>
+
+  {/* Free Consultation Button always centered */}
+  <div className="flex justify-center mt-8" ref={buttonRef}>
+    <FreeConsultationModal
+      triggerText="Get Your Free Consultation"
+      buttonClass="bg-gray-600 text-white block rounded-none"
+    />
+  </div>
+</div>
+
 
       {/* Footer Links Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm m-auto max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-12 text-sm m-auto max-w-6xl">
         {/* Quick Links */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>
@@ -60,6 +65,12 @@ function Footer() {
             </li>
             <li className="hover:text-blue-400 transition duration-300">
               <Link href="/about">About Us</Link>
+            </li>
+            <li className="hover:text-blue-400 transition duration-300">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li className="hover:text-blue-400 transition duration-300">
+              <Link href="/terms-of-service">Terms of Service</Link>
             </li>
           </ul>
         </div>
@@ -75,9 +86,17 @@ function Footer() {
               <Link href="/contact">Contact</Link>
             </li>
             <li className="hover:text-blue-400 transition duration-300">
-              <Link href="/why-homeasy">Why Homeasy</Link>
+              <Link href="/whyChoose">Why Homeasy</Link>
             </li>
           </ul>
+        </div>
+
+        {/* Address Section */}
+        <div className="space-y-3">
+          <h2 className="text-lg font-semibold text-gray-300">Address</h2>
+          <p className="text-gray-100">Maurya Lok, Bhub<br className="hidden sm:block" />
+          Patna - 800001, Bihar
+          </p>
         </div>
 
         {/* Email Section */}
