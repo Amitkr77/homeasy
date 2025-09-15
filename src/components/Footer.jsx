@@ -46,10 +46,10 @@ function Footer() {
   </div>
 
   {/* Right: Free Consultation Button */}
-  <div className="mt-8 lg:mt-0" ref={buttonRef}>
+  <div className="mt-8 lg:mt-0 flex justify-center" ref={buttonRef}>
     <FreeConsultationModal
       triggerText="Get Your Free Consultation"
-      buttonClass="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition"
+      buttonClass="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition"
     />
   </div>
 </div>
@@ -141,7 +141,7 @@ function Footer() {
           <Instagram />
         </a>
            <a
-          href="https://instagram.com/homeasyautomation/"
+          href="https://youtube.com/@homeasyautomation"
           className="text-gray-100 hover:text-blue-500 transition duration-300"
           target="_blank"
           rel="noopener noreferrer"
@@ -155,10 +155,10 @@ function Footer() {
     {/* Subscribe Section (on right side) */}
     <div className="space-y-3 text-center">
       <h2 className="text-lg font-semibold text-gray-200">Stay Connected</h2>
-      <p className="text-white">
+      <p className="text-white text-right">
         Subscribe to our newsletter for updates, news, and insights.
       </p>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         <input
           type="email"
           placeholder="Enter your email"

@@ -61,7 +61,7 @@ export default function InteractiveSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent"></div>
           </div>
-          <span className="absolute top-4 left-4 text-white text-sm font-medium bg-blue-500/70 px-3 py-1 rounded-full animate-float">
+          <span className="absolute bottom-5 right-4 text-white text-sm font-medium bg-blue-500/70 px-3 py-1 rounded-full animate-float">
             Discover Smart Living
           </span>
         </div>
