@@ -136,7 +136,7 @@ export default function Page() {
       title: "IOT Engineer",
       desc: "Ashutosh is passionate about creating smart home solutions, integrating hardware and software for seamless automation.",
       image:
-        "./Team/Ashutosh.jpg",
+        "./Team/ashutosh.jpg",
     },
     {
       name: "Abhijeet Kumar Mishra",

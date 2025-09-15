@@ -184,7 +184,7 @@ export default function page() {
           className="flex flex-col md:flex-row gap-10 mt-20"
         >
           <img
-            src="Tradition.png"
+            src="tradition.png"
             alt="team work"
             className="w-100 md:w-[90%] h-100 object-cover rounded"
           />
