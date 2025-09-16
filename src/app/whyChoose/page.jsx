@@ -45,50 +45,77 @@ export default function page() {
       {/* ✅ HEADER SECTION */}
       <header
         ref={(el) => (sectionsRef.current[0] = el)}
-        className="container h-screen text-black flex flex-col md:flex-row items-center relative px-6 md:px-20"
+        className="container h-screen text-black flex flex-col md:flex-row items-center relative px-8 md:px-10"
       >
-        <h1 className="text-5xl md:text-9xl font-medium z-50 leading-tight mt-10 md:mt-16 text-center md:text-left">
-          Empower your{" "}
+        <h1 className="text-5xl absolute bottom-10 md:bottom-37 md:text-9xl font-medium z-50 leading-tight mt-100 md:mt-100 text-center md:text-left">
+          The Future of{" "}
           <span className="text-blue-700">
             {" "}
             <br />
-            vision
+            Living
           </span>{" "}
-          with <br />
-          Homeasy — where <br /> finding your dream{" "}
+          Today. <br />
+          {" "}
+
+          <p className="text-lg md:text-xl leading-8 text-gray-500 tracking-wide">
+            At Homeasy, we believe a smart home isn’t just about gadgets — it’s about<br />
+            creating a lifestyle that is seamless, secure, and truly connected. <br />
+          </p>
           <br className="hidden md:block" />
-          home gets smarter
         </h1>
-        <figure className="absolute bottom-20 md:bottom-56 right-10 md:right-40">
+        <figure className="absolute bottom-50 md:bottom-72 right-0 md:right-0">
           <img
-            src="https://images.unsplash.com/photo-1655194827229-a1d3192b533e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="\oneapp.png"
             alt="Smart home real estate illustration"
-            className="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg"
+            className="w-120 h-100 md:w-110 md:h-96 object-cover rounded-lg"
           />
         </figure>
       </header>
 
+      {/* ✅ WHY CHOOSE US SECTION */}
+      <div className="px-6 md:px-20 py-20 -mt-10 bg-gradient-to-r from-blue-100 via-white to-blue-100 text-center">
+        <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
+          Why Choose Homeasy?
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+          <article>
+            <h3 className="text-xl font-semibold mb-4">
+              A complete ecosystem-from hardware to software.
+            </h3>
+          </article>
+          <article>
+            <h3 className="text-xl font-semibold mb-4">A unified app
+              that works with all major smart device brands.
+            </h3>
+          </article>
+          <article>
+            <h3 className="text-xl font-semibold mb-4">Expert support from consultation to installation. </h3>
+          </article>
+          <article>
+            <h3 className="text-xl font-semibold mb-4">A future-proof solution  designed to evolve with technology.</h3>
+          </article>
+        </div>
+      </div>
+
+
+
       {/* ✅ MISSION SECTION */}
-      <section
-        ref={(el) => (sectionsRef.current[1] = el)}
-        aria-labelledby="our-mission"
-        className="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center md:items-stretch px-6 md:px-20 py-20 gap-10"
-      >
-        <figure>
-          <img
-            src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d607dfa5e595d5958d4ff8_4c9702e1-f6b5-46fc-bd84-79366254e7cc%20Large-p-500.webp"
-            alt="illustration"
-            className="w-56 h-40 object-cover"
-          />
+      <section ref={(el) => (sectionsRef.current[1] = el)} aria-labelledby="our-mission" className="w-full max-w-9xl mx-auto flex flex-col md:flex-row justify-center items-center md:items-stretch px-6 md:px-20 py-20 gap-5" >
+        <figure> <img src="\front.png"
+          alt="illustration"
+          className="w-320 h-120 object-cover" />
         </figure>
         <div>
           <h2 id="our-mission" className="sr-only">
             our mission
           </h2>
-          <p className="text-lg md:text-xl leading-8 text-gray-500 tracking-wide">
-            At Homeasy, we empower your real estate ideas by offering seamless
-            digital solutions. From showcasing properties to smart bookings and
-            virtual tours — let's redefine how people discover homes.
+          <p className="text-lg md:text-xl leading-8 text-black tracking-wide">
+            <span className="font-bold text-2xl text-blue-700">
+              {" "}
+              <br />
+              Our mission is simple:<br />
+            </span>{" "} to transform traditional homes into intelligent living spaces where
+            comfort, convenience, and control come together in one powerful solution.
           </p>
         </div>
       </section>
@@ -102,38 +129,40 @@ export default function page() {
           <div className="flex items-start ">
             <h1 className="text-gray-500 text-5xl md:text-6xl mr-6">1</h1>
             <span className="text-4xl md:text-7xl">
-              Unmatched <br className="hidden md:block" />
-              user experience
+              One App.
+              <br className="hidden md:block" />
+              Infinite Possibilities.
             </span>
           </div>
           <figure className="mt-8 md:mt-0">
             <img
-              src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d894a86089076174c586e5_img_15.webp"
+              src="Appliances.png"
               alt="interface"
-              className="h-44 w-full max-w-xs object-cover rounded"
+              className="h-90 w-100 max-w-xl object-cover rounded"
             />
           </figure>
         </div>
 
         <div
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="flex flex-col md:flex-row gap-12 my-24 w-full"
+          className="flex flex-col md:flex-row items-center gap-12 my-24 w-full px-6 py-12 bg-gradient-to-r shadow-md"
         >
-          <img
-            src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d8a1f188cc8061ff186811_img_4.webp"
-            alt="product"
-            className="w-full md:w-[50%] h-80 object-cover rounded"
-          />
-          <div>
-            <p className="text-2xl md:text-3xl leading-9 mb-10">
-              From first search to final signature, we prioritize flawless
-              experience and speed. Our platform keeps users engaged and agents
-              empowered.
-            </p>
-            <p className="text-lg md:text-2xl text-gray-400">
-              Learn more from our{" "}
-              <span className="text-blue-500">client reviews</span> and{" "}
-              <span className="text-blue-500">project success stories</span>.
+          {/* Image with hover effect */}
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src="\Mission.png"
+              alt="product"
+              className="w-80 md:w-[90%] h-60 object-cover rounded-xl shadow-lg transform transition duration-500 hover:scale-105"
+            />
+          </div>
+
+          {/* Text Content */}
+          <div className="md:w-1/2">
+            <p className="text-xl md:text-2xl leading-9 text-gray-700">
+              Most smart home systems work in silos — one app for lighting, another for security,
+              and yet another for entertainment. <span className="font-semibold text-blue-600">Homeasy changes that.</span>
+              With our unified platform, you can control every smart device — regardless of brand —
+              from a single, intuitive app.
             </p>
           </div>
         </div>
@@ -145,33 +174,86 @@ export default function page() {
           <div className="flex items-start">
             <h1 className="text-gray-500 text-5xl md:text-6xl mr-6">2</h1>
             <span className="text-4xl md:text-7xl">
-              Ownership <br className="hidden md:block" />
-              Approach
+              From Traditional to <br className="hidden md:block" />
+              Smart — Made Effortless
             </span>
           </div>
-          <div className="mt-6 md:mt-0">
-            <p className="text-2xl md:text-4xl">
-              Homeasy becomes an extension of your mission. We invest our
-              creativity, engineering, and effort as if the platform were our
-              own.
-            </p>
-          </div>
         </div>
-
         <figure
           ref={(el) => (sectionsRef.current[5] = el)}
           className="flex flex-col md:flex-row gap-10 mt-20"
         >
           <img
-            src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d607ea832dd33a591eb628_IMG_8399%202%20Large.webp"
+            src="tradition.png"
             alt="team work"
-            className="w-full md:w-[50%] h-80 object-cover rounded"
+            className="w-100 md:w-[90%] h-100 object-cover rounded"
           />
-          <img
+          <div>
+            <p className="text-2xl md:text-2xl leading-9 mb-10">
+              We don’t just provide an app — we provide an end-to-end solution.
+              From hardware installation to seamless integration,
+              <span className="font-semibold text-blue-600"> Homeasy</span> takes care of everything.
+            </p>
+
+            <p className="text-2xl md:text-xl leading-9 mb-10 space-y-4">
+          
+              <span className="font-bold">Smart Conversion </span> – Upgrade your existing home without rebuilding.<br/>
+              <span className="font-bold">Tailored Setup</span> – Solutions customized to your lifestyle and needs.<br />
+              <span className="font-bold">Expert Installation</span> – Certified professionals who ensure everything works perfectly.
+            </p>
+          </div>
+
+
+          {/* <img
             src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d8a1f1588bc63d28a16b3a_img_5.webp"
             alt="collaboration"
             className="w-full md:w-[50%] h-80 object-cover rounded"
+          />*/}
+        </figure>
+
+        <div
+          ref={(el) => (sectionsRef.current[5] = el)}
+          className="mt-28 flex flex-col md:flex-row gap-12 items-start md:items-center justify-between"
+        >
+          <div className="flex items-start">
+            <h1 className="text-gray-500 text-5xl md:text-6xl mr-6">3</h1>
+            <span className="text-4xl md:text-7xl">
+              Security That Puts You in Control
+            </span>
+          </div>
+        </div>
+        <figure ref={(el) => (sectionsRef.current[6] = el)}
+          className="flex flex-col md:flex-row gap-10 mt-20"
+        >
+          <img
+            src="\security.png"
+            alt=""
+            className="h-88 w-7xl object-cover rounded"
           />
+          <div>
+            <p className="text-2xl md:text-2xl leading-9 mb-10">
+              Your home is your sanctuary, and Homeasy makes it safer than ever.
+              Our smart security solutions ensure you’re always in control.
+            </p>
+            {/*  <p className="text-2xl md:text-2xl leading-9 mb-10">
+            Real-Time Alerts – Get instant notifications of unusual activity.
+Smart Locks & Cameras – Monitor and secure your home remotely.
+Peace of Mind – Know your family and home are always protected.
+</p>*/}
+            <p className="text-xl md:text-xl leading-9 mb-10">
+              <span className="font-bold text-gray-800">
+                Real-Time Alerts
+              </span> – Get instant notifications of unusual activity.<br />
+              <span className="font-bold text-gray-800">
+                Smart Locks & Cameras
+              </span> – Monitor and secure your home remotely.<br />
+
+              <span className="font-bold text-gray-800">
+                Peace of Mind
+              </span> – Know your family and home are always protected.
+            </p>
+
+          </div>
         </figure>
 
         <div
@@ -179,23 +261,42 @@ export default function page() {
           className="mt-28 flex flex-col md:flex-row gap-12 items-start md:items-center justify-between"
         >
           <div className="flex items-start">
-            <h1 className="text-gray-500 text-5xl md:text-6xl mr-6">3</h1>
+            <h1 className="text-gray-500 text-5xl md:text-6xl mr-6">4</h1>
             <span className="text-4xl md:text-7xl">
-              Long-term <br className="hidden md:block" />
-              relationship
+              Designed Around You
             </span>
           </div>
-          <figure>
-            <img
-              src="https://cdn.prod.website-files.com/659d5e6e563605a98d408358/65d607e08ba8b48e8542e3ec_A7324E12-CF9A-4ECF-BF7B-0ADA69B50C4A%20Large.webp"
-              alt=""
-              className="h-72 w-xl object-cover rounded"
-            />
-          </figure>
         </div>
 
+        <figure
+          ref={(el) => (sectionsRef.current[7] = el)}
+          className="flex flex-col md:flex-row gap-10 mt-20"
+        >
+          {/* Text first (left) */}
+          <div className="mt-6 md:mt-0 md:w-1/2">
+            <br />
+            <p className="text-2xl md:text-2xl">
+              Technology should never feel complicated — it should feel natural.
+              That’s why Homeasy is built with simplicity, elegance, and user comfort at its core.
+            </p>
+            <br />
+            <p className="text-2xl md:text-xl leading-9 mb-10">
+              <span className="font-bold">Intuitive Design</span> – Easy-to-use interface for every age group.<br />
+              <span className="font-bold">Aesthetic Integration</span> – Smart devices that blend seamlessly with your interiors.<br />
+              <span className="font-bold">Personalized Living</span> – Create routines, moods, and automations that fit your lifestyle.
+            </p>
+          </div>
+
+          {/* Image second (right) */}
+          <img
+            src="\desgin.png"
+            alt=""
+            className="h-99 w-6xl object-cover rounded md:w-1/2"
+          />
+        </figure>
+
         {/* Enhanced & Responsive Section */}
-        <div
+        {/*<div
           ref={(el) => (sectionsRef.current[7] = el)}
           className="mt-20 flex flex-col md:flex-row gap-12 px-6 md:px-20 items-center justify-center"
         >
@@ -324,7 +425,7 @@ export default function page() {
               <span className="underline">Our work</span>.
             </p>
           </div>
-        </div>
+        </div>*/}
       </section>
     </main>
   );
