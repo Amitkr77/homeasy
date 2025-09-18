@@ -18,7 +18,7 @@ export default function Page() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData); // ✅ check this in DevTools Console
+    console.log("Form Data:", formData); 
   };
 
   return (
@@ -58,7 +58,7 @@ export default function Page() {
                 className='px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400'
               />
             </div>
-
+            
             {/* Phone Number */}
             <div className='flex flex-col gap-2'>
               <label className='text-sm font-semibold text-gray-700'>Phone Number *</label>
