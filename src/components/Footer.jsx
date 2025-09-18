@@ -55,14 +55,14 @@ function Footer() {
 </div>
 
       {/* Footer Links Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-12 text-sm m-auto max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm m-auto max-w-6xl">
         {/* Quick Links */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-300">Quick Links</h2>
           <ul className="space-y-2">
-            <li className="hover:text-blue-400 transition duration-300">
+           {/* <li className="hover:text-blue-400 transition duration-300">
               <Link href="/whyChoose">Work</Link>
-            </li>
+            </li> */}
             <li className="hover:text-blue-400 transition duration-300">
               <Link href="/about">About Us</Link>
             </li>
@@ -113,69 +113,67 @@ function Footer() {
        
     
     {/* Social Media Section (center in footer) */}
-    <div className="flex flex-col items-center space-y-3">
-      <h2 className="text-lg font-semibold text-gray-200">Follow Us</h2>
-      <div className="flex gap-6 text-2xl">
-        <a
-          href="https://www.linkedin.com/company/homeasyautomationiot/"
-          className="text-gray-100 hover:text-blue-500 transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Linkedin />
-        </a>
-        <a
-          href="https://www.facebook.com/homeasyautomation/"
-          className="text-gray-100 hover:text-blue-500 transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Facebook />
-        </a>
-        <a
-          href="https://instagram.com/homeasyautomation/"
-          className="text-gray-100 hover:text-blue-500 transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Instagram />
-        </a>
-           <a
-          href="https://youtube.com/@homeasyautomation"
-          className="text-gray-100 hover:text-blue-500 transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Youtube />
-        </a>
-
-      </div>
-    </div> 
-
-    {/* Subscribe Section (on right side) */}
-    <div className="space-y-3 text-center">
-      <h2 className="text-lg font-semibold text-gray-200">Stay Connected</h2>
-      <p className="text-white text-right">
-        Subscribe to our newsletter for updates, news, and insights.
-      </p>
-      <div className="flex flex-col gap-2">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-64 py-2 px-3 bg-gray-800 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        />
-        
-        <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-64 py-2 px-4 rounded-md transition duration-300">
-          Subscribe
-        </button>
-      </div>
+   <div className="flex flex-col items-center space-y-8 text-center">
+  {/* Subscribe Section */}
+  <div className="space-y-3">
+    <h2 className="text-lg font-semibold text-left text-gray-300">Stay Connected</h2>
+    <p className="text-white text-right md:text-left max-w-md">
+      Subscribe to our newsletter for updates, news, and insights.
+    </p>
+    <div className="flex flex-col gap-1">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="w-64 py-2 px-3 bg-gray-800 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      />
+      <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-64 py-2 px-4 rounded-md transition duration-300">
+        Subscribe
+      </button>
     </div>
   </div>
 
-
-
+  {/* Social Links Section */}
+  <div className="flex flex-col items-center space-y-2">
+   {/* <h2 className="text-lg font-semibold text-gray-200">Follow Us</h2> */}
+    <div className="flex gap-7 text-2xl">
+      <a
+        href="https://www.linkedin.com/company/homeasyautomationiot/"
+        className="text-gray-100 hover:text-blue-500 transition duration-300"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Linkedin />
+      </a>
+      <a
+        href="https://www.facebook.com/homeasyautomation/"
+        className="text-gray-100 hover:text-blue-500 transition duration-300"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Facebook />
+      </a>
+      <a
+        href="https://instagram.com/homeasyautomation/"
+        className="text-gray-100 hover:text-blue-500 transition duration-300"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Instagram />
+      </a>
+      <a
+        href="https://youtube.com/@homeasyautomation"
+        className="text-gray-100 hover:text-blue-500 transition duration-300"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Youtube />
+      </a>
+    </div>
+  </div>
+</div>
+</div>
       {/* Footer Bottom: Legal Section */}
-      <div className="text-center text-sm mt-12 border-t border-gray-600 pt-6">
+      <div className="text-center text-sm mt-8 border-t border-gray-600 pt-6">
         <p className="text-gray-400">© 2025 homeasy. All Rights Reserved.</p>
       </div>
     </footer>
@@ -183,3 +181,4 @@ function Footer() {
 }
 
 export default Footer;
+
