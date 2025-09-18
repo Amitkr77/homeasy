@@ -30,11 +30,9 @@ export default function InteractiveSection() {
     },
   ];
 
-
-
   return (
     <section className="py-20  text-gray-800 min-h-screen mt-30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl ">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 font-sans">
@@ -48,7 +46,7 @@ export default function InteractiveSection() {
         </div>
 
         {/* Hero Video */}
-        <div  className=" mb-20 relative  shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div  className="mb-20 relative  shadow-xl hover:shadow-2xl transition-shadow duration-300">
           <div  className="w-full aspect-w-16 aspect-h-9 ">
             <video
               src="/Video/Homeasy_Video.mp4"
@@ -56,10 +54,10 @@ export default function InteractiveSection() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cove "
+              className="w-full h-full object-cover rounded-4xl "
               aria-label="Homeasy app showcase video"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent rounded-4xl"></div>
           </div>
           <span className="absolute bottom-5 right-4 text-white text-sm font-medium bg-blue-500/70 px-3 py-1 rounded-full animate-float">
             Discover Smart Living
