@@ -72,7 +72,7 @@ export default async function handler(req, res) {
         devices_owned__c: devicesOwned.join(", "),
         platform_preference__c: safePlatforms,
         beta_interest__c: betaTester ? "true" : "false",
-        communication_pref__c: safeCommPrefs, // ✅ semicolon-separated!
+        communication_pref__c: safeCommPrefs, 
         comments__c: comments,
         consent__c: consent ? "true" : "false",
         service_interest__c: safeService,
