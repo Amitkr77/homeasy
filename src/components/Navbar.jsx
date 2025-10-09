@@ -31,6 +31,7 @@ export default function Navbar() {
     { label: "Why Homeasy.", path: "/whyChoose" },
     { label: "About Us.", path: "/about" },
     { label: "Contact Us.", path: "/contact" },
+    { label: "Journey.", path: "/journey" },
   ];
 
   return (

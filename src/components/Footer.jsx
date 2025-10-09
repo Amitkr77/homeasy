@@ -110,8 +110,6 @@ function Footer() {
           <p className="text-gray-100">info@homeasy.io</p>
         </div> */}
 
-       
-    
     {/* Social Media Section (center in footer) */}
    <div className="flex flex-col items-center space-y-8 text-center">
   {/* Subscribe Section */}
@@ -129,10 +127,10 @@ function Footer() {
       <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-64 py-2 px-4 rounded-md transition duration-300">
         Subscribe
       </button>
+      </div>
     </div>
-  </div>
-
-  {/* Social Links Section */}
+    
+    {/* Social Links Section */}
   <div className="flex flex-col items-center space-y-2">
    {/* <h2 className="text-lg font-semibold text-gray-200">Follow Us</h2> */}
     <div className="flex gap-7 text-2xl">
@@ -179,6 +177,7 @@ function Footer() {
     </footer>
   );
 }
+
 
 export default Footer;
 
