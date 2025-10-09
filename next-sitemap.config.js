@@ -1,4 +1,4 @@
 module.exports = {
-    siteUrl: 'https://homeasy-blond.vercel.app/',
+    siteUrl: 'https://www.homeasy.io/',
     generateRobotsTxt: true,
 };
