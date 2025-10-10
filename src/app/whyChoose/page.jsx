@@ -97,8 +97,6 @@ export default function page() {
         </div>
       </div>
 
-
-
       {/* ✅ MISSION SECTION */}
       <section ref={(el) => (sectionsRef.current[1] = el)} aria-labelledby="our-mission" className="w-full max-w-9xl mx-auto flex flex-col md:flex-row justify-center items-center md:items-stretch px-6 md:px-20 py-20 gap-5" >
         <figure> <img src="\front.png"
@@ -430,5 +428,6 @@ Peace of Mind – Know your family and home are always protected.
     </main>
   );
 }
+
 
 

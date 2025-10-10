@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { CustomCursorProvider } from "@/context/CustomCursorContext";
+import Googleanalytics from "@/components/Googleanalytics";
+import Clarity from "@/components/Clarity";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +33,9 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <main>
-          <CustomCursorProvider>{children}</CustomCursorProvider>
+          {children}
+          <Googleanalytics/>
+          <Clarity/>
         </main>
         <Footer />
       </body>
