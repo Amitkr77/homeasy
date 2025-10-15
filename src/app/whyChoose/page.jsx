@@ -45,7 +45,7 @@ export default function page() {
       {/* ✅ HEADER SECTION */}
       <header
         ref={(el) => (sectionsRef.current[0] = el)}
-        className="container h-screen text-black flex flex-col md:flex-row items-center relative px-8 md:px-10"
+        className="container h-200 text-black flex flex-col md:flex-row items-center relative px-8 md:px-10"
       >
         <h1 className="text-5xl absolute bottom-10 md:bottom-37 md:text-9xl font-medium z-50 leading-tight mt-100 md:mt-100 text-center md:text-left">
           The Future of{" "}
@@ -56,24 +56,87 @@ export default function page() {
           </span>{" "}
           Today. <br />
           {" "}
+          <p className="mt-4 md:mt-6 text-md md:text-lg text-gray-600 tracking-wide bg-blue-50 backdrop-blur-md p-4 rounded-xl shadow-md transition-all duration-300 hover:bg-white/50">
+      At <span className="font-semibold text-blue-600">Homeasy</span>, we believe a smart home isn’t just about gadgets — it’s about<br/>
+      creating a lifestyle that is seamless, secure, and truly connected.
+    </p>
 
-          <p className="text-lg md:text-xl leading-8 text-gray-500 tracking-wide">
+          {/* <p className="text-lg md:text-xl leading-9 text-gray-500 tracking-wide">
             At Homeasy, we believe a smart home isn’t just about gadgets — it’s about<br />
             creating a lifestyle that is seamless, secure, and truly connected. <br />
-          </p>
+          </p> */}
           <br className="hidden md:block" />
-        </h1>
-        <figure className="absolute bottom-50 md:bottom-72 right-0 md:right-0">
-          <img
+          </h1>
+          <figure className="absolute bottom-50 md:bottom-72 right-0 md:right-0 translate-x-10">
+            <img
             src="\oneapp.png"
             alt="Smart home real estate illustration"
-            className="w-120 h-100 md:w-110 md:h-96 object-cover rounded-lg"
-          />
-        </figure>
-      </header>
+            className="w-120 h-100 md:w-115 md:h-108 object-cover rounded-lg"/>
+            </figure>
+            </header>
 
       {/* ✅ WHY CHOOSE US SECTION */}
-      <div className="px-6 md:px-20 py-20 -mt-10 bg-gradient-to-r from-blue-100 via-white to-blue-100 text-center">
+           <div className="px-6 md:px-20 py-20 -mt-10 bg-gradient-to-r from-blue-100 via-white to-blue-100 text-center">
+            <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 tracking-wider">
+              Why Choose <span className="text-blue-600">Homeasy?</span>
+              </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+    {/* Card 1 */}
+    <article className="group relative p-8 bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="flex flex-col items-center space-y-4 relative z-10">
+        <div className="p-4 bg-blue-100 text-blue-600 rounded-full text-2xl group-hover:scale-110 transition-transform duration-300">
+          ⚙️
+        </div>
+        <h3 className="text-xl font-semibold text-gray-700">
+          A complete ecosystem-from hardware to software.
+        </h3>
+      </div>
+    </article>
+
+    {/* Card 2 */}
+    <article className="group relative p-8 bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="flex flex-col items-center space-y-4 relative z-10">
+        <div className="p-4 bg-blue-100 text-blue-600 rounded-full text-2xl group-hover:scale-110 transition-transform duration-300">
+          📱
+        </div>
+        <h3 className="text-xl font-semibold text-gray-700">
+          A unified app that works with all major smart device brands.
+        </h3>
+      </div>
+    </article>
+
+    {/* Card 3 */}
+    <article className="group relative p-8 bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="flex flex-col items-center space-y-4 relative z-10">
+        <div className="p-4 bg-blue-100 text-blue-600 rounded-full text-2xl group-hover:scale-110 transition-transform duration-300">
+          🤝
+        </div>
+        <h3 className="text-xl font-semibold text-gray-700">
+          Expert support from consultation to installation.
+        </h3>
+      </div>
+    </article>
+
+    {/* Card 4 */}
+    <article className="group relative p-8 bg-white rounded-2xl shadow-lg border border-blue-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="flex flex-col items-center space-y-4 relative z-10">
+        <div className="p-4 bg-blue-100 text-blue-600 rounded-full text-2xl group-hover:scale-110 transition-transform duration-300">
+          🚀
+        </div>
+        <h3 className="text-xl font-semibold text-gray-700">
+          A future-proof solution designed to evolve with technology.
+        </h3>
+      </div>
+    </article>
+  </div>
+</div>
+
+      {/*<div className="px-6 md:px-20 py-20 -mt-10 bg-gradient-to-r from-blue-100 via-white to-blue-100 text-center">
         <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
           Why Choose Homeasy?
         </h2>
@@ -95,7 +158,7 @@ export default function page() {
             <h3 className="text-xl font-semibold mb-4">A future-proof solution  designed to evolve with technology.</h3>
           </article>
         </div>
-      </div>
+      </div> */}
 
       {/* ✅ MISSION SECTION */}
       <section ref={(el) => (sectionsRef.current[1] = el)} aria-labelledby="our-mission" className="w-full max-w-9xl mx-auto flex flex-col md:flex-row justify-center items-center md:items-stretch px-6 md:px-20 py-20 gap-5" >

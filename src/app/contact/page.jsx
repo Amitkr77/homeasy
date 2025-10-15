@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Location from "@/components/Location";
 import FreeConsultationModal from "@/components/FreeConsultationModal";
+import ChatBot from "@/components/ui/ChatBot";
 import Link from "next/link";
 
 
@@ -175,6 +176,7 @@ export default function page() {
           </button>
         </div>
       </section> */}
+      <ChatBot />
     </div>
   );
 }

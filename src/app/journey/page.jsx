@@ -5,7 +5,7 @@ import { Rocket, Lightbulb, Users, Wrench, Award, Building2, ShieldCheck, Zap } 
 
 const journeyData = [
   {
-    year: "2014",
+    year: "2014", 
     title: "The Spark",
     description:
       "A small group of engineers and dreamers met at a tech conference, united by a vision: to make homes and businesses smarter, safer, and more efficient through automation.",
@@ -114,9 +114,10 @@ export default function JourneySection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: idx * 0.2 }}
-              className="w-56 h-40 object-cover rounded-2xl shadow-lg border-4 border-blue-100"
+              className="w-80 h-50 object-cover rounded-2xl shadow-lg border-4 border-blue-100"
             />
           </div>
+          
           {/* Timeline and icon */}
           <div className="md:col-span-1 flex flex-col items-center relative">
             {idx !== journeyData.length - 1 && (
@@ -131,6 +132,7 @@ export default function JourneySection() {
               {item.icon}
             </motion.span>
           </div>
+          
           {/* Content right */}
           <div className="md:col-span-4 flex flex-col justify-center">
             <motion.div
@@ -147,8 +149,10 @@ export default function JourneySection() {
           </div>
         </>
       ) : (
+
         /* Odd: Content left, Image right */
         <>
+
           {/* Content left */}
           <div className="md:col-span-4 flex flex-col justify-center">
             <motion.div
@@ -177,6 +181,7 @@ export default function JourneySection() {
               {item.icon}
             </motion.span>
           </div>
+
           {/* Image right */}
           <div className="md:col-span-4 flex justify-center items-center">
             <motion.img
@@ -185,7 +190,7 @@ export default function JourneySection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: idx * 0.2 }}
-              className="w-56 h-40 object-cover rounded-2xl shadow-lg border-4 border-blue-100"
+              className="w-80 h-50 object-cover rounded-2xl shadow-lg border-4 border-blue-100"
             />
           </div>
         </>
