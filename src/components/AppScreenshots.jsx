@@ -40,11 +40,11 @@ export default function AppScreenshots() {
         </div>
 
         {/* Screenshots Scroll Section */}
-        <div className="relative  snap-x snap-mandatory flex space-x-2 lg:space-x-4 pb-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 ">
+        <div className="relative  snap-x snap-mandatory flex space-x-2 lg:space-x-4 pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 ">
           {screens.map((screen, index) => (
             <div
               key={index}
-              className="snap-center flex-shrink-0 w-full sm:w-80 lg:w-96 group relative "
+              className="snap-center flex-shrink-0 w-64 sm:w-80 lg:w-96 group relative "
             >
               <div
                 className={`rounded-2xl p-5 transition-all duration-300 animate-slide-in bg-transparent`}
@@ -77,7 +77,7 @@ export default function AppScreenshots() {
 
               {/* Flow Arrow */}
               {index < screens.length - 1 && (
-                <div className="absolute top-1/2 right-0 transform translate-x-6 -translate-y-1/2 hidden sm:block">
+                <div className="absolute top-1/2 right-0 transform translate-x-2 -translate-y-1/2 hidden sm:block">
                   <svg
                     className="w-8 h-8 text-gray-900"
                     fill="none"
