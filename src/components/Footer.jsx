@@ -114,26 +114,23 @@ function Footer() {
    <div className="flex flex-col items-center space-y-8 text-center">
   {/* Subscribe Section */}
   <div className="space-y-3">
-    <h2 className="text-lg font-semibold text-left text-gray-300">Stay Connected</h2>
-    <p className="text-white text-right md:text-left max-w-md">
-      Subscribe to our newsletter for updates, news, and insights.
-    </p>
-    <div className="flex flex-col gap-1">
+    <h2 className="text-lg font-semibold text-left text-gray-300">Subscribe to our newsletter</h2>
+    <div className="flex flex-col gap-1.5">
       <input
         type="email"
         placeholder="Enter your email"
-        className="w-64 py-2 px-3 bg-gray-800 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className="w-60 py-2 px-3 bg-blue-200 text-black placeholder-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
       />
-      <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-64 py-2 px-4 rounded-md transition duration-300">
+      <button className="bg-slate-700 hover:bg-blue-400 text-white font-semibold w-60 py-2 px-4 rounded-md transition duration-300">
         Subscribe
-      </button>
+      </button> 
       </div>
     </div>
     
     {/* Social Links Section */}
   <div className="flex flex-col items-center space-y-2">
    {/* <h2 className="text-lg font-semibold text-gray-200">Follow Us</h2> */}
-    <div className="flex gap-7 text-2xl">
+    <div className="flex gap-6.5 text-2xl mt-4">
       <a
         href="https://www.linkedin.com/company/homeasyautomationiot/"
         className="text-gray-100 hover:text-blue-500 transition duration-300"
@@ -171,7 +168,7 @@ function Footer() {
 </div>
 </div>
       {/* Footer Bottom: Legal Section */}
-      <div className="text-center text-sm mt-8 border-t border-gray-600 pt-6">
+      <div className="text-center text-sm mt-6 border-t border-gray-600 pt-6">
         <p className="text-gray-400">© 2025 homeasy. All Rights Reserved.</p>
       </div>
     </footer>

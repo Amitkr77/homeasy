@@ -11,8 +11,7 @@ export default function AppScreenshots() {
     },
     {
       title: "Dashboard",
-      description:
-        "Personalized dashboard with user name, details, rooms, and devices.",
+      description:"Personalized dashboard with user name, details, rooms, and devices.",
       img: "./phone/Dashboard.png",
       color: "bg-[#C81D3F]",
       icon : "📈"
@@ -41,26 +40,26 @@ export default function AppScreenshots() {
         </div>
 
         {/* Screenshots Scroll Section */}
-        <div className="relative  snap-x snap-mandatory flex space-x-6 lg:space-x-8 pb-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 ">
+        <div className="relative  snap-x snap-mandatory flex space-x-2 lg:space-x-4 pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 ">
           {screens.map((screen, index) => (
             <div
               key={index}
-              className="snap-center flex-shrink-0 w-full sm:w-80 lg:w-96 group relative "
+              className="snap-center flex-shrink-0 w-64 sm:w-80 lg:w-96 group relative "
             >
               <div
                 className={`rounded-2xl p-5 transition-all duration-300 animate-slide-in bg-transparent`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Image Container */}
-                <div className="rounded-4xl overflow-hidden mb-4 h-auto border-4 border-black">
+                <div className="rounded-4xl overflow-hidden mb-4 h-auto w-68 border-4 border-black">
                   <img
                     src={screen.img}
                     alt={`${screen.title} screen`}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="bg-blue-400/10 dark:bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="flex items-center gap-4 mb-4">
+               <div className="bg-blue-400/10 dark:bg-white/10 backdrop-blur-sm p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 max-w-69 mr-auto">
+                  <div className="flex items-center gap-3 mb-3">
                     {/* Replace with actual icon */}
                     <div className="p-3 bg-indigo-100 text-indigo-600 rounded-full">
                       {/* <LoginIcon className="w-6 h-6" /> */}
@@ -78,7 +77,7 @@ export default function AppScreenshots() {
 
               {/* Flow Arrow */}
               {index < screens.length - 1 && (
-                <div className="absolute top-1/2 right-0 transform translate-x-8 -translate-y-1/2 hidden sm:block">
+                <div className="absolute top-1/2 right-0 transform translate-x-2 -translate-y-1/2 hidden sm:block">
                   <svg
                     className="w-8 h-8 text-gray-900"
                     fill="none"
