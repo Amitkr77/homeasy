@@ -173,7 +173,7 @@ export default function Page() {
           <span className="text-blue-500">Welcome to Homeasy.</span>
         </h1>
       </header>
-
+      
       {/* Mission Statement */}
       <section
         ref={missionRef}
@@ -192,89 +192,98 @@ export default function Page() {
         </h2>
       </section>
 
-      {/* ✅ IDEA SECTION */}
-      <section
-        ref={ideasRef}
-        aria-labelledby="ideas-heading"
-        className="px-6 md:px-20 py-20 bg-blue-100 overflow-hidden"
-      >
-        <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
-          Our Promise
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-            <h3 className="text-xl mb-4">Affordable solutions for every household
-            </h3>
-            {/* <p className="text-lg">
-              
-            </p> */}
-          </article>
-          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-            <h3 className="text-xl mb-4">A secure and connected home you can trust</h3>
-            {/* <p className="text-lg">
-             
-            </p>*/}
-          </article>
-          <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-            <h3 className="text-xl mb-4">  Simple setup and reliable performance</h3>
-            {/*  <p className="text-lg">
-              We don't just build listings — we create trusted spaces to start
-              your next chapter.
-            </p> */}
-          </article>
-        </div>
-      </section>
 
-
-      {/* ✅ IDEA SECTION */}
-      <section
-        ref={ideasRef}
-        aria-labelledby="ideas-heading"
-        className="px-6 md:px-20 py-20 bg-blue-50 overflow-hidden"
-      >
-        <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
-          Our Vision
-        </h2>
-        <div className="gap-10 text-center">
-          <article>
-            <h3 className="text-xl mb-4"> To become India’s most trusted home automation company, empowering every household with intelligent, secure, and sustainable living solutions.
-            </h3>
-          </article>
-        </div>
-      </section>
-
-
-      {/* ✅ IDEA SECTION */}
-      
-      <section
-  ref={ideasRef}
-  aria-labelledby="ideas-heading"
-  className="px-6 md:px-20 py-20 bg-blue-100 overflow-hidden"
+{/* VISION SECTION */}
+<section
+  aria-labelledby="vision-heading"
+  className="px-6 md:px-20 py-20 bg-gradient-to-br from-blue-100 via-white to-blue-100 overflow-hidden"
 >
-  <h2 className="text-5xl md:text-7xl font-bold text-center mb-16 tracking-wider">
+  <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-16 tracking-wider drop-shadow-lg">
+    Our Vision
+  </h2>
+  <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+    <div className="relative flex-1 max-w-2xl bg-white/80 rounded-3xl shadow-xl p-10 border-l-8 border-blue-200 hover:scale-105 transition-transform duration-300">
+      <div className="absolute -left-8 top-8 h-8 w-8 bg-blue-400 rounded-full border-4 border-white shadow-lg"></div>
+      <h3 className="text-2xl font-bold mb-4 text-blue-700">
+        To become India’s most trusted home automation company,
+      </h3>
+      <p className="text-gray-700 text-lg">
+        Empowering every household with intelligent, secure, and sustainable living solutions.
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* PROMISE SECTION */}
+<section
+  aria-labelledby="promise-heading"
+  className="px-6 md:px-20 py-20 bg-gradient-to-br from-blue-100 via-white to-blue-50 overflow-hidden"
+>
+  <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-16 tracking-wider drop-shadow-lg">
+    Our Promise
+  </h2>
+  <div className="flex flex-col md:flex-row gap-10 justify-center items-stretch">
+    {[
+      {
+        title: "Affordable solutions for every household",
+        color: "from-green-200 to-blue-100",
+        highlight: "Affordable",
+      },
+      {
+        title: "Secure and connected home you can trust",
+        color: "from-blue-200 to-blue-50",
+        highlight: "Secure",
+      },
+      {
+        title: "Simple setup and reliable performance",
+        color: "from-yellow-100 to-blue-100",
+        highlight: "Simple",
+      },
+    ].map((item, idx) => (
+      <div
+        key={idx}
+        className={`flex-1 bg-gradient-to-br ${item.color} rounded-3xl shadow-xl p-8 m-2 transition-transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl duration-300 border-t-4 border-blue-200`}
+      >
+        <h3 className="text-2xl font-bold mb-2">
+          <span className="bg-blue-100 px-2 py-1 rounded-xl text-blue-700">{item.highlight}</span>{" "}
+          {item.title.replace(item.highlight, "")}
+        </h3>
+        <div className="h-1 w-16 bg-blue-300 rounded-full my-4 mx-auto"></div>
+        <p className="text-gray-600 text-lg">
+          {idx === 0 && "Smart living shouldn’t be a luxury. We make it accessible for all."}
+          {idx === 1 && "Your privacy and safety are at the heart of every feature."}
+          {idx === 2 && "Easy to install, effortless to use, and built to last."}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* MISSION SECTION */}
+<section
+  aria-labelledby="mission-heading"
+  className="px-6 md:px-20 py-20 bg-gradient-to-br from-blue-100 via-white to-blue-50 overflow-hidden"
+>
+  <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-16 tracking-wider drop-shadow-lg">
     Our Mission
   </h2>
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
-    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-      <h3 className="text-xl text-center mb-4">
-        To make smart living simple, reliable, and affordable for all.
-      </h3>
-    </article>
-    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-      <h3 className="text-xl mb-4">
-        To integrate diverse devices and technologies into one seamless ecosystem.
-      </h3>
-    </article>
-    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-      <h3 className="text-xl mb-4">
-        To collaborate with industry partners to deliver futuristic yet practical home solutions.
-      </h3>
-    </article>
-    <article className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
-      <h3 className="text-xl mb-4">
-        To continuously innovate while ensuring privacy, security, and user-friendliness.
-      </h3>
-    </article>
+  <div className="relative flex flex-col md:flex-row gap-10 justify-center items-stretch">
+    {[
+      "To make smart living simple, reliable, and affordable for all.",
+      "To integrate diverse devices and technologies into one seamless ecosystem.",
+      "To collaborate with industry partners to deliver futuristic yet practical home solutions.",
+      "To continuously innovate while ensuring privacy, security, and user-friendliness.",
+    ].map((text, idx) => (
+      <div
+        key={idx}
+        className={`flex-1 bg-white/90 rounded-3xl shadow-xl p-8 m-2 border-l-8 border-blue-200 relative transition-transform hover:scale-105 hover:shadow-2xl duration-300`}
+      >
+        <div className="absolute -left-8 top-8 h-8 w-8 bg-blue-400 rounded-full border-4 border-white shadow-lg"></div>
+        <h3 className="text-xl font-semibold text-blue-700 mb-2">{text}</h3>
+      </div>
+    ))}
+    {/* Timeline vertical line for desktop */}
+    <div className="hidden md:block absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-blue-200 to-blue-400 rounded-full" style={{ left: '-32px', height: '100%' }}></div>
   </div>
 </section>
 
@@ -329,117 +338,114 @@ export default function Page() {
       </section>
 
       {/* ✅ LEADERSHIP SECTION */}
-       <section
-        ref={leadershipRef}
-        className="px-6 md:px-20 py-20 bg-white text-center"
-        aria-labelledby="leadership-heading"
+<section
+  ref={leadershipRef}
+  className="px-6 md:px-20 py-20 bg-white text-center"
+  aria-labelledby="leadership-heading"
+>
+  <h2 className="text-4xl md:text-5xl font-bold mb-12">
+    Our Leadership
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-10">
+    {leaders.map((leader, idx) => (
+      <div
+        key={idx}
+        className="bg-white rounded-2xl shadow-md p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-10">Our Leadership</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-10 px-6">
-          {leaders.map((leader, idx) => (
-            <div
-              key={idx}
-              className="bg-white transition-all duration-300 ease-in-out"
-            >
-              <div className="flex flex-col items-center text-center">
-                {/* Leader Image */}
-      <div className="relative  mb-6 overflow-hidden ">
-                  <img
-                    src={leader.image}
-                    alt=""
-                    className=" h-56 rounded-full"
-                  />
-                </div>
-                <div className="p-3">
-                  {/* Leader Info */}
-       <h3 className="flex flex-col font-bold items-center text-m text-center p-4 bg-white shadow-lg rounded-3xl">
-                    {leader.name}
-                  </h3>
-                  <p className="text-blue-600 text-xl mb-4">{leader.title}</p>
-                  <p className="text-gray-600 text-s">{leader.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col items-center text-center">
+          {/* Leader Image */}
+          <div className="w-36 h-36 mb-4 rounded-full overflow-hidden border-2 border-blue-400 transition-transform duration-300 hover:scale-105">
+            <img
+              src={leader.image}
+              alt={leader.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Leader Info */}
+          <h3 className="text-lg md:text-xl font-semibold mb-1">{leader.name}</h3>
+          <p className="text-blue-600 text-md md:text-lg mb-3">{leader.title}</p>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            {leader.desc}
+          </p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+      
       {/* ✅ ADVANTAGE SECTION */}
-      <section className="px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 text-center">
-        <h2 className="text-4xl md:text-6xl font-bold mb-6">
-          Discover the Homeasy Advantage
-        </h2>
-        <p className="text-lg max-w-4xl mx-auto mb-10 text-gray-700">
-          Why choose Homeasy? Because where technology meets comfort, and homes truly become smart.
+      <section className="px-6 md:px-20 py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 text-center relative overflow-hidden">
+  {/* Decorative background shapes */}
+  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-r from-blue-200 via-blue-100 to-blue-300 opacity-30 blur-3xl rounded-full pointer-events-none animate-pulse"></div>
+  <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
+    Discover the Homeasy Advantage
+  </h2>
+  <p className="text-lg max-w-4xl mx-auto mb-10 text-gray-700">
+    Why choose Homeasy? Because where technology meets comfort, and homes truly become smart.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left relative z-10">
+    {[
+      {
+        title: "Real-Time Compatibility",
+        desc: "Our system seamlessly works with devices from multiple brands, ensuring you don’t need to replace existing gadgets to go smart.",
+        color: "from-blue-100 to-blue-50",
+      },
+      {
+        title: "Personalized Living",
+        desc: "From mood lighting to energy-saving schedules, our platform learns your lifestyle and adapts to make your everyday living more efficient and enjoyable.",
+        color: "from-green-100 to-blue-50",
+      },
+      {
+        title: "Secure & Seamless",
+        desc: "Every feature is designed with data privacy and reliability at its core, giving you complete peace of mind.",
+        color: "from-yellow-100 to-blue-50",
+      },
+      {
+        title: "Expert Support & Guidance",
+        desc: "Whether you’re a homeowner, architect, or builder, our expert team helps you design the right solution — from planning to installation and beyond.",
+        color: "from-blue-100 to-green-50",
+      },
+      {
+        title: "Smart Integration, Made Simple",
+        desc: "Control lights, appliances, security cameras, and more — all from one easy-to-use platform. No technical know-how required.",
+        color: "from-pink-100 to-blue-50",
+      },
+      {
+        title: "Future-Ready Solutions",
+        desc: "With continuous innovation, we ensure your home is not just smart today, but future-ready for tomorrow’s technology.",
+        color: "from-purple-100 to-blue-50",
+      },
+    ].map((item, idx) => (
+      <article
+        key={idx}
+        className={`
+          group relative bg-gradient-to-br ${item.color}
+          p-8 rounded-2xl shadow-xl border-t-4 border-blue-200
+          hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300
+          overflow-hidden
+        `}
+      >
+        {/* Animated floating icon circle */}
+        <span className="absolute -top-6 right-6 w-14 h-14 rounded-full bg-blue-100 opacity-60 blur-lg group-hover:scale-110 transition-transform duration-500"></span>
+        <h3 className="text-xl font-bold mb-3 text-blue-700 group-hover:text-blue-500 transition-colors">
+          {item.title}
+        </h3>
+        <div className="h-1 w-12 bg-blue-300 rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
+        <p className="text-gray-700 text-base group-hover:text-blue-800 transition-colors duration-300">
+          {item.desc}
         </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Real-Time Compatibility
-            </h3>
-            <p>
-              Our system seamlessly works with devices from multiple brands, ensuring you don’t need to replace existing gadgets to go smart.
-            </p>
-          </article>
-
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Personalized Living
-            </h3>
-            <p>
-              From mood lighting to energy-saving schedules, our platform learns your lifestyle and adapts to make your everyday living more efficient and enjoyable.
-            </p>
-          </article>
-
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Secure & Seamless
-            </h3>
-            <p>
-              Every feature is designed with data privacy and reliability at its core, giving you complete peace of mind.
-            </p>
-          </article>
-
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Expert Support & Guidance
-            </h3>
-            <p>
-              Whether you’re a homeowner, architect, or builder, our expert team helps you design the right solution — from planning to installation and beyond.
-            </p>
-          </article>
-
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Smart Integration, Made Simple
-            </h3>
-            <p>
-              Control lights, appliances, security cameras, and more — all from one easy-to-use platform. No technical know-how required.
-            </p>
-          </article>
-
-          <article className="bg-white outline p-6 shadow-md rounded-xl 
-                        hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-100 hover:to-blue-50 
-                        active:scale-95 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-blue-600">
-              Future-Ready Solutions
-            </h3>
-            <p>
-              With continuous innovation, we ensure your home is not just smart today, but future-ready for tomorrow’s technology.
-            </p>
-          </article>
-        </div>
-      </section>
+        {/* Animated badge on hover */}
+        <span className="absolute bottom-6 right-6 bg-blue-200 text-blue-700 text-xs px-3 py-1 rounded-full shadow opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-500">
+          {idx % 2 === 0 ? "Smart" : "Easy"}
+        </span>
+      </article>
+    ))}
+  </div>
+</section>
     </section>
   );
 }

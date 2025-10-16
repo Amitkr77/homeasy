@@ -73,7 +73,6 @@ export default function PrivacyPolicyPage() {
           </ul>
        
         <h2 className="text-2xl font-semibold text-blue-800">3. Consent</h2>
-       
             <ul className="list-disc list-inside ml-4">
               <li>
           By using our Services, you expressly consent to the collection and processing of your personal data.
@@ -81,22 +80,20 @@ export default function PrivacyPolicyPage() {
           <li>
           You may withdraw consent at any time by contacting us (see Section 10). However, withdrawal may affect
           our ability to provide Services.
-          </li></ul>
+          </li>
+          </ul>
        
-
         <h2 className="text-2xl font-semibold text-blue-800">4. Data Retention</h2>
-                   <ul className="list-disc list-inside ml-4">
-              <li>
+          <ul className="list-disc list-inside ml-4">
+          <li>
           We retain personal information only as long as necessary to fulfill the purposes outlined in this Policy,
           comply with legal requirements, or resolve disputes.</li>
           <li> Upon request, we will delete or anonymize your personal
           data, unless retention is required under law.
           </li>
-            </ul>
+          </ul>
        
-
         <h2 className="text-2xl font-semibold text-blue-800">5. Data Sharing & Disclosure</h2>
-       
           We do not sell your personal information. We may share your data only with:
           <ul className="list-disc list-inside ml-4">
             <li>Service Providers: Payment processors, cloud hosting, analytics partners.</li>
@@ -106,13 +103,14 @@ export default function PrivacyPolicyPage() {
           </ul>
        
         <h2 className="text-2xl font-semibold text-blue-800">6. Data Security</h2>
-            <ul className="list-disc list-inside ml-4">
-              <li>
+         <ul className="list-disc list-inside ml-4">
+          <li>
           We adopt reasonable security practices and procedures as mandated under Rule 8 of the SPDI Rules, including encryption, firewalls, and secure servers.
           </li>
           <li>
-              While we strive to protect your data, no method of electronic storage or transmission is 100% secure.
-              </li></ul>
+            While we strive to protect your data, no method of electronic storage or transmission is 100% secure.
+            </li>
+            </ul>
 
         <h2 className="text-2xl font-semibold text-blue-800">7. User Rights</h2>
           As per applicable law, you have the right to:
@@ -126,7 +124,6 @@ export default function PrivacyPolicyPage() {
           <li>Request a copy of your personal data in a portable format.</li>
           </ul>
           <p>To exercise your rights, you may contact us at the details provided in Section 10.</p>   
-
 
         <h2 className="text-2xl font-semibold text-blue-800">8. Children’s Privacy</h2>
         <p>
@@ -157,8 +154,8 @@ export default function PrivacyPolicyPage() {
           the right to amend or update this policy at any time. Changes will be posted on our website, and
           continued use of our services will be deemed as acceptance.
         </p>
-
       </div>
     </div>
   );
-}
+} 
+

@@ -183,14 +183,9 @@ export default function Page() {
               )}
             </div>
 
-            {/* Phone */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="phone"
-                className="text-sm font-semibold text-gray-700"
-              >
-                Phone Number *
-              </label>
+            {/* Phone Number */}
+            <div className='flex flex-col gap-2'>
+              <label className='text-sm font-semibold text-gray-700'>Phone Number *</label>
               <Input
                 id="phone"
                 {...register("phone")}
