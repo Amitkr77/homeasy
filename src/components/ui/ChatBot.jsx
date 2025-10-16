@@ -67,7 +67,7 @@ const chatbotData = {
         },
         {
           "question": "How can I contact customer support?",
-          "answer": "You can reach our support team 24/7 via live chat, email at support@smartai.com, or by calling +91-99999-88888."
+          "answer": "You can reach our support team 24/7 via live chat, email at info@homeasy.io, or by calling +91 9117379099."
         },
         {
           "question": "Is there a warranty on devices?",
