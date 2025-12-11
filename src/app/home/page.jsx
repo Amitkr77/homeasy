@@ -1,5 +1,21 @@
 import React from "react";
-import { ArrowRight, AudioLinesIcon, Cctv, Lightbulb, Mail, Settings2, Speaker, Star,Thermometer, Zap,HouseWifi,CirclePlay } from "lucide-react";
+import {
+  ArrowRight,
+  AudioLinesIcon,
+  Cctv,
+  Lightbulb,
+  Mail,
+  Settings2,
+  Speaker,
+  Star,
+  Thermometer,
+  Zap,
+  HouseWifi,
+  CirclePlay,
+  Globe,
+  Share2,
+  Facebook
+} from "lucide-react";
 
 const products = [
   {
@@ -31,10 +47,10 @@ const products = [
 export default function page() {
   return (
     <section className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display antialiased transition-colors duration-200">
-       <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e5e7eb] dark:border-[#243b47] bg-surface-light/90 dark:bg-[#111c22]/90 backdrop-blur-md px-6 py-3 lg:px-10">
+      <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e5e7eb] dark:border-[#243b47] bg-surface-light/90 dark:bg-[#111c22]/90 backdrop-blur-md px-6 py-3 lg:px-10">
         <div className="flex items-center gap-4 text-text-light dark:text-white">
           <div className="size-8 text-primary flex items-center justify-center">
-            <HouseWifi className="material-symbols-outlined text-3xl"/>
+            <HouseWifi className="material-symbols-outlined text-3xl" />
           </div>
           <h2 className="text-xl font-bold leading-tight tracking-[-0.015em]">
             Homeasy
@@ -103,8 +119,7 @@ export default function page() {
                     Shop Now
                   </button>
                   <button className="flex cursor-pointer items-center justify-center rounded-full h-12 px-8 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/30 text-white text-base font-bold transition-transform hover:scale-105">
-                    <CirclePlay className="material-symbols-outlined mr-2 text-xl"/>
-                     
+                    <CirclePlay className="material-symbols-outlined mr-2 text-xl" />
                     Watch Demo
                   </button>
                 </div>
@@ -132,8 +147,7 @@ export default function page() {
               href="#"
             >
               View All Categories{" "}
-               <ArrowRight className="material-symbols-outlined text-sm"/>
-             
+              <ArrowRight className="material-symbols-outlined text-sm" />
             </a>
           </div>
         </section>
@@ -155,8 +169,7 @@ export default function page() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                   
-                    <Lightbulb className="material-symbols-outlined text-3xl mb-1"/>
+                    <Lightbulb className="material-symbols-outlined text-3xl mb-1" />
                   </div>
                 </div>
                 <div>
@@ -182,7 +195,7 @@ export default function page() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                   <Cctv className="material-symbols-outlined text-3xl mb-1"/>
+                    <Cctv className="material-symbols-outlined text-3xl mb-1" />
                   </div>
                 </div>
                 <div>
@@ -208,8 +221,7 @@ export default function page() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                    <Thermometer className="material-symbols-outlined text-3xl mb-1"/>
-                      
+                    <Thermometer className="material-symbols-outlined text-3xl mb-1" />
                   </div>
                 </div>
                 <div>
@@ -235,8 +247,7 @@ export default function page() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
-                    <Speaker className="material-symbols-outlined text-3xl mb-1"/>
-                     
+                    <Speaker className="material-symbols-outlined text-3xl mb-1" />
                   </div>
                 </div>
                 <div>
@@ -278,8 +289,7 @@ export default function page() {
                 {/* Feature Item */}
                 <div className="flex gap-4 items-start">
                   <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <AudioLinesIcon className="material-symbols-outlined text-primary text-2xl"/>
-                    
+                    <AudioLinesIcon className="material-symbols-outlined text-primary text-2xl" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-text-light dark:text-white mb-1">
@@ -295,8 +305,7 @@ export default function page() {
                 {/* Feature Item */}
                 <div className="flex gap-4 items-start">
                   <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Zap className="material-symbols-outlined text-primary text-2xl"/>
-                     
+                    <Zap className="material-symbols-outlined text-primary text-2xl" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-text-light dark:text-white mb-1">
@@ -312,8 +321,7 @@ export default function page() {
                 {/* Feature Item */}
                 <div className="flex gap-4 items-start">
                   <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Settings2 className="material-symbols-outlined text-primary text-2xl"/>
-                      
+                    <Settings2 className="material-symbols-outlined text-primary text-2xl" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-text-light dark:text-white mb-1">
@@ -380,21 +388,21 @@ export default function page() {
             <div className="grid md:grid-cols-3 gap-6">
               {/* Testimonial 1 */}
               <div className="bg-white dark:bg-[#1e282d] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-[#2a3b45] flex flex-col h-full">
-               <div className="flex gap-1 text-yellow-400 mb-4">
+                <div className="flex gap-1 text-yellow-400 mb-4">
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm ">
-                    <Star/>
+                    <Star />
                   </span>
                 </div>
                 <p className="text-text-light dark:text-gray-200 mb-6 flex-grow leading-relaxed">
@@ -423,21 +431,21 @@ export default function page() {
 
               {/* Testimonial 2 */}
               <div className="bg-white dark:bg-[#1e282d] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-[#2a3b45] flex flex-col h-full">
-               <div className="flex gap-1 text-yellow-400 mb-4">
+                <div className="flex gap-1 text-yellow-400 mb-4">
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm ">
-                    <Star/>
+                    <Star />
                   </span>
                 </div>
                 <p className="text-text-light dark:text-gray-200 mb-6 flex-grow leading-relaxed">
@@ -468,19 +476,19 @@ export default function page() {
               <div className="bg-white dark:bg-[#1e282d] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-[#2a3b45] flex flex-col h-full">
                 <div className="flex gap-1 text-yellow-400 mb-4">
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm">
-                    <Star/>
+                    <Star />
                   </span>
                   <span className="material-symbols-outlined text-sm ">
-                    <Star/>
+                    <Star />
                   </span>
                 </div>
                 <p className="text-text-light dark:text-gray-200 mb-6 flex-grow leading-relaxed">
@@ -512,11 +520,11 @@ export default function page() {
 
         {/* Newsletter CTA */}
         <section className="px-4 py-16 md:px-10 lg:px-40 flex justify-center border-t border-gray-200 dark:border-[#243b47]">
-          <div className="w-full max-w-[960px] bg-primary rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="w-full max-w-[960px] bg-background-dark rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
             <div className="relative z-10 flex flex-col items-center gap-6">
               <div className="size-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                 {/* <span className="material-symbols-outlined text-3xl">mail</span> */}
-                <Mail/>
+                <Mail />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold">Stay connected</h2>
               <p className="max-w-lg opacity-90">
@@ -546,6 +554,173 @@ export default function page() {
           </div>
         </section>
       </main>
+
+      <footer className="bg-white dark:bg-[#111c22] border-t border-gray-200 dark:border-[#243b47] px-4 py-12 md:px-10 lg:px-40 flex justify-center">
+        <div className="w-full max-w-[1280px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            {/* Logo + Description */}
+            <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
+              <div className="flex items-center gap-2 text-text-light dark:text-white">
+                <div className="size-8 text-primary flex items-center justify-center">
+                  <HouseWifi className="material-symbols-outlined text-3xl" />
+                </div>
+                <h2 className="text-lg font-bold">Homeasy</h2>
+              </div>
+
+              <p className="text-sm text-text-muted-light dark:text-text-muted-dark pr-4">
+                Making smart homes simple, accessible, and beautiful for
+                everyone.
+              </p>
+
+              <div className="flex gap-4 mt-2">
+                <a
+                  className="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  {/* <i className="material-symbols-outlined">public</i> */}
+                  <Globe className="material-symbols-outlined" />
+                </a>
+                <a
+                  className="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  <Facebook className="material-symbols-outlined "/>
+                  {/* <i className="material-symbols-outlined">rss_feed</i> */}
+                </a>
+                <a
+                  className="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  {/* <i className="material-symbols-outlined">share</i>
+                   */}
+                   <Share2 className="material-symbols-outlined "/>
+                </a>
+              </div>
+            </div>
+
+            {/* Shop */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-text-light dark:text-white">
+                Shop
+              </h3>
+              <div className="flex flex-col gap-2">
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Lighting
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Climate
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Security
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Bundles
+                </a>
+              </div>
+            </div>
+
+            {/* Support */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-text-light dark:text-white">
+                Support
+              </h3>
+              <div className="flex flex-col gap-2">
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Help Center
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Installation
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Warranty
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Returns
+                </a>
+              </div>
+            </div>
+
+            {/* Company */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-text-light dark:text-white">
+                Company
+              </h3>
+              <div className="flex flex-col gap-2">
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  About Us
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Careers
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Press
+                </a>
+                <a
+                  className="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-100 dark:border-[#2a3b45] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-text-muted-light dark:text-text-muted-dark">
+              © 2025 Homeasy Automation Pvt. Ltd. All rights reserved.
+            </p>
+
+            <div className="flex gap-6">
+              <a
+                className="text-xs text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                href="#"
+              >
+                Privacy Policy
+              </a>
+              <a
+                className="text-xs text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors"
+                href="#"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 }
